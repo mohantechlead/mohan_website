@@ -38,7 +38,7 @@ const businessHighlights = [
   {
     title: 'Vina Trade And Industry PLC',
     route: '/vina-trade-and-industry',
-    image: '/vina-2.jpg',
+    image: '/vina-2.png',
     description: 'Footwear and compounds built for comfort, quality, and market relevance.'
   },
   {

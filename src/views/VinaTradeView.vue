@@ -5,7 +5,7 @@ import SiteFooter from '@/components/SiteFooter.vue'
 
 const gallery = [
   { src: '/vina-1.jpg', label: 'Vina Facility' },
-  { src: '/vina-2.jpg', label: 'Deer Slippers' },
+  { src: '/vina-2.png', label: 'Deer Slippers' },
   { src: '/vina-3.jpg', label: 'Production Line' }
 ]
 
