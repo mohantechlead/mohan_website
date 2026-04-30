@@ -14,7 +14,7 @@ const activeCategory = ref('all')
 const initiatives = [
   {
     category: 'community',
-    text: 'Sustainable cooperative water well, energy and food production in rural Ethiopia with hygiene and healthcare training for youth and schools, in collaboration with Lions Club Germany, ARS Foundation, S.M.A.R.T NGO, and LCIF.'
+    text: 'Sustainable cooperative water well, energy and food production in rural Ethiopia with hygiene and healthcare training for youth and schools, in collaboration with ARS Foundation and S.M.A.R.T NGO.'
   },
   {
     category: 'community',
@@ -68,9 +68,8 @@ const filteredInitiatives = computed(() =>
                   development of our society. With this in mind, we have embarked on various CSR activities.
                 </p>
                 <p>
-                  To help our CSR activities get the necessary organizational structure, we have become a part of the Lions Clubs
-                  International. In fact, we are the first corporate Lions Club in the world and have formed a Lions Club as part
-                  of our company's CSR division known as the Lions Club of Mohan PLC.
+                  To help our CSR activities get the necessary organizational structure, we have built a dedicated CSR
+                  division within Mohan PLC focused on measurable community impact and long-term social value creation.
                 </p>
                 <p>
                   Various CSR initiatives have been taken by our organization, which include the following:

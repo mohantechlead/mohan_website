@@ -54,6 +54,18 @@ const closeMenu = () => {
           {{ item.label }}
         </RouterLink>
 
+        <RouterLink
+          to="/ddftz-operations"
+          class="rounded-full px-4 py-2 text-sm font-semibold transition-all duration-200"
+          :class="
+            route.path === '/ddftz-operations'
+              ? 'bg-slate-900 text-white shadow-sm'
+              : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+          "
+        >
+          DDFTZ
+        </RouterLink>
+
         <div
           class="relative"
           @mouseenter="isProductsOpen = true"
@@ -86,6 +98,18 @@ const closeMenu = () => {
             </div>
           </transition>
         </div>
+
+        <RouterLink
+          to="/catelog"
+          class="rounded-full px-4 py-2 text-sm font-semibold transition-all duration-200"
+          :class="
+            route.path === '/catelog'
+              ? 'bg-slate-900 text-white shadow-sm'
+              : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+          "
+        >
+          Catelog
+        </RouterLink>
 
         <RouterLink
           to="/csr"
@@ -164,6 +188,19 @@ const closeMenu = () => {
             {{ item.label }}
           </RouterLink>
 
+          <RouterLink
+            to="/ddftz-operations"
+            class="rounded-lg px-4 py-2 text-left text-sm font-semibold transition"
+            :class="
+              route.path === '/ddftz-operations'
+                ? 'bg-slate-900 text-white'
+                : 'text-slate-700 hover:bg-slate-100'
+            "
+            @click="closeMenu"
+          >
+            DDFTZ
+          </RouterLink>
+
           <button
             type="button"
             class="rounded-lg px-4 py-2 text-left text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
@@ -185,6 +222,19 @@ const closeMenu = () => {
               {{ item.label }}
             </component>
           </div>
+
+          <RouterLink
+            to="/catelog"
+            class="rounded-lg px-4 py-2 text-left text-sm font-semibold transition"
+            :class="
+              route.path === '/catelog'
+                ? 'bg-slate-900 text-white'
+                : 'text-slate-700 hover:bg-slate-100'
+            "
+            @click="closeMenu"
+          >
+            Catelog
+          </RouterLink>
 
           <RouterLink
             to="/csr"

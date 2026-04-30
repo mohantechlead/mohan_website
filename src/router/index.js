@@ -10,6 +10,8 @@ import CsrView from '../views/CsrView.vue'
 import NewsView from '../views/NewsView.vue'
 import NewsInvestEthiopiaView from '../views/NewsInvestEthiopiaView.vue'
 import NewsTaxRecognitionView from '../views/NewsTaxRecognitionView.vue'
+import DdfTzOperationsView from '../views/DdfTzOperationsView.vue'
+import CatelogView from '../views/CatelogView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -56,6 +58,16 @@ const router = createRouter({
       path: '/csr',
       name: 'csr',
       component: CsrView
+    },
+    {
+      path: '/ddftz-operations',
+      name: 'ddftz-operations',
+      component: DdfTzOperationsView
+    },
+    {
+      path: '/catelog',
+      name: 'catelog',
+      component: CatelogView
     },
     {
       path: '/news',

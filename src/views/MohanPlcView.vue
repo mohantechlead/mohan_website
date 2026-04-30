@@ -333,11 +333,10 @@ onBeforeUnmount(() => {
         <article id="sheets" class="surface-card section-block tilt-right mt-8 sheet-section">
           <div class="section-head">
             <span class="section-code">07</span>
-            <h2 class="section-subtitle">EVA / Rubber sheets</h2>
+            <h2 class="section-subtitle">EVA/Rubber Sheets</h2>
           </div>
           <p class="body-copy mt-6">
-            Mohan PLC is the first and only manufacturer of EVA / Rubber sheets in Ethiopia. Our high quality sheets are
-            used by known Ethiopian brands with strong domestic and international market reputation.
+            We also produce EVA/Rubber sheets that serve as expansion joints in important construction projects.
           </p>
           <p class="body-copy mt-5">
             Our sheets have been tested in international laboratories and are considered special for footwear

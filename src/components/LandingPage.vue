@@ -17,9 +17,9 @@ const slides = [
 
 const impactStats = [
   { value: 30, suffix: '+', label: 'Years of Industrial Legacy' },
-  { value: 6, suffix: '', label: 'Manufacturing Units Operating' },
-  { value: 3, suffix: '', label: 'New Units In Development' },
-  { value: 11, suffix: '+', label: 'Core Product Categories' }
+  { value: 7, suffix: '', label: 'Manufacturing Units Operating' },
+  { value: 1, suffix: '', label: 'Trading Unit Within Ethiopia' },
+  { value: 1, suffix: 'st', label: 'Ever Free Trade Zone Operator In Ethiopia At The Dire Dawa Free Trade Zone' }
 ]
 
 const businessHighlights = [
@@ -380,7 +380,7 @@ onBeforeUnmount(() => {
               <div class="mt-4 flex gap-3">
                 <a href="#" class="muted-pill">Facebook</a>
                 <a href="#" class="muted-pill">LinkedIn</a>
-                <a href="#" class="muted-pill">Instagram</a>
+                <a href="#" class="muted-pill">X</a>
               </div>
               <p class="mt-6 text-xs text-slate-500">
                 Copyright © Mohan All Right Reserved.

@@ -32,7 +32,7 @@ import { RouterLink } from 'vue-router'
           <div class="mt-4 flex gap-2">
             <span class="muted-pill !bg-slate-800 !text-slate-200">Facebook</span>
             <span class="muted-pill !bg-slate-800 !text-slate-200">LinkedIn</span>
-            <span class="muted-pill !bg-slate-800 !text-slate-200">Instagram</span>
+            <span class="muted-pill !bg-slate-800 !text-slate-200">X</span>
           </div>
         </div>
       </div>

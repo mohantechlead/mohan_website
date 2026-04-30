@@ -133,7 +133,7 @@ const activeApplicationData = computed(
           <div class="mt-4 flex gap-3">
             <span class="muted-pill">Facebook</span>
             <span class="muted-pill">LinkedIn</span>
-            <span class="muted-pill">Instagram</span>
+            <span class="muted-pill">X</span>
           </div>
         </article>
       </div>

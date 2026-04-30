@@ -11,50 +11,80 @@ const props = defineProps({
 
 const sectionRef = ref(null)
 
-const products = [
+const productSegments = [
   {
-    name: 'HDPE, LDPE, LLDPE, PP',
-    detail: 'Core polymer raw materials serving packaging, molding, and flexible manufacturing applications.'
+    label: 'Trading Items',
+    items: [
+      {
+        name: 'HDPE',
+        detail: 'High-density polyethylene grades for rigid applications including molding and industrial packaging.'
+      },
+      {
+        name: 'LDPE',
+        detail: 'Low-density polyethylene grades suitable for flexible film, lamination, and soft packaging formats.'
+      },
+      {
+        name: 'LLDPE',
+        detail: 'Linear low-density polyethylene for strong, flexible film applications and efficient processability.'
+      },
+      {
+        name: 'PP',
+        detail: 'Polypropylene grades supporting injection, extrusion, and woven product requirements.'
+      },
+      {
+        name: 'Exceed',
+        detail: 'Premium performance polyethylene grades designed for demanding high-strength film applications.'
+      },
+      {
+        name: 'mLLDPE',
+        detail: 'Metallocene LLDPE grades delivering excellent toughness, clarity, and downgauging capability.'
+      }
+    ]
   },
   {
-    name: 'EVA Compounds',
-    detail: 'Designed for footwear comfort, cushioning, durability, and high-quality molded product performance.'
-  },
-  {
-    name: 'PVC Compounds',
-    detail: 'Engineered for consistent processing and quality output in construction and industrial products.'
-  },
-  {
-    name: 'Rubber Compound',
-    detail: 'Custom blends for footwear, resilient components, and long-life industrial applications.'
-  },
-  {
-    name: 'Color Masterbatches',
-    detail: 'Reliable color consistency and dispersion for enhanced product appearance and brand finish.'
-  },
-  {
-    name: 'Filler Masterbatches',
-    detail: 'Cost-effective and performance-balanced additives optimized for scalable manufacturing.'
-  },
-  {
-    name: 'Endure / PPR Compounds',
-    detail: 'Durable compounds suited for pressure pipe systems and long-service construction needs.'
-  },
-  {
-    name: 'EVA / Rubber Sheets',
-    detail: 'Versatile sheet materials for footwear, industrial cushioning, and value-added conversion.'
-  },
-  {
-    name: 'Footwear',
-    detail: 'High-volume and quality-focused footwear production tailored for local and regional demand.'
-  },
-  {
-    name: 'Flip-flops',
-    detail: 'Comfort-first everyday products manufactured with consistent quality and finishing standards.'
-  },
-  {
-    name: 'Nails and Wire',
-    detail: 'Supporting construction and hardware segments through reliable basic industrial products.'
+    label: 'Manufacturing Items',
+    items: [
+      {
+        name: 'EVA Compounds',
+        detail: 'Designed for footwear comfort, cushioning, durability, and high-quality molded product performance.'
+      },
+      {
+        name: 'PVC Compounds',
+        detail: 'Engineered for consistent processing and quality output in construction and industrial products.'
+      },
+      {
+        name: 'Rubber Compound',
+        detail: 'Custom blends for footwear, resilient components, and long-life industrial applications.'
+      },
+      {
+        name: 'Color Masterbatches',
+        detail: 'Reliable color consistency and dispersion for enhanced product appearance and brand finish.'
+      },
+      {
+        name: 'Filler Masterbatches',
+        detail: 'Cost-effective and performance-balanced additives optimized for scalable manufacturing.'
+      },
+      {
+        name: 'Endure / PPR Compounds',
+        detail: 'Durable compounds suited for pressure pipe systems and long-service construction needs.'
+      },
+      {
+        name: 'EVA / Rubber Sheets',
+        detail: 'We also produce EVA/Rubber sheets that serve as expansion joints in important construction projects.'
+      },
+      {
+        name: 'Footwear',
+        detail: 'High-volume and quality-focused footwear production tailored for local and regional demand.'
+      },
+      {
+        name: 'Flip-flops',
+        detail: 'Comfort-first everyday products manufactured with consistent quality and finishing standards.'
+      },
+      {
+        name: 'Nails and Wire',
+        detail: 'Supporting construction and hardware segments through reliable basic industrial products.'
+      }
+    ]
   }
 ]
 
@@ -68,13 +98,13 @@ const valicor = [
   {
     letter: 'A',
     text: 'Alignment',
-    detail: 'Keep people, purpose, and performance moving toward one shared vision.',
+    detail: 'Keep people, purpose, and performance moving toward one shared vision, with alignment to government policies.',
     tone: 'valicor-tone-a'
   },
   {
     letter: 'L',
     text: 'Linkage',
-    detail: 'Build strong connections across suppliers, customers, and communities.',
+    detail: 'Build strong connections across suppliers, customers, communities, and industry players.',
     tone: 'valicor-tone-l'
   },
   {
@@ -86,29 +116,30 @@ const valicor = [
   {
     letter: 'CO',
     text: 'Compliance',
-    detail: 'Uphold high standards of ethics, quality, and regulatory discipline.',
+    detail: 'We ensure compliance with regards regulatory frameworks, tax, quality, environment, etc.',
     tone: 'valicor-tone-c'
   },
   {
     letter: 'R',
     text: 'Relationship',
-    detail: 'Nurture trust-driven relationships that sustain long-term growth.',
+    detail: 'Relationship is a fundamental human character that our company optimizes to satisfy all stakeholders.',
     tone: 'valicor-tone-r'
   }
 ]
 
 const previewHighlights = [
-  '30+ years of trusted industrial legacy',
-  '6 active manufacturing units',
-  'Polymer, footwear, and construction focus'
+  '7 manufacturing units operating',
+  '1 trading unit within Ethiopia',
+  '1st ever free trade zone operator in Ethiopia at the Dire Dawa Free Trade Zone'
 ]
 
-const activeProduct = ref(products[0].name)
+const allProducts = computed(() => productSegments.flatMap((segment) => segment.items))
+const activeProduct = ref(allProducts.value[0].name)
 const animatedCards = ref([])
 let observer
 
 const activeProductDetail = computed(
-  () => products.find((item) => item.name === activeProduct.value) ?? products[0]
+  () => allProducts.value.find((item) => item.name === activeProduct.value) ?? allProducts.value[0]
 )
 
 onMounted(() => {
@@ -199,7 +230,8 @@ onBeforeUnmount(() => {
               <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
                 <p class="text-xs font-semibold uppercase tracking-[0.14em] text-amber-600">Group Scale</p>
                 <p class="mt-2 text-sm leading-7 text-slate-600">
-                  6 manufacturing units running, 3 additional units under development, and an active trading arm.
+                  7 manufacturing units operating, 1 trading unit within Ethiopia, and the 1st ever free trade zone
+                  operator in Ethiopia at the Dire Dawa Free Trade Zone.
                 </p>
               </div>
             </div>
@@ -227,9 +259,9 @@ onBeforeUnmount(() => {
               trading firm has transformed into a group of companies, popularly known as "The Mohan Group of Companies".
             </p>
             <p>
-              The Mohan Group of companies has built up 6 manufacturing units with 3 more being built, and an active
-              trading firm. The Mohan Group is one of the most respectable and trusted names in polymer and footwear
-              business in Ethiopia.
+              The Mohan Group of companies operates 7 manufacturing units and 1 trading unit within Ethiopia. It is
+              also the 1st ever free trade zone operator in Ethiopia at the Dire Dawa Free Trade Zone. The Mohan Group
+              is one of the most respectable and trusted names in polymer and footwear business in Ethiopia.
             </p>
           </div>
         </template>
@@ -284,31 +316,37 @@ onBeforeUnmount(() => {
         <div class="mb-8 flex flex-wrap items-center justify-between gap-4">
           <h3 class="text-2xl font-bold md:text-3xl">What We Do</h3>
           <span class="rounded-full bg-white/10 px-4 py-1 text-sm font-medium text-slate-100">
-            6 Units Running + 3 In Development
+            7 Manufacturing Units + 1 Trading Unit
           </span>
         </div>
 
         <p class="mb-8 max-w-4xl text-sm leading-7 text-slate-300 md:text-base">
-          The Mohan Group has built up 6 manufacturing units with 3 more being built, and an active trading firm.
-          The group is one of the most respectable and trusted names in polymer and footwear business in Ethiopia.
+          The Mohan Group has 7 manufacturing units operating and 1 trading unit within Ethiopia. It is also the 1st
+          ever free trade zone operator in Ethiopia at the Dire Dawa Free Trade Zone. The group is one of the most
+          respectable and trusted names in polymer and footwear business in Ethiopia.
         </p>
 
         <div class="grid gap-6 lg:grid-cols-[1fr_1fr]">
-          <div class="grid gap-3 sm:grid-cols-2">
-            <button
-              v-for="item in products"
-              :key="item.name"
-              type="button"
-              class="rounded-xl border px-4 py-3 text-left text-sm font-semibold transition"
-              :class="
-                activeProduct === item.name
-                  ? 'border-amber-400 bg-amber-500 text-white'
-                  : 'border-white/15 bg-white/5 text-slate-200 hover:border-white/30 hover:bg-white/10'
-              "
-              @click="activeProduct = item.name"
-            >
-              {{ item.name }}
-            </button>
+          <div class="space-y-5">
+            <div v-for="segment in productSegments" :key="segment.label">
+              <p class="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-amber-300">{{ segment.label }}</p>
+              <div class="grid gap-3 sm:grid-cols-2">
+                <button
+                  v-for="item in segment.items"
+                  :key="item.name"
+                  type="button"
+                  class="rounded-xl border px-4 py-3 text-left text-sm font-semibold transition"
+                  :class="
+                    activeProduct === item.name
+                      ? 'border-amber-400 bg-amber-500 text-white'
+                      : 'border-white/15 bg-white/5 text-slate-200 hover:border-white/30 hover:bg-white/10'
+                  "
+                  @click="activeProduct = item.name"
+                >
+                  {{ item.name }}
+                </button>
+              </div>
+            </div>
           </div>
 
           <div class="rounded-2xl border border-white/15 bg-white/5 p-6">
@@ -343,7 +381,7 @@ onBeforeUnmount(() => {
             <div class="mt-4 flex gap-3">
               <a href="#" class="muted-pill">Facebook</a>
               <a href="#" class="muted-pill">LinkedIn</a>
-              <a href="#" class="muted-pill">Instagram</a>
+              <a href="#" class="muted-pill">X</a>
             </div>
             <p class="mt-6 text-xs text-slate-500">
               Copyright © Mohan All Right Reserved.

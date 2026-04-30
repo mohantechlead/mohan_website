@@ -8,7 +8,7 @@ const focusAreas = [
     id: 'resins',
     title: 'Polymer Resins',
     detail: 'Reliable local stock of PE and PP grades for consistent manufacturing and supply continuity.',
-    points: ['HDPE', 'LDPE', 'LLDPE', 'PP']
+    points: ['HDPE', 'LDPE', 'LLDPE', 'PP', 'Exceed', 'Various other industrial chemicals']
   },
   {
     id: 'industrial',
@@ -19,8 +19,8 @@ const focusAreas = [
   {
     id: 'consumer',
     title: 'Consumer Portfolio',
-    detail: 'Beyond industrial supply, Mohan International serves retail demand with trusted consumer products.',
-    points: ['Perfecell batteries', 'Distribution support', 'Market reach across Ethiopia']
+    detail: 'Mohan International provides strong distribution support and market reach across Ethiopia.',
+    points: ['Distribution support', 'Market reach across Ethiopia', 'Customer service excellence']
   }
 ]
 
@@ -49,21 +49,17 @@ const activeFocusArea = computed(
                 oldest supplier of plastic raw materials in Ethiopia.
               </p>
               <p>
-                It keeps local stocks of various polyethylene and polypropylene resins such as HOPE, LOPE, LLDPE and PP.
-                Mohan International also stocks other industrial raw materials such as heat stabilizers for PVC
-                applications,
-                PVC resins and various other industrial raw materials.
+                It keeps local stocks of HDPE, LDPE, LLDPE, PP, Exceed, and various other industrial chemicals.
               </p>
               <p>
-                In addition to its forte in plastic raw materials, Mohan International also deals in consumer goods
-                including
-                "Perfecell", a well-known battery brand in Ethiopia.
+                Mohan International also stocks industrial raw materials such as heat stabilizers for PVC applications,
+                PVC resins, and other specialty industrial inputs.
               </p>
 
               <div class="mt-8 flex flex-wrap gap-3">
                 <span class="feature-chip">Oldest Raw Material Supplier</span>
                 <span class="feature-chip">Local Stock Availability</span>
-                <span class="feature-chip">Industrial + Consumer Goods</span>
+                <span class="feature-chip">Industrial Chemicals Supply</span>
               </div>
 
               <div class="mt-8 grid gap-3 sm:grid-cols-3">
