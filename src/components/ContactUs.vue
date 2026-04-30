@@ -1,87 +1,136 @@
 <script setup>
+import { reactive, ref } from 'vue'
 
+const form = reactive({
+  name: '',
+  email: '',
+  subject: '',
+  message: ''
+})
+
+const isSubmitting = ref(false)
+const status = ref({ type: '', message: '' })
+
+const submitForm = async () => {
+  status.value = { type: '', message: '' }
+  isSubmitting.value = true
+
+  try {
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(form)
+    })
+
+    const payload = await response.json()
+
+    if (!response.ok) {
+      throw new Error(payload.error || 'Failed to send email.')
+    }
+
+    status.value = { type: 'success', message: 'Message sent successfully. We will contact you soon.' }
+    form.name = ''
+    form.email = ''
+    form.subject = ''
+    form.message = ''
+  } catch (error) {
+    status.value = { type: 'error', message: error.message || 'Could not send your message.' }
+  } finally {
+    isSubmitting.value = false
+  }
+}
 </script>
 
 <template>
-    <div class="pb-20">
-        <h1 class="text-center text-4xl font-medium">Contact Us</h1>
+  <section class="py-16 md:py-20">
+    <div class="container-section">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="section-eyebrow">Get In Touch</p>
+        <h1 class="section-title mt-3">Contact Us</h1>
+        <p class="body-copy mt-4">
+          Send us a message or visit our head office around Bole Japan Embassy, Addis Ababa.
+        </p>
+      </div>
 
-   
-
-    <section class="flex flex-wrap md:flex-nowrap justify-between items-center p-10">
-    <!-- Left Section -->
-    <div class="md:w-1/2 max-w-xl p-6 m-20">
-        <div class="relative">
-        <input type="text" id="floatingInput" placeholder="Name" 
-        class="block w-full px-4 py-2 text-lg text-gray-900 bg-transparent 
-        border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 peer mb-8" />
-        
-        <label for="floatingInput" 
-        class="absolute text-gray-500 text-lg transform -translate-y-6 scale-75 top-3 left-3 z-10 origin-[0] bg-white px-1 opacity-0 transition-all duration-300 peer-focus:opacity-100 peer-focus:scale-75 peer-focus:-translate-y-6">
-        Name </label>
-
-        <input type="text" id="floatingInput" placeholder="Email" 
-        class="block w-full px-4 py-2 text-lg text-gray-900 bg-transparent border
-         border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 peer mb-8" />
-        
-        <label for="floatingInput" 
-        class="absolute text-gray-500 text-lg transform -translate-y-6 scale-75 top-3 left-3 z-10 origin-[0] bg-white px-1 opacity-0 transition-all duration-300 peer-focus:opacity-100 peer-focus:scale-75 peer-focus:-translate-y-6">
-        Email
-        </label>
-
-        <input type="text" id="floatingInput" placeholder="Subject" 
-        class="block w-full px-4 py-2 text-lg text-gray-900 bg-transparent border border-gray-300 rounded-lg 
-        focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 peer" />
-        
-        <label for="floatingInput" 
-        class="absolute text-gray-500 text-lg transform -translate-y-6 scale-75 top-3 left-3 z-10 origin-[0]
-         bg-white px-1 opacity-0 transition-all duration-300 peer-focus:opacity-100 peer-focus:scale-75 peer-focus:-translate-y-6 mb-4">
-        Subject
-        </label>
-
-        <textarea type="text" id="floatingInput" placeholder="Message" 
-        class="block w-full px-4 py-2 text-lg
-         text-gray-900 bg-transparent border border-gray-300 rounded-lg 
-         focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 peer h-32 mb-4" />
-        
-        <label for="floatingInput" 
-        class="absolute text-gray-500 text-lg transform -translate-y-6 scale-75 top-3 left-3 z-10 
-        origin-[0] bg-white px-1 opacity-0 transition-all duration-300 peer-focus:opacity-100 peer-focus:scale-75 peer-focus:-translate-y-6">
-        Message
-        </label>
-
-        <button class="bg-yellow-500 text-white mt-10 py-3 px-10 rounded-tl-[2rem] rounded-br-[2rem] shadow-lg hover:bg-yellow-600 text-sm">
-         Submit
-        </button>
-
-        </div>
-
-        
-    </div>
-
-    <!-- Right Section -->
-    <div class="md:w-1/2 p-6  mt-6 md:mt-0">
-            <section class="flex flex-col items-center space-y-4">
-            <!-- Embedded Google Map -->
-            <div class="w-full h-[30rem] overflow-hidden rounded-lg shadow-lg">
-        
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.842678994352!2d38.778480975950714!3d8.986620291073027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b84f833c5f24f%3A0xf4bc60b8a246e454!2zTW9oYW4gUGxjIHwgQm9sZSBNaWNoYWVsIHwg4Yie4YiD4YqVIOGNkuGKpOGIjeGIsiB8IOGJpuGIjCDhiJrhiqvhiqThiI0!5e0!3m2!1sen!2set!4v1727492554868!5m2!1sen!2set" 
-            width="1000" 
-            height="500" 
-            style="border:0;" 
-            allowfullscreen="" 
-            loading="lazy" r
-            eferrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+      <div class="mt-12 grid gap-8 lg:grid-cols-2">
+        <article class="surface-card">
+          <form class="space-y-5" @submit.prevent="submitForm">
+            <div>
+              <label for="name" class="mb-2 block text-sm font-semibold text-slate-700">Name</label>
+              <input
+                id="name"
+                type="text"
+                placeholder="Your name"
+                class="form-control"
+                v-model="form.name"
+                required
+              >
             </div>
-            
-        </section>
+
+            <div>
+              <label for="email" class="mb-2 block text-sm font-semibold text-slate-700">Email</label>
+              <input
+                id="email"
+                type="email"
+                placeholder="your@email.com"
+                class="form-control"
+                v-model="form.email"
+                required
+              >
+            </div>
+
+            <div>
+              <label for="subject" class="mb-2 block text-sm font-semibold text-slate-700">Subject</label>
+              <input
+                id="subject"
+                type="text"
+                placeholder="How can we help?"
+                class="form-control"
+                v-model="form.subject"
+                required
+              >
+            </div>
+
+            <div>
+              <label for="message" class="mb-2 block text-sm font-semibold text-slate-700">Message</label>
+              <textarea
+                id="message"
+                rows="5"
+                placeholder="Write your message..."
+                class="form-control"
+                v-model="form.message"
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary" :disabled="isSubmitting">
+              {{ isSubmitting ? 'Sending...' : 'Submit' }}
+            </button>
+
+            <p
+              v-if="status.message"
+              class="text-sm font-medium"
+              :class="status.type === 'success' ? 'text-emerald-600' : 'text-rose-600'"
+            >
+              {{ status.message }}
+            </p>
+          </form>
+        </article>
+
+        <article class="surface-card">
+          <div class="overflow-hidden rounded-2xl">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.842678994352!2d38.778480975950714!3d8.986620291073027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b84f833c5f24f%3A0xf4bc60b8a246e454!2zTW9oYW4gUGxjIHwgQm9sZSBNaWNoYWVsIHwg4Yie4YiD4YqVIOGNkuGKpOGIjeGIsiB8IOGJpuGIjCDhiJrhiqvhiqThiI0!5e0!3m2!1sen!2set!4v1727492554868!5m2!1sen!2set"
+              width="100%"
+              height="450"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
-
-    </div>
-
-   
-
-
 </template>
