@@ -10,8 +10,54 @@ const props = defineProps({
 })
 
 const sectionRef = ref(null)
+const headOfficeMapUrl = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.842678994352!2d38.778480975950714!3d8.986620291073027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b84f833c5f24f%3A0xf4bc60b8a246e454!2zTW9oYW4gUGxjIHwgQm9sZSBNaWNoYWVsIHwg4Yie4YiD4YqVIOGNkuGKpOGIjeGIsiB8IOGJpuGIjCDhiJrhiqvhiqThiI0!5e0!3m2!1sen!2set!4v1727492554868!5m2!1sen!2set'
 
 const productSegments = [
+  {
+    label: 'Manufacturing Items',
+    items: [
+      {
+        name: 'EVA Compounds',
+        detail: 'Designed for footwear comfort, cushioning, durability, and high-quality molded product performance.'
+      },
+      {
+        name: 'PVC Compounds',
+        detail: 'Engineered for consistent processing and quality output in construction and industrial products.'
+      },
+      {
+        name: 'Rubber Compound',
+        detail: 'Custom blends for footwear, resilient components, and long-life industrial applications.'
+      },
+      {
+        name: 'Color Masterbatches',
+        detail: 'Reliable color consistency and dispersion for enhanced product appearance and brand finish.'
+      },
+      {
+        name: 'Filler Masterbatches',
+        detail: 'Cost-effective and performance-balanced additives optimized for scalable manufacturing.'
+      },
+      {
+        name: 'Endure / TPR Compounds',
+        detail: 'Thermoplastic rubber compounds engineered for automotive parts, seals, flexible components, and construction applications.'
+      },
+      {
+        name: 'EVA / Rubber Sheets',
+        detail: 'We also produce EVA/Rubber sheets that serve as expansion joints in important construction projects.'
+      },
+      {
+        name: 'Footwear',
+        detail: 'High-volume and quality-focused footwear production tailored for local and regional demand.'
+      },
+      {
+        name: 'Flip-flops',
+        detail: 'Comfort-first everyday products manufactured with consistent quality and finishing standards.'
+      },
+      {
+        name: 'Nails and Wire',
+        detail: 'Supporting construction and hardware segments through reliable basic industrial products.'
+      }
+    ]
+  },
   {
     label: 'Trading Items',
     items: [
@@ -38,51 +84,6 @@ const productSegments = [
       {
         name: 'mLLDPE',
         detail: 'Metallocene LLDPE grades delivering excellent toughness, clarity, and downgauging capability.'
-      }
-    ]
-  },
-  {
-    label: 'Manufacturing Items',
-    items: [
-      {
-        name: 'EVA Compounds',
-        detail: 'Designed for footwear comfort, cushioning, durability, and high-quality molded product performance.'
-      },
-      {
-        name: 'PVC Compounds',
-        detail: 'Engineered for consistent processing and quality output in construction and industrial products.'
-      },
-      {
-        name: 'Rubber Compound',
-        detail: 'Custom blends for footwear, resilient components, and long-life industrial applications.'
-      },
-      {
-        name: 'Color Masterbatches',
-        detail: 'Reliable color consistency and dispersion for enhanced product appearance and brand finish.'
-      },
-      {
-        name: 'Filler Masterbatches',
-        detail: 'Cost-effective and performance-balanced additives optimized for scalable manufacturing.'
-      },
-      {
-        name: 'Endure / PPR Compounds',
-        detail: 'Durable compounds suited for pressure pipe systems and long-service construction needs.'
-      },
-      {
-        name: 'EVA / Rubber Sheets',
-        detail: 'We also produce EVA/Rubber sheets that serve as expansion joints in important construction projects.'
-      },
-      {
-        name: 'Footwear',
-        detail: 'High-volume and quality-focused footwear production tailored for local and regional demand.'
-      },
-      {
-        name: 'Flip-flops',
-        detail: 'Comfort-first everyday products manufactured with consistent quality and finishing standards.'
-      },
-      {
-        name: 'Nails and Wire',
-        detail: 'Supporting construction and hardware segments through reliable basic industrial products.'
       }
     ]
   }
@@ -167,29 +168,16 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <section
-    ref="sectionRef"
-    class="py-16 md:py-20"
-    :class="props.isHomePreview ? '-mt-10 md:-mt-14 relative z-20' : ''"
-  >
+  <section ref="sectionRef" class="py-16 md:py-20" :class="props.isHomePreview ? '-mt-10 md:-mt-14 relative z-20' : ''">
     <div class="container-section">
-      <div
-        data-reveal
-        class="reveal-card mb-10"
-        :class="
-          props.isHomePreview
-            ? 'relative overflow-hidden rounded-3xl border border-slate-200/90 bg-gradient-to-br from-white via-white to-amber-50/40 p-8 shadow-[0_30px_80px_-45px_rgba(15,23,42,0.65)] ring-1 ring-amber-100 md:p-10'
-            : 'surface-card'
-        "
-      >
-        <div
-          v-if="props.isHomePreview"
-          class="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-amber-200/45 blur-3xl"
-        ></div>
-        <div
-          v-if="props.isHomePreview"
-          class="pointer-events-none absolute -left-14 bottom-0 h-32 w-32 rounded-full bg-sky-200/35 blur-3xl"
-        ></div>
+      <div data-reveal class="reveal-card mb-10" :class="props.isHomePreview
+        ? 'relative overflow-hidden rounded-3xl border border-slate-200/90 bg-gradient-to-br from-white via-white to-amber-50/40 p-8 shadow-[0_30px_80px_-45px_rgba(15,23,42,0.65)] ring-1 ring-amber-100 md:p-10'
+        : 'surface-card'
+        ">
+        <div v-if="props.isHomePreview"
+          class="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-amber-200/45 blur-3xl"></div>
+        <div v-if="props.isHomePreview"
+          class="pointer-events-none absolute -left-14 bottom-0 h-32 w-32 rounded-full bg-sky-200/35 blur-3xl"></div>
 
         <template v-if="props.isHomePreview">
           <div id="about-us" class="grid gap-8 lg:grid-cols-[1.25fr_0.75fr] lg:items-center">
@@ -199,20 +187,19 @@ onBeforeUnmount(() => {
 
               <h2 class="mt-4 text-3xl font-bold leading-tight text-slate-900 md:text-4xl">
                 Building Ethiopia's Industrial Future With
-                <span class="bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">Legacy and Innovation</span>
+                <span class="bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">Legacy and
+                  Innovation</span>
               </h2>
 
               <p class="mt-5 text-base leading-8 text-slate-600 md:text-lg">
-                Founded by Mayur Suryakant Kothari, Mohan Group has evolved from a humble trading firm into a respected industrial
+                Founded by Mayur Suryakant Kothari, Mohan Group has evolved from a humble trading firm into a respected
+                industrial
                 group delivering polymer, footwear, and manufacturing solutions across Ethiopia.
               </p>
 
               <div class="mt-6 flex flex-wrap gap-3">
-                <span
-                  v-for="item in previewHighlights"
-                  :key="item"
-                  class="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm"
-                >
+                <span v-for="item in previewHighlights" :key="item"
+                  class="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm">
                   {{ item }}
                 </span>
               </div>
@@ -281,38 +268,37 @@ onBeforeUnmount(() => {
           <div class="valicor-shell mt-10">
             <div class="mb-5 flex items-center justify-between gap-3">
               <p class="text-xs font-semibold uppercase tracking-[0.2em] text-amber-500">VALICOR Framework</p>
-              <span class="rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-700">
+              <span
+                class="rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-700">
                 Core Business Values
               </span>
             </div>
 
             <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            <article
-              v-for="item in valicor"
-              :key="item.letter"
-              class="valicor-card group relative overflow-hidden rounded-2xl px-5 py-5"
-              :class="item.tone"
-            >
-              <div class="valicor-shine"></div>
-              <div class="pointer-events-none absolute -right-3 -top-5 text-7xl font-extrabold text-white/20 transition duration-300 group-hover:scale-110">
-                {{ item.letter }}
-              </div>
-              <p class="relative text-xs font-semibold uppercase tracking-[0.16em] text-amber-200/90">
-                {{ item.letter }}
-              </p>
-              <h5 class="relative mt-2 text-lg font-bold text-white">
-                {{ item.text }}
-              </h5>
-              <p class="relative mt-2 text-sm leading-6 text-slate-200">
-                {{ item.detail }}
-              </p>
-            </article>
+              <article v-for="item in valicor" :key="item.letter"
+                class="valicor-card group relative overflow-hidden rounded-2xl px-5 py-5" :class="item.tone">
+                <div class="valicor-shine"></div>
+                <div
+                  class="pointer-events-none absolute -right-3 -top-5 text-7xl font-extrabold text-white/20 transition duration-300 group-hover:scale-110">
+                  {{ item.letter }}
+                </div>
+                <p class="relative text-xs font-semibold uppercase tracking-[0.16em] text-amber-200/90">
+                  {{ item.letter }}
+                </p>
+                <h5 class="relative mt-2 text-lg font-bold text-white">
+                  {{ item.text }}
+                </h5>
+                <p class="relative mt-2 text-sm leading-6 text-slate-200">
+                  {{ item.detail }}
+                </p>
+              </article>
             </div>
           </div>
         </template>
       </div>
 
-      <article id="what-we-do" data-reveal class="reveal-card mb-10 rounded-3xl bg-slate-900 p-8 text-slate-100 shadow-xl md:p-10">
+      <article id="what-we-do" data-reveal
+        class="reveal-card mb-10 rounded-3xl bg-slate-900 p-8 text-slate-100 shadow-xl md:p-10">
         <div class="mb-8 flex flex-wrap items-center justify-between gap-4">
           <h3 class="text-2xl font-bold md:text-3xl">What We Do</h3>
           <span class="rounded-full bg-white/10 px-4 py-1 text-sm font-medium text-slate-100">
@@ -331,18 +317,11 @@ onBeforeUnmount(() => {
             <div v-for="segment in productSegments" :key="segment.label">
               <p class="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-amber-300">{{ segment.label }}</p>
               <div class="grid gap-3 sm:grid-cols-2">
-                <button
-                  v-for="item in segment.items"
-                  :key="item.name"
-                  type="button"
-                  class="rounded-xl border px-4 py-3 text-left text-sm font-semibold transition"
-                  :class="
-                    activeProduct === item.name
-                      ? 'border-amber-400 bg-amber-500 text-white'
-                      : 'border-white/15 bg-white/5 text-slate-200 hover:border-white/30 hover:bg-white/10'
-                  "
-                  @click="activeProduct = item.name"
-                >
+                <button v-for="item in segment.items" :key="item.name" type="button"
+                  class="rounded-xl border px-4 py-3 text-left text-sm font-semibold transition" :class="activeProduct === item.name
+                    ? 'border-amber-400 bg-amber-500 text-white'
+                    : 'border-white/15 bg-white/5 text-slate-200 hover:border-white/30 hover:bg-white/10'
+                    " @click="activeProduct = item.name">
                   {{ item.name }}
                 </button>
               </div>
@@ -373,7 +352,14 @@ onBeforeUnmount(() => {
         <article data-reveal class="reveal-card surface-card">
           <h4 class="text-2xl font-bold text-slate-900">Head Office Location</h4>
           <p class="mt-4 text-sm leading-7 text-slate-700">
-            Around Bole Japan Embassy, Addis Ababa, Ethiopia
+            <a
+              :href="headOfficeMapUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="font-semibold text-amber-600 transition hover:text-amber-500"
+            >
+              Around Bole Japan Embassy, Addis Ababa, Ethiopia
+            </a>
           </p>
 
           <div class="mt-8 border-t border-slate-200 pt-6">
@@ -392,5 +378,3 @@ onBeforeUnmount(() => {
     </div>
   </section>
 </template>
-
-

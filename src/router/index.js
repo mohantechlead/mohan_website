@@ -11,7 +11,7 @@ import NewsView from '../views/NewsView.vue'
 import NewsInvestEthiopiaView from '../views/NewsInvestEthiopiaView.vue'
 import NewsTaxRecognitionView from '../views/NewsTaxRecognitionView.vue'
 import DdfTzOperationsView from '../views/DdfTzOperationsView.vue'
-import CatelogView from '../views/CatelogView.vue'
+import CatalogView from '../views/CatalogView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -65,9 +65,9 @@ const router = createRouter({
       component: DdfTzOperationsView
     },
     {
-      path: '/catelog',
-      name: 'catelog',
-      component: CatelogView
+      path: '/catalog',
+      name: 'catalog',
+      component: CatalogView
     },
     {
       path: '/news',

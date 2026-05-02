@@ -59,7 +59,7 @@ const selectedAdvantage = computed(
 
               <div class="body-copy mt-8 space-y-6">
                 <p class="text-lg font-semibold text-slate-900">
-                  Mr. Harsh: Mohan PLC: Pioneering Ethiopia's Global Trade Frontier
+                  Mohan PLC: Pioneering Ethiopia's Global Trade Frontier
                 </p>
                 <p>
                   As the first licensed Free Zone Operator in Ethiopia's history, Mohan PLC is at the vanguard of the
@@ -87,18 +87,11 @@ const selectedAdvantage = computed(
 
           <div class="mt-6 grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
             <div class="space-y-3">
-              <button
-                v-for="item in strategicAdvantages"
-                :key="item.id"
-                type="button"
-                class="advantage-tab w-full rounded-2xl border p-4 text-left transition"
-                :class="
-                  activeAdvantage === item.id
-                    ? 'border-amber-400 bg-amber-50/70 shadow-md'
-                    : 'border-slate-200 bg-white hover:border-slate-300'
-                "
-                @click="activeAdvantage = item.id"
-              >
+              <button v-for="item in strategicAdvantages" :key="item.id" type="button"
+                class="advantage-tab w-full rounded-2xl border p-4 text-left transition" :class="activeAdvantage === item.id
+                  ? 'border-amber-400 bg-amber-50/70 shadow-md'
+                  : 'border-slate-200 bg-white hover:border-slate-300'
+                  " @click="activeAdvantage = item.id">
                 <p class="text-base font-bold text-slate-900">{{ item.title }}</p>
                 <p class="mt-1 text-sm leading-6 text-slate-600">{{ item.summary }}</p>
               </button>
@@ -112,7 +105,7 @@ const selectedAdvantage = computed(
               </p>
 
               <div class="mt-6 flex flex-wrap gap-3">
-                <RouterLink to="/contact" class="btn-primary">Partner With Us</RouterLink>
+                <RouterLink to="/contact" class="btn-primary">Work With Us</RouterLink>
                 <RouterLink to="/mohan-plc" class="btn-secondary">Explore Mohan PLC</RouterLink>
               </div>
             </article>
@@ -180,6 +173,7 @@ const selectedAdvantage = computed(
 }
 
 @keyframes floaty {
+
   0%,
   100% {
     transform: translateY(0);

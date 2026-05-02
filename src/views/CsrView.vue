@@ -31,7 +31,8 @@ const initiatives = [
   { category: 'community', text: 'Various other feeding programs.' },
   { category: 'health', text: 'Donation of Covid-19 related supplies to medical facilities.' },
   { category: 'relief', text: 'Donation for Covid-19 relief fund.' },
-  { category: 'community', text: 'Participation in "Dine for Sheger" and "Dine for Ethiopia".' }
+  { category: 'community', text: 'Participation in "Dine for Sheger" and "Dine for Ethiopia".' },
+  { category: 'community', text: 'Various many other csr programs.' }
 ]
 
 const categoryButtons = [

@@ -6,6 +6,7 @@ import building from '@/assets/img/mohan.jpg'
 
 const homeRef = ref(null)
 const statsRef = ref(null)
+const headOfficeMapUrl = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.842678994352!2d38.778480975950714!3d8.986620291073027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b84f833c5f24f%3A0xf4bc60b8a246e454!2zTW9oYW4gUGxjIHwgQm9sZSBNaWNoYWVsIHwg4Yie4YiD4YqVIOGNkuGKpOGIjeGIsiB8IOGJpuGIjCDhiJrhiqvhiqThiI0!5e0!3m2!1sen!2set!4v1727492554868!5m2!1sen!2set'
 
 const slides = [
   { src: '/slider-1.jpg', title: 'Industry Leadership', detail: 'Built on decades of trust and proven delivery.' },
@@ -26,7 +27,7 @@ const businessHighlights = [
   {
     title: 'Mohan PLC',
     route: '/mohan-plc',
-    image: '/wire-1.jpg',
+    image: '/slider-3.jpg',
     description: 'Polymer solutions and industrial raw materials powering modern manufacturing.'
   },
   {
@@ -141,18 +142,14 @@ onBeforeUnmount(() => {
       <div class="hero-orb hero-orb-two"></div>
 
       <div class="mx-auto w-full max-w-[96rem] px-4 md:px-8 lg:px-14">
-        <div data-home-reveal class="home-reveal rounded-[2.35rem] bg-gradient-to-br from-slate-800 to-slate-900 p-2 md:p-3">
-          <div class="hero-slider relative overflow-hidden rounded-[2rem] border border-slate-700 shadow-[0_30px_70px_-30px_rgba(15,23,42,0.85)]">
+        <div data-home-reveal
+          class="home-reveal rounded-[2.35rem] bg-gradient-to-br from-slate-800 to-slate-900 p-2 md:p-3">
+          <div
+            class="hero-slider relative overflow-hidden rounded-[2rem] border border-slate-700 shadow-[0_30px_70px_-30px_rgba(15,23,42,0.85)]">
             <div class="relative aspect-[16/8] overflow-hidden">
               <transition-group name="slide-fade" tag="div" class="h-full">
-                <img
-                  v-for="(slide, index) in slides"
-                  v-show="currentSlide === index"
-                  :key="slide.src"
-                  :src="slide.src"
-                  :alt="slide.title"
-                  class="absolute inset-0 h-full w-full object-cover"
-                >
+                <img v-for="(slide, index) in slides" v-show="currentSlide === index" :key="slide.src" :src="slide.src"
+                  :alt="slide.title" class="absolute inset-0 h-full w-full object-cover">
               </transition-group>
 
               <div class="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-900/55 to-slate-900/20"></div>
@@ -174,7 +171,8 @@ onBeforeUnmount(() => {
                 </div>
               </div>
 
-              <div class="absolute bottom-6 right-6 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
+              <div
+                class="absolute bottom-6 right-6 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
                 {{ currentSlide + 1 }} / {{ slides.length }}
               </div>
             </div>
@@ -182,15 +180,10 @@ onBeforeUnmount(() => {
         </div>
 
         <div class="mt-4 flex items-center justify-center gap-2">
-          <button
-            v-for="(slide, index) in slides"
-            :key="slide.src + '-dot'"
-            type="button"
+          <button v-for="(slide, index) in slides" :key="slide.src + '-dot'" type="button"
             class="h-2.5 rounded-full transition-all duration-300"
             :class="currentSlide === index ? 'w-8 bg-amber-500' : 'w-2.5 bg-slate-400 hover:bg-slate-300'"
-            :aria-label="`Go to slide ${index + 1}`"
-            @click="goToSlide(index); resetAutoplay()"
-          />
+            :aria-label="`Go to slide ${index + 1}`" @click="goToSlide(index); resetAutoplay()" />
         </div>
       </div>
     </section>
@@ -206,7 +199,8 @@ onBeforeUnmount(() => {
             </span>
           </h1>
           <p class="mt-6 max-w-2xl text-base leading-8 text-slate-600 md:text-lg">
-            The Mohan Group is one of the most respected names in Ethiopia across polymer, footwear, and industrial manufacturing sectors.
+            The Mohan Group is one of the most respected names in Ethiopia across polymer, footwear, and industrial
+            manufacturing sectors.
           </p>
           <div class="mt-8 flex flex-wrap gap-4">
             <RouterLink to="/about" class="btn-primary">Explore Our Story</RouterLink>
@@ -215,15 +209,14 @@ onBeforeUnmount(() => {
         </div>
 
         <div data-home-reveal class="home-reveal relative">
-          <div class="hero-image-shell relative overflow-hidden rounded-[2.5rem] border border-slate-200 shadow-[0_28px_65px_-36px_rgba(15,23,42,0.45)]">
+          <div
+            class="hero-image-shell relative overflow-hidden rounded-[2.5rem] border border-slate-200 shadow-[0_28px_65px_-36px_rgba(15,23,42,0.45)]">
             <div class="aspect-[4/5] overflow-hidden">
-              <img
-                :src="building"
-                alt="Mohan Building"
-                class="h-full w-full object-cover object-center transition duration-700 hover:scale-105"
-              >
+              <img :src="building" alt="Mohan Building"
+                class="h-full w-full object-cover object-center transition duration-700 hover:scale-105">
             </div>
-            <div class="absolute inset-x-4 bottom-4 rounded-2xl border border-white/30 bg-slate-900/55 p-4 backdrop-blur">
+            <div
+              class="absolute inset-x-4 bottom-4 rounded-2xl border border-white/30 bg-slate-900/55 p-4 backdrop-blur">
               <p class="text-xs uppercase tracking-[0.18em] text-amber-300">Head Office</p>
               <p class="mt-1 text-sm font-semibold text-white">Addis Ababa, Ethiopia</p>
             </div>
@@ -241,12 +234,8 @@ onBeforeUnmount(() => {
         </div>
 
         <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <article
-            v-for="(item, index) in impactStats"
-            :key="item.label"
-            data-home-reveal
-            class="home-reveal stats-card rounded-2xl border border-white/15 bg-white/5 p-6 text-center backdrop-blur"
-          >
+          <article v-for="(item, index) in impactStats" :key="item.label" data-home-reveal
+            class="home-reveal stats-card rounded-2xl border border-white/15 bg-white/5 p-6 text-center backdrop-blur">
             <p class="text-4xl font-bold text-amber-300 md:text-5xl">
               {{ animatedStats[index] }}{{ item.suffix }}
             </p>
@@ -269,24 +258,18 @@ onBeforeUnmount(() => {
         </div>
 
         <div class="mt-10 grid gap-6 md:grid-cols-2">
-          <article
-            v-for="item in businessHighlights"
-            :key="item.title"
-            data-home-reveal
-            class="home-reveal group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-xl"
-          >
+          <article v-for="item in businessHighlights" :key="item.title" data-home-reveal
+            class="home-reveal group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-xl">
             <div class="relative h-52 overflow-hidden">
-              <img
-                :src="item.image"
-                :alt="item.title"
-                class="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-              >
+              <img :src="item.image" :alt="item.title"
+                class="h-full w-full object-cover transition duration-700 group-hover:scale-105">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/20 to-transparent"></div>
             </div>
             <div class="p-6">
               <h4 class="text-xl font-bold text-slate-900">{{ item.title }}</h4>
               <p class="mt-3 text-sm leading-7 text-slate-600">{{ item.description }}</p>
-              <RouterLink :to="item.route" class="mt-5 inline-flex text-sm font-semibold text-amber-600 transition hover:text-amber-500">
+              <RouterLink :to="item.route"
+                class="mt-5 inline-flex text-sm font-semibold text-amber-600 transition hover:text-amber-500">
                 Learn More →
               </RouterLink>
             </div>
@@ -297,10 +280,8 @@ onBeforeUnmount(() => {
 
     <section class="bg-white pb-8">
       <div class="container-section">
-        <article
-          data-home-reveal
-          class="home-reveal mb-8 overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-amber-50/40 p-6 shadow-[0_24px_65px_-38px_rgba(15,23,42,0.5)] md:p-8"
-        >
+        <article data-home-reveal
+          class="home-reveal mb-8 overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-amber-50/40 p-6 shadow-[0_24px_65px_-38px_rgba(15,23,42,0.5)] md:p-8">
           <div class="grid items-center gap-8 lg:grid-cols-[1.15fr_0.85fr]">
             <div class="order-2 lg:order-1">
               <p class="text-xs font-semibold uppercase tracking-[0.2em] text-amber-600">Leadership Note</p>
@@ -323,11 +304,7 @@ onBeforeUnmount(() => {
                 </div>
               </div>
               <div class="mt-6 flex flex-wrap items-center gap-3">
-                <button
-                  type="button"
-                  class="btn-secondary"
-                  @click="showChairmanFull = !showChairmanFull"
-                >
+                <button type="button" class="btn-secondary" @click="showChairmanFull = !showChairmanFull">
                   {{ showChairmanFull ? 'Show Less' : 'Read Full Message' }}
                 </button>
                 <RouterLink to="/about" class="text-sm font-semibold text-amber-600 transition hover:text-amber-500">
@@ -337,12 +314,10 @@ onBeforeUnmount(() => {
             </div>
 
             <div class="order-1 lg:order-2">
-              <div class="mx-auto w-full max-w-sm overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-[0_22px_45px_-30px_rgba(15,23,42,0.7)]">
-                <img
-                  src="/CEO_Mohan.jpg"
-                  alt="Chairman Mayur Suryakant Kothari"
-                  class="h-full w-full object-cover transition duration-500 hover:scale-105"
-                >
+              <div
+                class="mx-auto w-full max-w-sm overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-[0_22px_45px_-30px_rgba(15,23,42,0.7)]">
+                <img src="/CEO_Mohan.jpg" alt="Chairman Mayur Suryakant Kothari"
+                  class="h-full w-full object-cover transition duration-500 hover:scale-105">
               </div>
               <div class="mx-auto mt-4 w-full max-w-sm rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3">
                 <p class="text-xs font-semibold uppercase tracking-[0.14em] text-amber-700">Chairman Vision</p>
@@ -372,7 +347,14 @@ onBeforeUnmount(() => {
           <article data-home-reveal class="home-reveal surface-card">
             <h4 class="text-2xl font-bold text-slate-900">Head Office Location</h4>
             <p class="mt-4 text-sm leading-7 text-slate-700">
-              Around Bole Japan Embassy, Addis Ababa, Ethiopia
+              <a
+                :href="headOfficeMapUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="font-semibold text-amber-600 transition hover:text-amber-500"
+              >
+                Around Bole Japan Embassy, Addis Ababa, Ethiopia
+              </a>
             </p>
 
             <div class="mt-8 border-t border-slate-200 pt-6">
@@ -394,11 +376,13 @@ onBeforeUnmount(() => {
     <section class="relative overflow-hidden bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 py-16 md:py-20">
       <div class="cta-glow"></div>
       <div class="container-section relative">
-        <div data-home-reveal class="home-reveal rounded-3xl border border-white/15 bg-white/5 p-8 text-center text-white backdrop-blur md:p-12">
+        <div data-home-reveal
+          class="home-reveal rounded-3xl border border-white/15 bg-white/5 p-8 text-center text-white backdrop-blur md:p-12">
           <p class="text-xs font-semibold uppercase tracking-[0.2em] text-amber-300">Let’s Build Together</p>
           <h3 class="mt-4 text-3xl font-bold md:text-5xl">Ready To Partner With Mohan Group?</h3>
           <p class="mx-auto mt-4 max-w-3xl text-sm leading-7 text-slate-200 md:text-base">
-            From polymer and compounds to footwear and industrial products, our teams are ready to support your next growth milestone.
+            From polymer and compounds to footwear and industrial products, our teams are ready to support your next
+            growth milestone.
           </p>
           <div class="mt-8 flex flex-wrap justify-center gap-4">
             <RouterLink to="/contact" class="btn-primary">Contact Our Team</RouterLink>
@@ -514,7 +498,9 @@ onBeforeUnmount(() => {
 }
 
 @keyframes float-orb {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
 
@@ -523,4 +509,3 @@ onBeforeUnmount(() => {
   }
 }
 </style>
-  

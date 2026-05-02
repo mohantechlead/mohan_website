@@ -17,9 +17,9 @@ const catalogs = [
     <section class="py-16 md:py-20">
       <div class="container-section">
         <article class="surface-card">
-          <p class="section-eyebrow">Catelog</p>
-          <p class="mt-2 text-sm font-medium text-slate-500">Mohan &gt; Catelog</p>
-          <h1 class="section-title mt-4">Product Catelog</h1>
+          <p class="section-eyebrow">Catalog</p>
+          <p class="mt-2 text-sm font-medium text-slate-500">Mohan &gt; Catalog</p>
+          <h1 class="section-title mt-4">Product Catalog</h1>
 
           <p class="body-copy mt-4">
             Explore our latest product catalog below.

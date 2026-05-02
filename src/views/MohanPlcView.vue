@@ -67,6 +67,11 @@ const pvcShowcase = [
   { src: '/pvc-2.jpg', alt: 'PVC compounds material showcase' }
 ]
 
+const footwearShowcase = [
+  { src: '/footwear-2.png', alt: 'Mohan PLC footwear collection' },
+  { src: '/footwear-3.png', alt: 'Finished footwear manufactured by Mohan PLC' }
+]
+
 const sectionLinks = [
   { id: 'plc-intro', label: 'Overview' },
   { id: 'eva', label: 'EVA' },
@@ -138,8 +143,8 @@ onBeforeUnmount(() => {
           <div class="flex flex-wrap gap-2">
             <button v-for="item in sectionLinks" :key="item.id" type="button"
               class="rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.08em] transition" :class="activeSection === item.id
-                  ? 'bg-slate-900 text-white'
-                  : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                ? 'bg-slate-900 text-white'
+                : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                 " @click="scrollToSection(item.id)">
               {{ item.label }}
             </button>
@@ -195,7 +200,7 @@ onBeforeUnmount(() => {
               <p class="mt-1 text-xs font-semibold uppercase tracking-[0.14em]">Footwear Entry</p>
             </div>
             <div class="metric-pill">
-              <p class="text-3xl font-bold">10+</p>
+
               <p class="mt-1 text-xs font-semibold uppercase tracking-[0.14em]">Core Segments</p>
             </div>
           </div>
@@ -313,17 +318,15 @@ onBeforeUnmount(() => {
         <article id="endure" class="surface-card section-block tilt-left mt-8 endure-section">
           <div class="section-head">
             <span class="section-code">06</span>
-            <h2 class="section-subtitle">Endure / PPR Compunds</h2>
+            <h2 class="section-subtitle">Endure / TPR Compounds</h2>
           </div>
           <p class="body-copy mt-6">
-            Mohan PLC has recently started production of ENDURE, a type of Thermoplastic Rubber used in footwear,
-            automotive parts, and construction. The latest ENDURE compound for footwear is light, flexible, and
-            comfortable.
+            Mohan PLC produces ENDURE, a thermoplastic rubber compound designed for durable automotive parts,
+            construction applications, seals, flexible components, and other performance-driven industrial uses.
           </p>
           <p class="body-copy mt-5">
-            Customers may also use ENDURE for seals, automotive components, and related applications. We use high
-            quality raw materials, state-of-the-art technology, and qualified experts to solve application-based
-            problems for thermoplastic rubbers and thermoplastic elastomers.
+            ENDURE / TPR compounds combine rubber-like flexibility with efficient processing, helping customers achieve
+            reliable performance in impact-resistant, weather-tolerant, and long-service applications.
           </p>
           <p class="body-copy mt-5">
             We can customize our compounds to our customers' needs.
@@ -355,6 +358,15 @@ onBeforeUnmount(() => {
             respected brand, "Highlander Shoes". We have a skilled and innovative team to design and finish high quality
             leather and synthetic footwear including:
           </p>
+
+          <div class="mt-8 grid gap-4 md:grid-cols-2">
+            <div v-for="item in footwearShowcase" :key="item.src"
+              class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <img :src="item.src" :alt="item.alt"
+                class="h-56 w-full object-cover transition duration-500 hover:scale-105">
+            </div>
+          </div>
+
           <div class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             <div v-for="item in footwearRanges" :key="item" class="interactive-card">
               <p class="text-sm font-semibold text-slate-700">{{ item }}</p>
