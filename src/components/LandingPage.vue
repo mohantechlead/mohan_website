@@ -137,42 +137,43 @@ onBeforeUnmount(() => {
 
 <template>
   <div ref="homeRef">
-    <section class="relative overflow-hidden bg-slate-950 py-8 md:py-10">
+    <section class="relative overflow-hidden bg-slate-950 py-5 sm:py-6 md:py-10">
       <div class="hero-orb hero-orb-one"></div>
       <div class="hero-orb hero-orb-two"></div>
 
-      <div class="mx-auto w-full max-w-[96rem] px-4 md:px-8 lg:px-14">
+      <div class="mx-auto w-full max-w-[96rem] px-3 sm:px-4 md:px-8 lg:px-14">
         <div data-home-reveal
-          class="home-reveal rounded-[2.35rem] bg-gradient-to-br from-slate-800 to-slate-900 p-2 md:p-3">
+          class="home-reveal rounded-[1.65rem] bg-gradient-to-br from-slate-800 to-slate-900 p-1.5 sm:rounded-[2rem] md:rounded-[2.35rem] md:p-3">
           <div
-            class="hero-slider relative overflow-hidden rounded-[2rem] border border-slate-700 shadow-[0_30px_70px_-30px_rgba(15,23,42,0.85)]">
-            <div class="relative aspect-[16/8] overflow-hidden">
+            class="hero-slider relative overflow-hidden rounded-[1.35rem] border border-slate-700 shadow-[0_30px_70px_-30px_rgba(15,23,42,0.85)] sm:rounded-[1.75rem] md:rounded-[2rem]">
+            <div class="relative min-h-[31rem] overflow-hidden sm:min-h-[28rem] md:aspect-[16/8] md:min-h-0">
               <transition-group name="slide-fade" tag="div" class="h-full">
                 <img v-for="(slide, index) in slides" v-show="currentSlide === index" :key="slide.src" :src="slide.src"
-                  :alt="slide.title" class="absolute inset-0 h-full w-full object-cover">
+                  :alt="slide.title" class="absolute inset-0 h-full w-full object-cover object-center">
               </transition-group>
 
-              <div class="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-900/55 to-slate-900/20"></div>
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-900/70 to-slate-900/25 md:bg-gradient-to-r md:from-slate-950/85 md:via-slate-900/55 md:to-slate-900/20"></div>
               <div class="hero-grain absolute inset-0 opacity-30"></div>
 
-              <div class="absolute inset-0 flex items-center">
-                <div class="px-6 md:px-12">
+              <div class="absolute inset-0 flex items-end sm:items-center">
+                <div class="w-full px-5 pb-16 pt-20 sm:px-8 sm:py-0 md:px-12">
                   <p class="text-xs font-semibold uppercase tracking-[0.22em] text-amber-300">Mohan Group</p>
-                  <h2 class="mt-4 max-w-2xl text-3xl font-bold text-white md:text-5xl">
+                  <h2 class="mt-3 max-w-2xl text-3xl font-bold leading-tight text-white sm:mt-4 md:text-5xl">
                     {{ slides[currentSlide].title }}
                   </h2>
-                  <p class="mt-4 max-w-2xl text-sm leading-7 text-slate-200 md:text-base">
+                  <p class="mt-3 max-w-xl text-sm leading-7 text-slate-200 sm:mt-4 md:max-w-2xl md:text-base">
                     {{ slides[currentSlide].detail }}
                   </p>
-                  <div class="mt-7 flex flex-wrap gap-3">
-                    <RouterLink to="/about" class="btn-primary">Discover More</RouterLink>
-                    <RouterLink to="/contact" class="hero-btn-secondary">Start a Conversation</RouterLink>
+                  <div class="mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row sm:flex-wrap">
+                    <RouterLink to="/about" class="btn-primary w-full sm:w-auto">Discover More</RouterLink>
+                    <RouterLink to="/contact" class="hero-btn-secondary w-full sm:w-auto">Start a Conversation</RouterLink>
                   </div>
                 </div>
               </div>
 
               <div
-                class="absolute bottom-6 right-6 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
+                class="absolute bottom-4 right-4 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold text-white backdrop-blur md:bottom-6 md:right-6">
                 {{ currentSlide + 1 }} / {{ slides.length }}
               </div>
             </div>
