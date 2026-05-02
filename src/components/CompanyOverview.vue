@@ -10,7 +10,7 @@ const props = defineProps({
 })
 
 const sectionRef = ref(null)
-const headOfficeMapUrl = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.842678994352!2d38.778480975950714!3d8.986620291073027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b84f833c5f24f%3A0xf4bc60b8a246e454!2zTW9oYW4gUGxjIHwgQm9sZSBNaWNoYWVsIHwg4Yie4YiD4YqVIOGNkuGKpOGIjeGIsiB8IOGJpuGIjCDhiJrhiqvhiqThiI0!5e0!3m2!1sen!2set!4v1727492554868!5m2!1sen!2set'
+const headOfficeMapUrl = 'https://maps.app.goo.gl/GA7KLd3X4wbu6c3r9'
 
 const productSegments = [
   {
@@ -352,12 +352,8 @@ onBeforeUnmount(() => {
         <article data-reveal class="reveal-card surface-card">
           <h4 class="text-2xl font-bold text-slate-900">Head Office Location</h4>
           <p class="mt-4 text-sm leading-7 text-slate-700">
-            <a
-              :href="headOfficeMapUrl"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="font-semibold text-amber-600 transition hover:text-amber-500"
-            >
+            <a :href="headOfficeMapUrl" target="_blank" rel="noopener noreferrer"
+              class="font-semibold text-amber-600 transition hover:text-amber-500">
               Around Bole Japan Embassy, Addis Ababa, Ethiopia
             </a>
           </p>
