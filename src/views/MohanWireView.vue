@@ -131,9 +131,11 @@ const activeApplicationData = computed(
         <article class="soft-card mt-8">
           <p class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Follow Us On</p>
           <div class="mt-4 flex gap-3">
-            <span class="muted-pill">Facebook</span>
+            <a href="https://web.facebook.com/highlandershoes" target="_blank" rel="noopener" class="muted-pill">
+              Facebook
+            </a>
             <span class="muted-pill">LinkedIn</span>
-            <span class="muted-pill">X</span>
+            <a href="https://x.com/MohanPlc" target="_blank" rel="noopener" class="muted-pill">X</a>
           </div>
         </article>
       </div>

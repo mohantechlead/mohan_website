@@ -133,9 +133,11 @@ const activeHighlightData = computed(
           <div class="mt-8 border-t border-slate-300 pt-6">
             <p class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Follow Us On</p>
             <div class="mt-4 flex gap-3">
-              <span class="muted-pill">Facebook</span>
+              <a href="https://web.facebook.com/highlandershoes" target="_blank" rel="noopener" class="muted-pill">
+                Facebook
+              </a>
               <span class="muted-pill">LinkedIn</span>
-              <span class="muted-pill">X</span>
+              <a href="https://x.com/MohanPlc" target="_blank" rel="noopener" class="muted-pill">X</a>
             </div>
           </div>
         </article>

@@ -104,7 +104,7 @@ const mediaGroups = [
         source: 'Facebook',
         title: 'Highlander Shoes',
         date: 'Brand Channel',
-        url: 'https://www.facebook.com/highlandershoes/',
+        url: 'https://web.facebook.com/highlandershoes',
         description: "Mohan PLC's footwear brand page with product photos, updates, and public recognition posts."
       },
       {
@@ -179,6 +179,45 @@ const quickStats = [
   { value: '18+', label: 'Public References' },
   { value: '100+', label: 'Years Of Legacy Mentioned' }
 ]
+
+const highlanderPhotos = [
+  {
+    src: '/media/photo 1.jpg',
+    alt: 'Mohan PLC receiving recognition from Prime Minister Abiy Ahmed',
+    caption: 'Mohan PLC Recognition Moment',
+    description: 'Mohan PLC leadership receiving public recognition during a national business award ceremony.',
+    url: 'https://web.facebook.com/photo.php?fbid=1085702406593391&set=pb.100054609242506.-2207520000&type=3'
+  },
+  {
+    src: '/media/photo 2.jpg',
+    alt: 'Mohan PLC representative holding an award',
+    caption: 'Award Ceremony Highlight',
+    description: 'A Highlander Shoes and Mohan PLC milestone captured during a formal recognition event.',
+    url: 'https://web.facebook.com/photo/?fbid=1085702399926725&set=pb.100054609242506.-2207520000'
+  },
+  {
+    src: '/media/photo 3.jpg',
+    alt: 'Highlander Shoes office visit with flower presentation',
+    caption: 'Highlander Shoes Office Visit',
+    description: 'A guest welcome moment at the Highlander Shoes office and showroom space.',
+    url: 'https://web.facebook.com/photo/?fbid=2483139618659276&set=pb.100054609242506.-2207520000'
+  },
+  {
+    src: '/media/photo 4.jpg',
+    alt: 'Invest in Ethiopia business forum graphic featuring Harsh Kothari',
+    caption: 'Invest in Ethiopia Business Forum',
+    description:
+      'Harsh Kothari featured for the Invest in Ethiopia High Level Business Forum in Addis Ababa.',
+    url: 'https://web.facebook.com/photo/?fbid=122114330384827444&set=a.122101787876827444'
+  },
+  {
+    src: '/media/photo 5.jpg',
+    alt: 'Mohan PLC footwear display at an exhibition',
+    caption: 'Footwear Exhibition Showcase',
+    description: 'Highlander Shoes and Mohan PLC products presented at a public industry exhibition.',
+    url: 'https://web.facebook.com/photo/?fbid=10226902227334679&set=pcb.10226902229774740'
+  }
+]
 </script>
 
 <template>
@@ -205,11 +244,8 @@ const quickStats = [
           </div>
 
           <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
-            <div
-              v-for="stat in quickStats"
-              :key="stat.label"
-              class="rounded-3xl border border-white/10 bg-white/10 p-6 backdrop-blur"
-            >
+            <div v-for="stat in quickStats" :key="stat.label"
+              class="rounded-3xl border border-white/10 bg-white/10 p-6 backdrop-blur">
               <p class="text-4xl font-bold text-white">{{ stat.value }}</p>
               <p class="mt-2 text-sm font-semibold uppercase tracking-[0.18em] text-slate-300">{{ stat.label }}</p>
             </div>
@@ -221,8 +257,7 @@ const quickStats = [
     <section class="bg-slate-50 py-14 md:py-20">
       <div class="container-section">
         <article
-          class="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_24px_70px_-46px_rgba(15,23,42,0.6)]"
-        >
+          class="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_24px_70px_-46px_rgba(15,23,42,0.6)]">
           <div class="grid gap-0 lg:grid-cols-[0.95fr_1.05fr]">
             <div class="bg-slate-950 p-8 text-white md:p-10">
               <p class="text-xs font-semibold uppercase tracking-[0.24em] text-amber-300">Featured Article</p>
@@ -234,17 +269,50 @@ const quickStats = [
 
             <div class="p-8 md:p-10">
               <p class="text-base leading-8 text-slate-700">{{ featuredArticle.description }}</p>
-              <a
-                :href="featuredArticle.url"
-                target="_blank"
-                rel="noopener"
-                class="mt-8 inline-flex items-center justify-center rounded-full bg-amber-500 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-amber-400"
-              >
+              <a :href="featuredArticle.url" target="_blank" rel="noopener"
+                class="mt-8 inline-flex items-center justify-center rounded-full bg-amber-500 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-amber-400">
                 Read Featured Story
               </a>
             </div>
           </div>
         </article>
+
+        <section class="mt-12 overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm">
+          <div class="grid gap-0 lg:grid-cols-[0.85fr_1.15fr]">
+            <div class="bg-gradient-to-br from-slate-950 to-slate-800 p-8 text-white md:p-10">
+              <p class="text-xs font-semibold uppercase tracking-[0.24em] text-amber-300">Photo Gallery</p>
+              <h2 class="mt-5 text-3xl font-bold leading-tight md:text-4xl">Highlander Shoes Media</h2>
+              <p class="mt-5 text-sm leading-7 text-slate-300">
+                Public product media pulled from the Highlander Shoes Facebook photos page.
+              </p>
+              <a href="https://web.facebook.com/highlandershoes" target="_blank" rel="noopener"
+                class="mt-8 inline-flex items-center justify-center rounded-full bg-amber-500 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-amber-400">
+                Visit Facebook Page
+              </a>
+            </div>
+
+            <div class="grid gap-5 bg-slate-100 p-5 sm:grid-cols-2 md:p-6">
+              <a v-for="photo in highlanderPhotos" :key="photo.url" :href="photo.url" target="_blank" rel="noopener"
+                class="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div v-if="photo.src" class="aspect-[4/3] overflow-hidden bg-white">
+                  <img :src="photo.src" :alt="photo.alt"
+                    class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy">
+                </div>
+                <div v-else
+                  class="flex aspect-[4/3] items-center justify-center bg-gradient-to-br from-slate-950 to-slate-800 p-6 text-center">
+                  <div>
+                    <p class="text-xs font-semibold uppercase tracking-[0.22em] text-amber-300">Facebook Photo</p>
+                    <p class="mt-3 text-lg font-bold text-white">View Source Image</p>
+                  </div>
+                </div>
+                <div class="p-4">
+                  <p class="text-sm font-semibold text-slate-900">{{ photo.caption }}</p>
+                  <p class="mt-2 text-sm leading-6 text-slate-600">{{ photo.description }}</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
 
         <div class="mt-12 space-y-14">
           <section v-for="group in mediaGroups" :key="group.title">
@@ -255,19 +323,16 @@ const quickStats = [
             </div>
 
             <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-              <a
-                v-for="item in group.items"
-                :key="`${group.title}-${item.title}`"
-                :href="item.url"
-                target="_blank"
+              <a v-for="item in group.items" :key="`${group.title}-${item.title}`" :href="item.url" target="_blank"
                 rel="noopener"
-                class="group flex min-h-full flex-col rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-amber-300 hover:shadow-xl"
-              >
+                class="group flex min-h-full flex-col rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-amber-300 hover:shadow-xl">
                 <div class="flex items-start justify-between gap-4">
-                  <p class="rounded-full bg-amber-50 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-amber-700">
+                  <p
+                    class="rounded-full bg-amber-50 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-amber-700">
                     {{ item.source }}
                   </p>
-                  <p class="shrink-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">{{ item.date }}</p>
+                  <p class="shrink-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">{{ item.date }}
+                  </p>
                 </div>
 
                 <h3 class="mt-5 text-xl font-bold leading-snug text-slate-950 transition group-hover:text-amber-600">

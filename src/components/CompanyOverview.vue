@@ -361,9 +361,11 @@ onBeforeUnmount(() => {
           <div class="mt-8 border-t border-slate-200 pt-6">
             <p class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Follow Us On</p>
             <div class="mt-4 flex gap-3">
-              <a href="#" class="muted-pill">Facebook</a>
+              <a href="https://web.facebook.com/highlandershoes" target="_blank" rel="noopener" class="muted-pill">
+                Facebook
+              </a>
               <a href="#" class="muted-pill">LinkedIn</a>
-              <a href="#" class="muted-pill">X</a>
+              <a href="https://x.com/MohanPlc" target="_blank" rel="noopener" class="muted-pill">X</a>
             </div>
             <p class="mt-6 text-xs text-slate-500">
               Copyright © Mohan All Right Reserved.

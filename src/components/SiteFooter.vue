@@ -30,9 +30,23 @@ import { RouterLink } from 'vue-router'
             Around Bole Japan Embassy, Addis Ababa, Ethiopia
           </p>
           <div class="mt-4 flex gap-2">
-            <span class="muted-pill !bg-slate-800 !text-slate-200">Facebook</span>
+            <a
+              href="https://web.facebook.com/highlandershoes"
+              target="_blank"
+              rel="noopener"
+              class="muted-pill !bg-slate-800 !text-slate-200"
+            >
+              Facebook
+            </a>
             <span class="muted-pill !bg-slate-800 !text-slate-200">LinkedIn</span>
-            <span class="muted-pill !bg-slate-800 !text-slate-200">X</span>
+            <a
+              href="https://x.com/MohanPlc"
+              target="_blank"
+              rel="noopener"
+              class="muted-pill !bg-slate-800 !text-slate-200"
+            >
+              X
+            </a>
           </div>
         </div>
       </div>
