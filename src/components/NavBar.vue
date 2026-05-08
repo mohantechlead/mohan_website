@@ -136,6 +136,18 @@ const closeMenu = () => {
         </RouterLink>
 
         <RouterLink
+          to="/media"
+          class="rounded-full px-4 py-2 text-sm font-semibold transition-all duration-200"
+          :class="
+            route.path === '/media'
+              ? 'bg-slate-900 text-white shadow-sm'
+              : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+          "
+        >
+          Media
+        </RouterLink>
+
+        <RouterLink
           :to="navItems[3].to"
           class="rounded-full px-4 py-2 text-sm font-semibold transition-all duration-200"
           :class="
@@ -260,6 +272,19 @@ const closeMenu = () => {
             @click="closeMenu"
           >
             {{ navItems[2].label }}
+          </RouterLink>
+
+          <RouterLink
+            to="/media"
+            class="rounded-lg px-4 py-2 text-left text-sm font-semibold transition"
+            :class="
+              route.path === '/media'
+                ? 'bg-slate-900 text-white'
+                : 'text-slate-700 hover:bg-slate-100'
+            "
+            @click="closeMenu"
+          >
+            Media
           </RouterLink>
 
           <RouterLink

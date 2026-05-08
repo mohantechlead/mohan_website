@@ -8,6 +8,7 @@ import VinaTradeView from '../views/VinaTradeView.vue'
 import MohanWireView from '../views/MohanWireView.vue'
 import CsrView from '../views/CsrView.vue'
 import NewsView from '../views/NewsView.vue'
+import MediaView from '../views/MediaView.vue'
 import NewsInvestEthiopiaView from '../views/NewsInvestEthiopiaView.vue'
 import NewsTaxRecognitionView from '../views/NewsTaxRecognitionView.vue'
 import DdfTzOperationsView from '../views/DdfTzOperationsView.vue'
@@ -73,6 +74,11 @@ const router = createRouter({
       path: '/news',
       name: 'news',
       component: NewsView
+    },
+    {
+      path: '/media',
+      name: 'media',
+      component: MediaView
     },
     {
       path: '/news/time-to-invest-in-ethiopia',
