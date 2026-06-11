@@ -20,10 +20,10 @@ import SiteFooter from '@/components/SiteFooter.vue'
 
           <div class="body-copy mt-8 space-y-6">
             <p>
-              The 3rd round Federal Taxpayers’ Recognition Ceremony was held this afternoon in the presence of PM Abiy Ahmed. Held at Unity Park, the program recognized 300 registered businesses that have maintained transparent conduct and paid their taxes in a timely manner. The recognition program is intended to encourage the business community to follow the lead in abiding by the law.
+              The 3rd round Federal Taxpayers’ Recognition Ceremony was held this afternoon in the presence of PM Abiy Ahmed. Held at Unity Park, the program recognized 300 registered businesses that have maintained transparent conduct and paid their taxes in a timely manner. The recognition program is intended to encourage the business community to follow their lead in abiding by the law.
             </p>
             <p>
-              It is a matter of honor for MohanPlc to receive an award in the silver category. This recognition will further encourage us to work harder and continue to make our modest contribution to the Ethiopian economy.
+              It is a matter of honor for Mohan PLC to receive an award in the silver category. This recognition will further encourage us to work harder and continue to make our modest contribution to the Ethiopian economy.
             </p>
           </div>
         </article>

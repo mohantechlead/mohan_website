@@ -48,7 +48,8 @@ const submitForm = async () => {
         <p class="section-eyebrow">Get In Touch</p>
         <h1 class="section-title mt-3">Contact Us</h1>
         <p class="body-copy mt-4">
-          Send us a message or visit our head office around Bole Japan Embassy, Addis Ababa.
+          Send us a message or visit our head office at Mohan Group of Companies, Mohan Block, Mohan Building,
+          Woreda 02, House No. 393/2, Addis Ababa, Ethiopia.
         </p>
       </div>
 

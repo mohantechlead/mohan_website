@@ -38,11 +38,11 @@ const activeHighlightData = computed(
           <div class="mt-10 grid items-start gap-8 lg:grid-cols-[1fr_1fr]">
             <div class="body-copy space-y-6">
               <p>
-                Vina Trade and Industry PLC is a successful unit in the Mohan Group of Companies, which manufactures
-                "Hawaii Slippers" or "flip-flops".
+                Vina Trade and Industry PLC, a successful unit in the Mohan Group of Companies, manufactures
+                "Hawaii Slippers" or flip-flops.
               </p>
               <p>
-                Although many companies tried to manufacture Hawaii slippers in Ethiopia, they could not face the stiff
+                Although many companies tried to manufacture Hawaii slippers in Ethiopia, they could not withstand the stiff
                 competition posed by cheaper imports from China and other neighboring countries. Vina Trade and Industry PLC,
                 benefiting from its vertical linkage with Mohan PLC, manages to get all the raw materials locally, enabling
                 it to overcome competition and dominate the Ethiopian market, making "Deer" a well-known brand in the country.
@@ -51,8 +51,8 @@ const activeHighlightData = computed(
                 "Deer" slippers are trusted and respected for their high quality and appealing aesthetics.
               </p>
               <p>
-                Vina Trade and Industry also manufactures rubber based EVA sheets, rubber soles, rubber sheets, rubber
-                components, and other rubber based compounds that can be used for various applications.
+                Vina Trade and Industry also manufactures rubber-based EVA sheets, rubber soles, rubber sheets, rubber
+                components, and other rubber-based compounds that can be used for various applications.
               </p>
             </div>
 
@@ -127,8 +127,8 @@ const activeHighlightData = computed(
 
         <article class="soft-card mt-8">
           <p class="body-copy">
-            The Mohan Group has engaged in diverse business activities, it has specialized in the raw material business
-            especially for plastics, packaging, footwear and plastic based construction industries.
+            The Mohan Group has engaged in diverse business activities and has specialized in the raw material business,
+            especially for plastics, packaging, footwear, and plastic-based construction industries.
           </p>
           <div class="mt-8 border-t border-slate-300 pt-6">
             <p class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Follow Us On</p>

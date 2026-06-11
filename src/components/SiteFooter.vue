@@ -9,7 +9,7 @@ import { RouterLink } from 'vue-router'
         <div>
           <p class="text-sm font-semibold uppercase tracking-[0.18em] text-amber-400">Mohan Group</p>
           <p class="mt-4 max-w-sm text-sm leading-7 text-slate-400">
-            Trusted name in polymer and footwear industries in Ethiopia with decades of manufacturing and trading expertise.
+            A trusted name in the polymer and footwear industries in Ethiopia, with decades of manufacturing and trading expertise.
           </p>
         </div>
 
@@ -24,12 +24,17 @@ import { RouterLink } from 'vue-router'
           </div>
         </div>
 
-        <div>
+        <div class="text-center">
           <p class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-200">Head Office</p>
-          <p class="mt-4 text-sm leading-7 text-slate-400">
-            Around Bole Japan Embassy, Addis Ababa, Ethiopia
+          <p class="mt-2 text-sm leading-5 text-slate-400">
+            Mohan Group of Companies<br>
+            Mohan Block<br>
+            Mohan Building<br>
+            Woreda 02<br>
+            House No. 393/2<br>
+            Addis Ababa, Ethiopia
           </p>
-          <div class="mt-4 flex gap-2">
+          <div class="mt-4 flex justify-center gap-2">
             <a
               href="https://web.facebook.com/highlandershoes"
               target="_blank"
@@ -52,7 +57,7 @@ import { RouterLink } from 'vue-router'
       </div>
 
       <div class="mt-10 border-t border-slate-800 pt-6 text-xs text-slate-500">
-        Copyright © Mohan All Right Reserved.
+        Copyright © Mohan. All Rights Reserved.
       </div>
     </div>
   </footer>

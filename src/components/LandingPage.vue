@@ -3,14 +3,22 @@ import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import CompanyOverview from '@/components/CompanyOverview.vue'
 import building from '@/assets/img/mohan.jpg'
+import logo from '@/assets/img/slider-logo.png'
 
 const homeRef = ref(null)
 const statsRef = ref(null)
 const headOfficeMapUrl = 'https://maps.app.goo.gl/GA7KLd3X4wbu6c3r9'
 
 const slides = [
+  {
+    src: logo,
+    eyebrow: 'Four Generations',
+    title: 'Built on Legacy, Designed for Tomorrow',
+    detail: 'A trusted industrial group in polymer, footwear, and manufacturing across Ethiopia.',
+    isLogo: true
+  },
   { src: '/slider-1.jpg', title: 'Industry Leadership', detail: 'Built on decades of trust and proven delivery.' },
-  { src: '/slider-2.jpg', title: 'Global Quality Standards', detail: 'Consistent quality in every unit and process.' },
+  { src: '/slider-2.png', title: 'Global Quality Standards', detail: 'Consistent quality in every unit and process.' },
   { src: '/slider-3.jpg', title: 'Innovation In Manufacturing', detail: 'Modern systems for scale, quality, and speed.' },
   { src: '/slider-4.jpg', title: 'Sustainable Growth Vision', detail: 'Responsible expansion with long-term value.' },
   { src: '/slider-5.jpg', title: 'Trusted Across Ethiopia', detail: 'A dependable partner across industries and regions.' }
@@ -20,7 +28,7 @@ const impactStats = [
   { value: 30, suffix: '+', label: 'Years of Industrial Legacy' },
   { value: 7, suffix: '', label: 'Manufacturing Units Operating' },
   { value: 1, suffix: '', label: 'Trading Unit Within Ethiopia' },
-  { value: 1, suffix: 'st', label: 'Ever Free Trade Zone Operator In Ethiopia At The Dire Dawa Free Trade Zone' }
+  { value: 1, suffix: 'st', label: 'Free Trade Zone Operator in Ethiopia at the Dire Dawa Free Trade Zone' }
 ]
 
 const businessHighlights = [
@@ -137,58 +145,6 @@ onBeforeUnmount(() => {
 
 <template>
   <div ref="homeRef">
-    <section class="relative overflow-hidden bg-slate-950 py-5 sm:py-6 md:py-10">
-      <div class="hero-orb hero-orb-one"></div>
-      <div class="hero-orb hero-orb-two"></div>
-
-      <div class="mx-auto w-full max-w-[96rem] px-3 sm:px-4 md:px-8 lg:px-14">
-        <div data-home-reveal
-          class="home-reveal rounded-[1.65rem] bg-gradient-to-br from-slate-800 to-slate-900 p-1.5 sm:rounded-[2rem] md:rounded-[2.35rem] md:p-3">
-          <div
-            class="hero-slider relative overflow-hidden rounded-[1.35rem] border border-slate-700 shadow-[0_30px_70px_-30px_rgba(15,23,42,0.85)] sm:rounded-[1.75rem] md:rounded-[2rem]">
-            <div class="relative min-h-[31rem] overflow-hidden sm:min-h-[28rem] md:aspect-[16/8] md:min-h-0">
-              <transition-group name="slide-fade" tag="div" class="h-full">
-                <img v-for="(slide, index) in slides" v-show="currentSlide === index" :key="slide.src" :src="slide.src"
-                  :alt="slide.title" class="absolute inset-0 h-full w-full object-cover object-center">
-              </transition-group>
-
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-900/70 to-slate-900/25 md:bg-gradient-to-r md:from-slate-950/85 md:via-slate-900/55 md:to-slate-900/20"></div>
-              <div class="hero-grain absolute inset-0 opacity-30"></div>
-
-              <div class="absolute inset-0 flex items-end sm:items-center">
-                <div class="w-full px-5 pb-16 pt-20 sm:px-8 sm:py-0 md:px-12">
-                  <p class="text-xs font-semibold uppercase tracking-[0.22em] text-amber-300">Mohan Group</p>
-                  <h2 class="mt-3 max-w-2xl text-3xl font-bold leading-tight text-white sm:mt-4 md:text-5xl">
-                    {{ slides[currentSlide].title }}
-                  </h2>
-                  <p class="mt-3 max-w-xl text-sm leading-7 text-slate-200 sm:mt-4 md:max-w-2xl md:text-base">
-                    {{ slides[currentSlide].detail }}
-                  </p>
-                  <div class="mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row sm:flex-wrap">
-                    <RouterLink to="/about" class="btn-primary w-full sm:w-auto">Discover More</RouterLink>
-                    <RouterLink to="/contact" class="hero-btn-secondary w-full sm:w-auto">Start a Conversation</RouterLink>
-                  </div>
-                </div>
-              </div>
-
-              <div
-                class="absolute bottom-4 right-4 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold text-white backdrop-blur md:bottom-6 md:right-6">
-                {{ currentSlide + 1 }} / {{ slides.length }}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="mt-4 flex items-center justify-center gap-2">
-          <button v-for="(slide, index) in slides" :key="slide.src + '-dot'" type="button"
-            class="h-2.5 rounded-full transition-all duration-300"
-            :class="currentSlide === index ? 'w-8 bg-amber-500' : 'w-2.5 bg-slate-400 hover:bg-slate-300'"
-            :aria-label="`Go to slide ${index + 1}`" @click="goToSlide(index); resetAutoplay()" />
-        </div>
-      </div>
-    </section>
-
     <section class="bg-white py-16 md:py-20">
       <div class="container-section grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
         <div data-home-reveal class="home-reveal text-left">
@@ -218,10 +174,81 @@ onBeforeUnmount(() => {
             </div>
             <div
               class="absolute inset-x-4 bottom-4 rounded-2xl border border-white/30 bg-slate-900/55 p-4 backdrop-blur">
-              <p class="text-xs uppercase tracking-[0.18em] text-amber-300">Head Office</p>
-              <p class="mt-1 text-sm font-semibold text-white">Addis Ababa, Ethiopia</p>
+              <p class="text-center text-xs uppercase tracking-[0.18em] text-amber-300">Head Office</p>
+              <p class="mt-1 text-center text-sm font-semibold leading-5 text-white">
+                Mohan Group of Companies<br>
+                Mohan Block<br>
+                Mohan Building<br>
+                Woreda 02<br>
+                House No. 393/2<br>
+                Addis Ababa, Ethiopia
+              </p>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative overflow-hidden bg-slate-950 py-5 sm:py-6 md:py-10">
+      <div class="hero-orb hero-orb-one"></div>
+      <div class="hero-orb hero-orb-two"></div>
+
+      <div class="mx-auto w-full max-w-[96rem] px-3 sm:px-4 md:px-8 lg:px-14">
+        <div data-home-reveal
+          class="home-reveal rounded-[1.65rem] bg-gradient-to-br from-slate-800 to-slate-900 p-1.5 sm:rounded-[2rem] md:rounded-[2.35rem] md:p-3">
+          <div
+            class="hero-slider relative overflow-hidden rounded-[1.35rem] border border-slate-700 shadow-[0_30px_70px_-30px_rgba(15,23,42,0.85)] sm:rounded-[1.75rem] md:rounded-[2rem]">
+            <div class="relative min-h-[31rem] overflow-hidden sm:min-h-[28rem] md:aspect-[16/8] md:min-h-0">
+              <transition-group name="slide-fade" tag="div" class="h-full">
+                <img v-for="(slide, index) in slides" v-show="currentSlide === index" :key="slide.src" :src="slide.src"
+                  :alt="slide.title" class="absolute inset-0 h-full w-full object-center"
+                  :class="slide.isLogo ? 'hero-logo-image bg-slate-900 object-contain p-8 sm:p-12 md:p-16' : 'object-cover'">
+              </transition-group>
+
+              <div v-if="slides[currentSlide]?.isLogo" class="hero-logo-glow absolute inset-0"></div>
+              <div class="absolute inset-0"
+                :class="slides[currentSlide]?.isLogo
+                  ? 'bg-gradient-to-t from-slate-950/90 via-slate-950/35 to-transparent md:bg-gradient-to-r md:from-slate-950/80 md:via-slate-950/30 md:to-transparent'
+                  : 'bg-gradient-to-t from-slate-950/95 via-slate-900/70 to-slate-900/25 md:bg-gradient-to-r md:from-slate-950/85 md:via-slate-900/55 md:to-slate-900/20'">
+              </div>
+              <div class="hero-grain absolute inset-0 opacity-30"></div>
+
+              <div class="absolute inset-0 flex items-end sm:items-center">
+                <div class="w-full px-5 pb-16 pt-20 sm:px-8 sm:py-0 md:px-12">
+                  <p class="text-xs font-semibold uppercase tracking-[0.22em] text-amber-300">
+                    {{ slides[currentSlide]?.eyebrow ?? 'Mohan Group' }}
+                  </p>
+                  <h2 class="mt-3 max-w-2xl text-3xl font-bold leading-tight text-white sm:mt-4 md:text-5xl">
+                    {{ slides[currentSlide].title }}
+                  </h2>
+                  <p
+                    v-if="slides[currentSlide].detail"
+                    class="mt-3 max-w-xl text-sm leading-7 text-slate-200 sm:mt-4 md:max-w-2xl md:text-base"
+                  >
+                    {{ slides[currentSlide].detail }}
+                  </p>
+                  <div class="mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row sm:flex-wrap">
+                    <RouterLink to="/about" class="btn-primary w-full sm:w-auto">Discover More</RouterLink>
+                    <RouterLink to="/contact" class="hero-btn-secondary w-full sm:w-auto">
+                      Start a Conversation
+                    </RouterLink>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="absolute bottom-4 right-4 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold text-white backdrop-blur md:bottom-6 md:right-6">
+                {{ currentSlide + 1 }} / {{ slides.length }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4 flex items-center justify-center gap-2">
+          <button v-for="(slide, index) in slides" :key="slide.src + '-dot'" type="button"
+            class="h-2.5 rounded-full transition-all duration-300"
+            :class="currentSlide === index ? 'w-8 bg-amber-500' : 'w-2.5 bg-slate-400 hover:bg-slate-300'"
+            :aria-label="`Go to slide ${index + 1}`" @click="goToSlide(index); resetAutoplay()" />
         </div>
       </div>
     </section>
@@ -286,21 +313,21 @@ onBeforeUnmount(() => {
           <div class="grid items-center gap-8 lg:grid-cols-[1.15fr_0.85fr]">
             <div class="order-2 lg:order-1">
               <p class="text-xs font-semibold uppercase tracking-[0.2em] text-amber-600">Leadership Note</p>
-              <h4 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">Message from Chairman</h4>
+              <h4 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">Message from the Chairman</h4>
               <div class="mt-6 rounded-2xl border border-slate-200/80 bg-white/90 p-5 shadow-sm md:p-6">
                 <p class="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">Mayur Suryakant Kothari</p>
                 <div class="mt-4 text-base leading-8 text-slate-700 md:text-lg">
                   <p class="relative pl-5">
                     <span class="absolute left-0 top-0 text-2xl font-bold leading-none text-amber-500">"</span>
-                    Mayur Suryakant Kothari, the founder of the Mohan Group of Companies started off his business
+                    Mayur Suryakant Kothari, the founder of the Mohan Group of Companies, started his business
                     with a small trading firm, which he named Mohan International in fond memory of his late father,
                     Mr. Suryakant Chhotalal Kothari, who was popularly known by his nickname "Mohan". Today, the
                     small trading firm has transformed into a group of companies, popularly known as "The Mohan Group
                     of Companies".
                   </p>
                   <p v-if="showChairmanFull" class="mt-4">
-                    The Mohan Group has engaged in diverse business activities, it has specialized in the raw material
-                    business especially for plastics, packaging, footwear and plastic based construction industries.
+                    The Mohan Group has engaged in diverse business activities and has specialized in the raw material
+                    business, especially for plastics, packaging, footwear, and plastic-based construction industries.
                   </p>
                 </div>
               </div>
@@ -321,7 +348,7 @@ onBeforeUnmount(() => {
                   class="h-full w-full object-cover transition duration-500 hover:scale-105">
               </div>
               <div class="mx-auto mt-4 w-full max-w-sm rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3">
-                <p class="text-xs font-semibold uppercase tracking-[0.14em] text-amber-700">Chairman Vision</p>
+                <p class="text-xs font-semibold uppercase tracking-[0.14em] text-amber-700">Chairman's Vision</p>
                 <p class="mt-1 text-sm leading-6 text-amber-900">
                   Quality, continuity, and innovation that serve generations.
                 </p>
@@ -347,10 +374,15 @@ onBeforeUnmount(() => {
 
           <article data-home-reveal class="home-reveal surface-card">
             <h4 class="text-2xl font-bold text-slate-900">Head Office Location</h4>
-            <p class="mt-4 text-sm leading-7 text-slate-700">
+            <p class="mt-4 text-center text-sm leading-5 text-slate-700">
               <a :href="headOfficeMapUrl" target="_blank" rel="noopener noreferrer"
-                class="font-semibold text-amber-600 transition hover:text-amber-500">
-                Around Bole Japan Embassy, Addis Ababa, Ethiopia
+                class="inline-block font-semibold text-amber-600 transition hover:text-amber-500">
+                Mohan Group of Companies<br>
+                Mohan Block<br>
+                Mohan Building<br>
+                Woreda 02<br>
+                House No. 393/2<br>
+                Addis Ababa, Ethiopia
               </a>
             </p>
 
@@ -364,7 +396,7 @@ onBeforeUnmount(() => {
                 <a href="https://x.com/MohanPlc" target="_blank" rel="noopener" class="muted-pill">X</a>
               </div>
               <p class="mt-6 text-xs text-slate-500">
-                Copyright © Mohan All Right Reserved.
+                Copyright © Mohan. All Rights Reserved.
               </p>
             </div>
           </article>
@@ -446,6 +478,14 @@ onBeforeUnmount(() => {
   border-color: rgba(255, 255, 255, 0.7);
   background: rgba(255, 255, 255, 0.08);
   transform: translateY(-2px);
+}
+
+.hero-logo-image {
+  filter: brightness(1.12) contrast(1.08) drop-shadow(0 0 42px rgba(245, 158, 11, 0.28));
+}
+
+.hero-logo-glow {
+  background: radial-gradient(circle at center, rgba(245, 158, 11, 0.16) 0%, transparent 58%);
 }
 
 .home-reveal {

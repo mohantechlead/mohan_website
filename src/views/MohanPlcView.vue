@@ -33,7 +33,7 @@ const masterbatchTypes = [
   'Compact color masterbatches',
   'Transparent/crystal masterbatches',
   'Fluorescent masterbatches',
-  'Pearlised master batches',
+  'Pearlised masterbatches',
   'Night glow masterbatches',
   'UV resistance color masterbatches',
   'Filler Masterbatches'
@@ -154,39 +154,39 @@ onBeforeUnmount(() => {
         <article id="plc-intro" class="surface-card plc-intro section-block tilt-left">
           <p class="section-eyebrow">Mohan PLC</p>
           <p class="mt-2 text-sm font-medium text-slate-500">Mohan &gt; Mohan PLC</p>
-          <h1 class="section-title mt-4">Mohan Plc</h1>
+          <h1 class="section-title mt-4">Mohan PLC</h1>
 
           <div class="body-copy mt-8 space-y-6">
             <p>
               With the growth of the industrial sector due to the rapid development of the Ethiopian economy, the Mohan
               Group of Companies decided to fortify its position as a leading supplier of plastic raw materials in the
-              country. In 2006, Mohan PLC became the first manufacturer of ethylene-vinyl-acetate [EVA] based compound
+              country. In 2006, Mohan PLC became the first manufacturer of ethylene-vinyl-acetate (EVA)-based compound
               granules in Ethiopia.
             </p>
             <p>
               Since then, Mohan PLC has added to its product range and can supply not only different grades of EVA
-              compounds for the footwear and automotive industry but also different types of PVC compounds that can be
+              compounds for the footwear and automotive industries but also different types of PVC compounds that can be
               used in various applications including footwear, cables, pipes, garden hoses, profiling, construction
-              sector, automotive sector etc. We further added value to our market base by manufacturing Rubber Compounds
+              sector, automotive sector, etc. We further added value to our market base by manufacturing rubber compounds
               and ENDURE® Compounds [a type of thermoplastic rubber], which cater mostly to the footwear, automotive and
               construction sectors.
             </p>
             <p>
               In order to further satisfy our customers' growing demands, Mohan PLC started manufacturing different
-              types of color master-batches for various applications. As the packaging and household furniture industry
-              grew in Ethiopia, Mohan PLC became the first to commercially manufacture and supply filler master-batches
+              types of color masterbatches for various applications. As the packaging and household furniture industries
+              grew in Ethiopia, Mohan PLC became the first to commercially manufacture and supply filler masterbatches
               in Ethiopia.
             </p>
             <p>
               In 2014, Mohan PLC entered the leather and synthetic footwear manufacturing industry with a unique
               advantage of linkage. Mohan PLC manufactures compounds and components used in the footwear industry. We
-              also support other export oriented footwear industries in Ethiopia by supplying various components to
+              also support other export-oriented footwear industries in Ethiopia by supplying various components to
               them.
             </p>
             <p>
-              Mohan PLC is playing an important role in furthering the government policy of import substitution by
+              Mohan PLC is playing an important role in furthering the government's policy of import substitution by
               manufacturing all the above products, which were earlier imported from countries like India, China,
-              Taiwan, Singapore etc.
+              Taiwan, Singapore, etc.
             </p>
           </div>
 
@@ -213,12 +213,12 @@ onBeforeUnmount(() => {
           </div>
           <div class="body-copy mt-6 space-y-5">
             <p>
-              The EVA compound granules that we produce are primary focused for the footwear industry in Ethiopia. These
-              compounds are suitable for high quality foamed injection molded slippers, sandals, mid soles, boots,
+              The EVA compound granules that we produce are primarily focused on the footwear industry in Ethiopia. These
+              compounds are suitable for high-quality foamed injection-molded slippers, sandals, midsoles, boots,
               automobile components, toys, and various other applications.
             </p>
             <p>
-              The EVA compounds that we manufacture are expandable and cross-likable. We also modify them with rubber,
+              The EVA compounds that we manufacture are expandable and cross-linkable. We also modify them with rubber,
               thermoplastic elastomers, impact modifiers, and other specialty polymers so that our customers get
               enhanced mechanical and processing qualities.
             </p>
@@ -244,7 +244,7 @@ onBeforeUnmount(() => {
             <h2 class="section-subtitle">PVC Compounds</h2>
           </div>
           <p class="body-copy mt-6">
-            We produce Poly Vinyl Chloride (PVC) compounds applicable in diverse product ranges, including footwear,
+            We produce polyvinyl chloride (PVC) compounds applicable in diverse product ranges, including footwear,
             pipes, cables, garden hoses, and profiling. The compounds are suitable for both injection and extrusion
             machines and are produced in our modern manufacturing plant using state-of-the-art technology.
           </p>
@@ -269,7 +269,7 @@ onBeforeUnmount(() => {
             <h2 class="section-subtitle">Rubber Compound</h2>
           </div>
           <p class="body-copy mt-6">
-            We produce high quality rubber compounds for key sectors of the economy. Our compounds support important and
+            We produce high-quality rubber compounds for key sectors of the economy. Our compounds support important and
             sensitive applications including:
           </p>
           <div class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -285,7 +285,7 @@ onBeforeUnmount(() => {
             <h2 class="section-subtitle">Color Masterbatches</h2>
           </div>
           <p class="body-copy mt-6">
-            We produce quality color master batches customized to the needs of convertors of PE, PP and PVC products.
+            We produce quality color masterbatches customized to the needs of converters of PE, PP, and PVC products.
             The different types include:
           </p>
           <div class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -342,9 +342,9 @@ onBeforeUnmount(() => {
             We also produce EVA/Rubber sheets that serve as expansion joints in important construction projects.
           </p>
           <p class="body-copy mt-5">
-            Our sheets have been tested in international laboratories and are considered special for footwear
+            Our sheets have been tested in international laboratories and are especially suited for footwear
             applications. The specialty of our formulas enables the cellular structures of sheets to entrap air
-            naturally, making end applications light, bouncy and comfortable.
+            naturally, making end applications light, bouncy, and comfortable.
           </p>
         </article>
 
@@ -355,7 +355,7 @@ onBeforeUnmount(() => {
           </div>
           <p class="body-copy mt-6">
             Mohan PLC has a state-of-the-art leather and synthetic footwear manufacturing plant and has established a
-            respected brand, "Highlander Shoes". We have a skilled and innovative team to design and finish high quality
+            respected brand, "Highlander Shoes". We have a skilled and innovative team to design and finish high-quality
             leather and synthetic footwear including:
           </p>
 
@@ -374,14 +374,14 @@ onBeforeUnmount(() => {
           </div>
           <p class="body-copy mt-6">
             Highlander Shoes uses innovative solutions to make comfortable and trendy footwear with the advantage of
-            backward linkage to compounding the basic building block of a shoe.
+            backward linkage to compounding, the basic building block of a shoe.
           </p>
         </article>
 
         <article class="soft-card mt-8">
           <p class="body-copy">
-            The Mohan Group has engaged in diverse business activities and has specialized in the raw material business
-            especially for plastics, packaging, footwear and plastic based construction industries.
+            The Mohan Group has engaged in diverse business activities and has specialized in the raw material business,
+            especially for plastics, packaging, footwear, and plastic-based construction industries.
           </p>
 
         </article>

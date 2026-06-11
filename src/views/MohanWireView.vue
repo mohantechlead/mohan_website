@@ -56,17 +56,17 @@ const activeApplicationData = computed(
           <div class="mt-8 grid items-start gap-8 lg:grid-cols-[1.05fr_0.95fr]">
             <div class="body-copy space-y-6">
               <p>
-                In 1995, Mohan International expanded its wings and entered the steel market by creating Mohan wire
-                industries, which manufactures iron nails and barbed wires.
+                In 1995, Mohan International expanded its operations and entered the steel market by creating Mohan Wire
+                Industries, which manufactures iron nails and barbed wire.
               </p>
               <p>
                 Mohan Wire Industries is the oldest existing company in the private sector in Ethiopia manufacturing
-                common iron nails and barbed wires. Today, "Elephant" brand is well respected and known in the Ethiopian
+                common iron nails and barbed wire. Today, the "Elephant" brand is well respected and known in the Ethiopian
                 market for its reliable strength and quality.
               </p>
               <p>
-                The Mohan Group has engaged in diverse business activities, it has specialized in the raw material
-                business especially for plastics, packaging, footwear and plastic based construction industries.
+                The Mohan Group has engaged in diverse business activities and has specialized in the raw material
+                business, especially for plastics, packaging, footwear, and plastic-based construction industries.
               </p>
             </div>
 
@@ -122,7 +122,7 @@ const activeApplicationData = computed(
             <p class="mt-4 text-base leading-8 text-slate-700">{{ activeApplicationData.detail }}</p>
             <div class="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-4">
               <p class="text-sm font-medium text-slate-600">
-                Elephant brand is respected in Ethiopia for reliable strength, consistent quality, and trusted performance.
+                The Elephant brand is respected in Ethiopia for reliable strength, consistent quality, and trusted performance.
               </p>
             </div>
           </article>

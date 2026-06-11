@@ -20,10 +20,10 @@ import SiteFooter from '@/components/SiteFooter.vue'
 
           <div class="body-copy mt-8 space-y-6">
             <p>
-              World class conference & exhibition organised by EthioInvestment under the leadership of Lelise_Neme on investment opportunities in #Ethiopia.
+              World-class conference and exhibition organized by EthioInvestment under the leadership of Lelise Neme on investment opportunities in Ethiopia.
             </p>
             <p>
-              It was an honor for MohanPlc to participate at this event. Presentations by dignitaries were exceptional & inspiring!
+              It was an honor for Mohan PLC to participate in this event. Presentations by dignitaries were exceptional and inspiring!
             </p>
           </div>
         </article>

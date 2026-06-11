@@ -26,7 +26,7 @@ import building from '@/assets/img/mohan.jpg'
     <div class="text-left">
 
       <p class="text-lg text-gray-500">
-        Mayur Suryakant Kothari, the founder of the Mohan Group of Companies started his business with a small trading firm, which he named Mohan
+        Mayur Suryakant Kothari, the founder of the Mohan Group of Companies, started his business with a small trading firm, which he named Mohan
         International in fond memory of his late father, Mr. Suryakant Chhotalal Kothari,
         who was popularly known by his nickname, “Mohan”. Today, the small trading firm has transformed into a group of companies, popularly known
         as 'The Mohan Group of Companies'.
@@ -55,25 +55,25 @@ import building from '@/assets/img/mohan.jpg'
        <li class="relative flex items-center px-4 py-2 bg-gray-100 rounded-lg">
         <div class="absolute top-0 left-0 h-full w-10 bg-yellow-500 rounded-lg rounded-bl-lg"></div>
         <span class="text-black-500 font-bold">01</span>
-        <p class="ml-4">Mayur Suryakant Kothari, the founder of the Mohan Group of Companies started his business with a small trading firm.</p>
+        <p class="ml-4">Mayur Suryakant Kothari, the founder of the Mohan Group of Companies, started his business with a small trading firm.</p>
         </li>
 
         <li class="relative flex items-center px-4 py-2 bg-gray-100 rounded-lg">
         <div class="absolute top-0 left-0 h-full w-10 bg-yellow-500 rounded-lg rounded-bl-lg"></div>
         <span class="text-black-500 font-bold">01</span>
-        <p class="ml-4">Mayur Suryakant Kothari, the founder of the Mohan Group of Companies started his business with a small trading firm.</p>
+        <p class="ml-4">Mayur Suryakant Kothari, the founder of the Mohan Group of Companies, started his business with a small trading firm.</p>
         </li>
 
         <li class="relative flex items-center px-4 py-2 bg-gray-100 rounded-lg">
         <div class="absolute top-0 left-0 h-full w-10 bg-yellow-500 rounded-lg rounded-bl-lg"></div>
         <span class="text-black-500 font-bold">01</span>
-        <p class="ml-4">Mayur Suryakant Kothari, the founder of the Mohan Group of Companies started his business with a small trading firm.</p>
+        <p class="ml-4">Mayur Suryakant Kothari, the founder of the Mohan Group of Companies, started his business with a small trading firm.</p>
         </li>
 
         <li class="relative flex items-center px-4 py-2 bg-gray-100 rounded-lg">
         <div class="absolute top-0 left-0 h-full w-10 bg-yellow-500 rounded-lg rounded-bl-lg"></div>
         <span class="text-black-500 font-bold">01</span>
-        <p class="ml-4">Mayur Suryakant Kothari, the founder of the Mohan Group of Companies started his business with a small trading firm.</p>
+        <p class="ml-4">Mayur Suryakant Kothari, the founder of the Mohan Group of Companies, started his business with a small trading firm.</p>
         </li>
 
       </div>

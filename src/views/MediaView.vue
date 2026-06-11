@@ -98,7 +98,7 @@ const mediaGroups = [
         title: 'Mohan Group of Companies - @mohan_group_',
         date: 'Official Channel',
         url: 'https://www.instagram.com/mohan_group_/',
-        description: 'Official Instagram presence focused on polymer and footwear business updates.'
+        description: 'Official Instagram presence focused on polymer and footwear industry updates.'
       },
       {
         source: 'Facebook',
@@ -136,47 +136,12 @@ const mediaGroups = [
         description: 'Public professional profile for Mohan Group leadership.'
       },
     ]
-  },
-  {
-    title: 'Business Directory Listings',
-    eyebrow: 'Public Profiles',
-    description: 'Third-party business profiles and directory references for Mohan Group companies.',
-    items: [
-      {
-        source: 'Ezega Business Guide',
-        title: 'Mohan International',
-        date: 'Directory',
-        url: 'https://businessguide.ezega.com/Default.aspx?action=BussinessDetail&bid=1629915',
-        description: 'Business directory listing for Mohan International.'
-      },
-      {
-        source: 'Dun & Bradstreet',
-        title: 'Mohan PLC',
-        date: 'Business Profile',
-        url: 'https://www.dnb.com/business-directory/company-profiles.mohan_plc.4828a1e045ad4e6d83b490954f23f30e.html',
-        description: 'Third-party company profile for Mohan PLC.'
-      },
-      {
-        source: 'Tracxn',
-        title: 'Mohan Group Profile',
-        date: 'Company Profile',
-        url: 'https://tracxn.com/d/companies/mohan-group/__5Ss_hzntLUnopyMI7ixxhKlMzBLBu46PYkRS7jwn0eI',
-        description: 'Public company profile and business intelligence listing.'
-      },
-      {
-        source: 'ZoomInfo',
-        title: 'Mohan Group',
-        date: 'Company Profile',
-        url: 'https://www.zoominfo.com/c/mohan-group/346380025',
-        description: 'Public company information profile.'
-      }
-    ]
   }
 ]
 
 const quickStats = [
-  { value: '4', label: 'Media Categories' },
-  { value: '18+', label: 'Public References' },
+  { value: '3', label: 'Media Categories' },
+  { value: '15+', label: 'Public References' },
   { value: '100+', label: 'Years Of Legacy Mentioned' }
 ]
 
@@ -239,7 +204,7 @@ const highlanderPhotos = [
             </h1>
             <p class="mt-6 max-w-2xl text-base leading-8 text-slate-300 md:text-lg">
               A curated media library for Mohan Group of Companies in Ethiopia, organized for quick access to public
-              articles, videos, social channels, and business listings.
+              articles, videos, and social channels.
             </p>
           </div>
 

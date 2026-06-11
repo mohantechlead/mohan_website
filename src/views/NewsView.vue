@@ -10,14 +10,14 @@ const posts = [
     image: '/news-1.jpg',
     to: '/news/time-to-invest-in-ethiopia',
     excerpt:
-      'World class conference & exhibition organised by EthioInvestment under the leadership of Lelise Neme on investment opportunities in Ethiopia. It was an honor for Mohan Plc to participate at this event. Presentations by dignitaries were exceptional and inspiring!'
+      'World-class conference and exhibition organized by EthioInvestment under the leadership of Lelise Neme on investment opportunities in Ethiopia. It was an honor for Mohan PLC to participate in this event. Presentations by dignitaries were exceptional and inspiring!'
   },
   {
     title: 'The 3rd round Federal Taxpayers’ Recognition Ceremony',
     image: '/news-2.jpg',
     to: '/news/federal-taxpayers-recognition-ceremony',
     excerpt:
-      'The 3rd round Federal Taxpayers’ Recognition Ceremony was held in the presence of PM Abiy Ahmed at Unity Park, recognizing 300 registered businesses for transparent conduct and timely tax payments. The recognition program is intended to encourage businesses.'
+      'The 3rd round Federal Taxpayers’ Recognition Ceremony was held in the presence of PM Abiy Ahmed at Unity Park, recognizing 300 registered businesses that demonstrated transparent conduct and timely tax payments. The recognition program is intended to encourage businesses.'
   }
 ]
 

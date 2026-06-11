@@ -14,25 +14,25 @@ const activeCategory = ref('all')
 const initiatives = [
   {
     category: 'community',
-    text: 'Sustainable cooperative water well, energy and food production in rural Ethiopia with hygiene and healthcare training for youth and schools, in collaboration with ARS Foundation and S.M.A.R.T NGO.'
+    text: 'Sustainable cooperative water well, energy, and food production in rural Ethiopia with hygiene and healthcare training for youth and schools, in collaboration with ARS Foundation and S.M.A.R.T. NGO.'
   },
   {
     category: 'community',
     text: 'Feeding program at Alpha Special School for the Deaf in collaboration with Ye Enat Weg Charitable Association and Mohan PLC.'
   },
   { category: 'health', text: 'Blood donation drive organized by Mohan PLC.' },
-  { category: 'health', text: 'Support to Operation Smile for cleft-lip and palate surgery campaign.' },
-  { category: 'relief', text: 'Donation to International Organization for Migration to support returnees from Saudi Arabia.' },
-  { category: 'relief', text: 'Support to a home building program for internally displaced people.' },
+  { category: 'health', text: 'Support for Operation Smile in its cleft-lip and palate surgery campaign.' },
+  { category: 'relief', text: 'Donation to the International Organization for Migration to support returnees from Saudi Arabia.' },
+  { category: 'relief', text: 'Support for a home-building program for internally displaced people.' },
   { category: 'capacity', text: 'Internship program for children with hearing impairment for on-the-job training.' },
   { category: 'capacity', text: 'Fire, safety and skill upgrading training programs for employees.' },
   { category: 'community', text: 'Participation in area cleaning programs.' },
   { category: 'community', text: 'Financial support for various public interest infrastructures.' },
   { category: 'community', text: 'Various other feeding programs.' },
-  { category: 'health', text: 'Donation of Covid-19 related supplies to medical facilities.' },
-  { category: 'relief', text: 'Donation for Covid-19 relief fund.' },
+  { category: 'health', text: 'Donation of COVID-19-related supplies to medical facilities.' },
+  { category: 'relief', text: 'Donation to the COVID-19 relief fund.' },
   { category: 'community', text: 'Participation in "Dine for Sheger" and "Dine for Ethiopia".' },
-  { category: 'community', text: 'Various many other csr programs.' }
+  { category: 'community', text: 'Various other CSR programs.' }
 ]
 
 const categoryButtons = [
@@ -65,7 +65,7 @@ const filteredInitiatives = computed(() =>
             <div>
               <div class="body-copy space-y-6">
                 <p>
-                  Mohan Group of Companies intrinsically believes that it is our duty to contribute to the well-being and the
+                  At Mohan Group of Companies, we intrinsically believe it is our duty to contribute to the well-being and
                   development of our society. With this in mind, we have embarked on various CSR activities.
                 </p>
                 <p>
@@ -73,7 +73,7 @@ const filteredInitiatives = computed(() =>
                   division within Mohan PLC focused on measurable community impact and long-term social value creation.
                 </p>
                 <p>
-                  Various CSR initiatives have been taken by our organization, which include the following:
+                  Our organization has undertaken various CSR initiatives, including the following:
                 </p>
               </div>
 

@@ -117,13 +117,13 @@ const valicor = [
   {
     letter: 'CO',
     text: 'Compliance',
-    detail: 'We ensure compliance with regards regulatory frameworks, tax, quality, environment, etc.',
+    detail: 'We ensure compliance with regard to regulatory frameworks, tax, quality, environment, and other requirements.',
     tone: 'valicor-tone-c'
   },
   {
     letter: 'R',
     text: 'Relationship',
-    detail: 'Relationship is a fundamental human character that our company optimizes to satisfy all stakeholders.',
+    detail: 'Relationships are fundamental to human character, and our company nurtures them to satisfy all stakeholders.',
     tone: 'valicor-tone-r'
   }
 ]
@@ -131,7 +131,7 @@ const valicor = [
 const previewHighlights = [
   '7 manufacturing units operating',
   '1 trading unit within Ethiopia',
-  '1st ever free trade zone operator in Ethiopia at the Dire Dawa Free Trade Zone'
+  'First-ever free trade zone operator in Ethiopia at the Dire Dawa Free Trade Zone'
 ]
 
 const allProducts = computed(() => productSegments.flatMap((segment) => segment.items))
@@ -217,7 +217,7 @@ onBeforeUnmount(() => {
               <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
                 <p class="text-xs font-semibold uppercase tracking-[0.14em] text-amber-600">Group Scale</p>
                 <p class="mt-2 text-sm leading-7 text-slate-600">
-                  7 manufacturing units operating, 1 trading unit within Ethiopia, and the 1st ever free trade zone
+                  7 manufacturing units operating, 1 trading unit within Ethiopia, and the first-ever free trade zone
                   operator in Ethiopia at the Dire Dawa Free Trade Zone.
                 </p>
               </div>
@@ -240,15 +240,15 @@ onBeforeUnmount(() => {
           <h2 class="section-title">About Us</h2>
           <div class="body-copy mt-8 space-y-6">
             <p>
-              Mayur Suryakant Kothari, the founder of the Mohan Group of Companies started his business with a
+              Mayur Suryakant Kothari, the founder of the Mohan Group of Companies, started his business with a
               small trading firm, which he named Mohan International in fond memory of his late father,
               Mr. Suryakant Chhotalal Kothari, who was popularly known by his nickname, "Mohan". Today, the small
               trading firm has transformed into a group of companies, popularly known as "The Mohan Group of Companies".
             </p>
             <p>
-              The Mohan Group of companies operates 7 manufacturing units and 1 trading unit within Ethiopia. It is
-              also the 1st ever free trade zone operator in Ethiopia at the Dire Dawa Free Trade Zone. The Mohan Group
-              is one of the most respectable and trusted names in polymer and footwear business in Ethiopia.
+              The Mohan Group of Companies operates 7 manufacturing units and 1 trading unit within Ethiopia. It is
+              also the first-ever free trade zone operator in Ethiopia at the Dire Dawa Free Trade Zone. The Mohan Group
+              is one of the most respected and trusted names in the polymer and footwear business in Ethiopia.
             </p>
           </div>
         </template>
@@ -257,7 +257,7 @@ onBeforeUnmount(() => {
           <div class="body-copy mt-8 space-y-6">
             <p>
               Our mission is to provide quality footwear and raw materials to the plastic and rubber industries.
-              Our vision is to be a global player of repute in plastic raw materials and footwear.
+              Our vision is to be a globally reputed player in plastic raw materials and footwear.
             </p>
             <p>
               The success of our business is based on the strategy of VALICOR, an acronym coined to indicate the
@@ -307,9 +307,9 @@ onBeforeUnmount(() => {
         </div>
 
         <p class="mb-8 max-w-4xl text-sm leading-7 text-slate-300 md:text-base">
-          The Mohan Group has 7 manufacturing units operating and 1 trading unit within Ethiopia. It is also the 1st
-          ever free trade zone operator in Ethiopia at the Dire Dawa Free Trade Zone. The group is one of the most
-          respectable and trusted names in polymer and footwear business in Ethiopia.
+          The Mohan Group has 7 manufacturing units operating and 1 trading unit within Ethiopia. It is also the first-ever
+          free trade zone operator in Ethiopia at the Dire Dawa Free Trade Zone. The group is one of the most
+          respected and trusted names in the polymer and footwear business in Ethiopia.
         </p>
 
         <div class="grid gap-6 lg:grid-cols-[1fr_1fr]">
@@ -351,10 +351,15 @@ onBeforeUnmount(() => {
 
         <article data-reveal class="reveal-card surface-card">
           <h4 class="text-2xl font-bold text-slate-900">Head Office Location</h4>
-          <p class="mt-4 text-sm leading-7 text-slate-700">
+          <p class="mt-4 text-center text-sm leading-5 text-slate-700">
             <a :href="headOfficeMapUrl" target="_blank" rel="noopener noreferrer"
-              class="font-semibold text-amber-600 transition hover:text-amber-500">
-              Around Bole Japan Embassy, Addis Ababa, Ethiopia
+              class="inline-block font-semibold text-amber-600 transition hover:text-amber-500">
+              Mohan Group of Companies<br>
+              Mohan Block<br>
+              Mohan Building<br>
+              Woreda 02<br>
+              House No. 393/2<br>
+              Addis Ababa, Ethiopia
             </a>
           </p>
 
@@ -368,7 +373,7 @@ onBeforeUnmount(() => {
               <a href="https://x.com/MohanPlc" target="_blank" rel="noopener" class="muted-pill">X</a>
             </div>
             <p class="mt-6 text-xs text-slate-500">
-              Copyright © Mohan All Right Reserved.
+              Copyright © Mohan. All Rights Reserved.
             </p>
           </div>
         </article>

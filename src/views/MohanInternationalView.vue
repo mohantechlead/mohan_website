@@ -45,7 +45,7 @@ const activeFocusArea = computed(
           <div class="mt-10 grid items-center gap-8 lg:grid-cols-[1.15fr_0.85fr]">
             <div class="body-copy space-y-6">
               <p>
-                Mohan International is synonymous to the supply of plastic raw materials in Ethiopia. It is probably the
+                Mohan International is synonymous with the supply of plastic raw materials in Ethiopia. It is likely the
                 oldest supplier of plastic raw materials in Ethiopia.
               </p>
               <p>
