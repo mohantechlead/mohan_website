@@ -51,31 +51,45 @@ const selectedAdvantage = computed(
           <div class="ddftz-glow ddftz-glow-one"></div>
           <div class="ddftz-glow ddftz-glow-two"></div>
 
-          <div class="relative grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
-            <div>
-              <p class="section-eyebrow">Dire Dawa Free Trade Zone</p>
-              <p class="mt-2 text-sm font-medium text-slate-500">Mohan &gt; DDFTZ Operations</p>
-              <h1 class="section-title mt-4">Mohan PLC's Dire Dawa Free Trade Zone Operations</h1>
+          <div class="relative">
+            <p class="section-eyebrow">Dire Dawa Free Trade Zone</p>
+            <p class="mt-2 text-sm font-medium text-slate-500">Mohan &gt; DDFTZ Operations</p>
+            <h1 class="section-title mt-4">Mohan PLC's Dire Dawa Free Trade Zone Operations</h1>
 
-              <div class="body-copy mt-8 space-y-6">
-                <p class="text-lg font-semibold text-slate-900">
-                  Mohan PLC: Pioneering Ethiopia's Global Trade Frontier
-                </p>
-                <p>
-                  As the first licensed Free Zone Operator in Ethiopia's history, Mohan PLC is at the vanguard of the
-                  nation's industrial evolution. Our landmark operations within the Dire Dawa Free Trade Zone (DDFTZ)
-                  have redefined regional logistics, underscored by our achievement as the first Ethiopian entity to
-                  execute complex merchant trade transactions (third-country international trade).
-                </p>
+            <div class="mt-10 grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch">
+              <div class="flex flex-col gap-6">
+                <div class="body-copy space-y-6">
+                  <p class="text-lg font-semibold text-slate-900">
+                    Mohan PLC: Pioneering Ethiopia's Global Trade Frontier
+                  </p>
+                  <p>
+                    As the first licensed Free Zone Operator in Ethiopia's history, Mohan PLC is at the vanguard of the
+                    nation's industrial evolution. Our landmark operations within the Dire Dawa Free Trade Zone (DDFTZ)
+                    have redefined regional logistics, underscored by our achievement as the first Ethiopian entity to
+                    execute complex merchant trade transactions (third-country international trade).
+                  </p>
+                </div>
+
+                <div class="grid flex-1 gap-4 sm:grid-cols-3 lg:grid-cols-1 lg:auto-rows-fr">
+                  <article
+                    v-for="item in impactHighlights"
+                    :key="item.label"
+                    class="impact-pill flex flex-col justify-center lg:min-h-0"
+                  >
+                    <p class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">{{ item.label }}</p>
+                    <p class="mt-2 text-3xl font-bold text-slate-900">{{ item.value }}</p>
+                    <p class="mt-2 text-sm leading-6 text-slate-600">{{ item.note }}</p>
+                  </article>
+                </div>
               </div>
-            </div>
 
-            <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
-              <article v-for="item in impactHighlights" :key="item.label" class="impact-pill">
-                <p class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">{{ item.label }}</p>
-                <p class="mt-2 text-3xl font-bold text-slate-900">{{ item.value }}</p>
-                <p class="mt-2 text-sm leading-6 text-slate-600">{{ item.note }}</p>
-              </article>
+              <div class="overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-lg">
+                <img
+                  src="/ddftz-1.png"
+                  alt="Dire Dawa Free Trade Zone entrance and facilities"
+                  class="w-full transition duration-500 hover:scale-[1.02]"
+                >
+              </div>
             </div>
           </div>
         </article>
