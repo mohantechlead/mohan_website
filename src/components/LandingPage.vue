@@ -161,6 +161,7 @@ onBeforeUnmount(() => {
           </p>
           <div class="mt-8 flex flex-wrap gap-4">
             <RouterLink to="/about" class="btn-primary">Explore Our Story</RouterLink>
+            <RouterLink to="/presentation" class="btn-secondary">View Presentation</RouterLink>
             <RouterLink to="/news" class="btn-secondary">Latest News</RouterLink>
           </div>
         </div>
@@ -221,10 +222,8 @@ onBeforeUnmount(() => {
                   <h2 class="mt-3 max-w-2xl text-3xl font-bold leading-tight text-white sm:mt-4 md:text-5xl">
                     {{ slides[currentSlide].title }}
                   </h2>
-                  <p
-                    v-if="slides[currentSlide].detail"
-                    class="mt-3 max-w-xl text-sm leading-7 text-slate-200 sm:mt-4 md:max-w-2xl md:text-base"
-                  >
+                  <p v-if="slides[currentSlide].detail"
+                    class="mt-3 max-w-xl text-sm leading-7 text-slate-200 sm:mt-4 md:max-w-2xl md:text-base">
                     {{ slides[currentSlide].detail }}
                   </p>
                   <div class="mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row sm:flex-wrap">
