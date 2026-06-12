@@ -768,7 +768,7 @@ const icons = {
             <h2 class="headline">{{ currentSlide.title }}</h2>
             <p class="lede">{{ currentSlide.subtitle }}</p>
             <div class="qr-close__card">
-              <img :src="currentSlide.qr" alt="QR code — visit mohan-group.com" class="qr-close__code">
+              <img :src="currentSlide.qr" alt="QR code — visit https://www.highlandershoe.com" class="qr-close__code">
               <div class="qr-close__info">
                 <p class="qr-close__scan">Scan to visit</p>
                 <a :href="currentSlide.url" target="_blank" rel="noopener" class="qr-close__link">{{ currentSlide.urlLabel }}</a>
