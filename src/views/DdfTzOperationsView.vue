@@ -34,6 +34,51 @@ const impactHighlights = [
   { label: 'Partner Focus', value: 'Fast', note: 'Lead-time reduction and responsive fulfillment' }
 ]
 
+const facilityPhotos = [
+  {
+    src: '/ddftz/ddftz-gateway-overview.png',
+    alt: 'Dire Dawa Free Trade Zone gateway and facility overview',
+    caption: 'DDFTZ Gateway',
+    description: 'Strategic entry point to our bonded warehouse and yard operations inside the Free Trade Zone.',
+  },
+  {
+    src: '/ddftz/ddftz-warehouse-exterior-yard.png',
+    alt: 'Bonded warehouse exterior at DDFTZ',
+    caption: 'Bonded Warehouses',
+    description: 'Modern stone-and-steel warehouse buildings for duty-free storage of imported raw materials.',
+  },
+  {
+    src: '/ddftz/ddftz-warehouse-interior-stacks.png',
+    alt: 'Warehouse interior with palletised resin stocks',
+    caption: 'Warehouse Interior',
+    description: 'High-capacity interior storage with palletised polymer resin stocks ready for distribution.',
+  },
+  {
+    src: '/ddftz/ddftz-yard-drums-mountains.png',
+    alt: 'Outdoor yard storage with resin drums and bulk sacks',
+    caption: 'Outdoor Yard Storage',
+    description: 'Bulk resin drums and sack storage in the DDFTZ yard for large-volume inventory.',
+  },
+  {
+    src: '/ddftz/ddftz-reachstacker-container.png',
+    alt: 'Reach stacker handling shipping containers at DDFTZ',
+    caption: 'Container Handling',
+    description: 'Heavy-duty reach stackers for Ethiopian Shipping Lines container operations on-site.',
+  },
+  {
+    src: '/ddftz/ddftz-forklift-container.png',
+    alt: 'HELI forklift loading a shipping container',
+    caption: 'Container Loading',
+    description: 'HELI forklift operations for efficient container loading and export preparation.',
+  },
+  {
+    src: '/ddftz/ddftz-forklift-warehouse.png',
+    alt: 'HELI forklift loading warehouse at DDFTZ',
+    caption: 'Warehouse Logistics',
+    description: 'HELI forklift teams managing inbound and outbound movement inside bonded warehouses.',
+  },
+]
+
 const activeAdvantage = ref(strategicAdvantages[0].id)
 
 const selectedAdvantage = computed(
@@ -56,7 +101,7 @@ const selectedAdvantage = computed(
             <p class="mt-2 text-sm font-medium text-slate-500">Mohan &gt; DDFTZ Operations</p>
             <h1 class="section-title mt-4">Mohan PLC's Dire Dawa Free Trade Zone Operations</h1>
 
-            <div class="mt-10 grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch">
+            <div class="mt-10 grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
               <div class="flex flex-col gap-6">
                 <div class="body-copy space-y-6">
                   <p class="text-lg font-semibold text-slate-900">
@@ -83,14 +128,46 @@ const selectedAdvantage = computed(
                 </div>
               </div>
 
-              <div class="overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-lg">
+              <div class="hero-image-wrap overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-lg">
                 <img
-                  src="/ddftz-1.png"
-                  alt="Dire Dawa Free Trade Zone entrance and facilities"
-                  class="w-full transition duration-500 hover:scale-[1.02]"
+                  src="/ddftz/Copilot_20260611_105227.png"
+                  alt="Dire Dawa Free Trade Zone operations overview"
+                  class="hero-image"
                 >
               </div>
             </div>
+          </div>
+        </article>
+
+        <article class="surface-card mt-8">
+          <p class="text-sm font-semibold uppercase tracking-[0.14em] text-amber-600">
+            Facilities &amp; Operations
+          </p>
+          <h2 class="section-title mt-3">Inside Our Dire Dawa Free Trade Zone Hub</h2>
+          <p class="body-copy mt-4 max-w-3xl">
+            Bonded warehousing, outdoor yard storage, and on-site container handling — all managed from our
+            strategic DDFTZ operations base serving manufacturers and traders across Ethiopia.
+          </p>
+
+          <div class="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+            <figure
+              v-for="photo in facilityPhotos"
+              :key="photo.src"
+              class="facility-card group overflow-hidden rounded-2xl border border-slate-200 bg-white"
+            >
+              <div class="aspect-[4/3] overflow-hidden bg-slate-100">
+                <img
+                  :src="photo.src"
+                  :alt="photo.alt"
+                  class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                  loading="lazy"
+                >
+              </div>
+              <figcaption class="p-4">
+                <p class="text-sm font-bold text-slate-900">{{ photo.caption }}</p>
+                <p class="mt-2 text-sm leading-6 text-slate-600">{{ photo.description }}</p>
+              </figcaption>
+            </figure>
           </div>
         </article>
 
@@ -178,12 +255,42 @@ const selectedAdvantage = computed(
   box-shadow: 0 16px 34px -28px rgba(15, 23, 42, 0.8);
 }
 
+.hero-image-wrap {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+}
+
+.hero-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: top center;
+  transition: transform 0.5s ease;
+}
+
+.hero-image-wrap:hover .hero-image {
+  transform: scale(1.02);
+}
+
 .advantage-tab {
   box-shadow: 0 10px 25px -24px rgba(15, 23, 42, 0.75);
 }
 
 .advantage-panel {
   box-shadow: 0 20px 40px -30px rgba(15, 23, 42, 0.7);
+}
+
+.facility-card {
+  box-shadow: 0 16px 34px -28px rgba(15, 23, 42, 0.75);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.facility-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 40px -26px rgba(15, 23, 42, 0.8);
 }
 
 @keyframes floaty {
