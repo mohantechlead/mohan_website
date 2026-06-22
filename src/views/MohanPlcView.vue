@@ -64,7 +64,7 @@ const evaShowcase = [
 
 const pvcShowcase = [
   { src: '/pvc-1.jpg', alt: 'PVC compounds production line' },
-  { src: '/pvc-2.jpg', alt: 'PVC compounds material showcase' }
+  { src: '/pvc-2.png', alt: 'PVC compounds material showcase' }
 ]
 
 const footwearShowcase = [
