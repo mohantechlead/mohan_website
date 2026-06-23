@@ -8,6 +8,8 @@ const props = defineProps({
   slide: { type: Object, required: true }
 })
 
+const isLightSlice = (color) => /^#?(fff|ffffff)$/i.test(color.replace(/\s/g, ''))
+
 const buildDonut = (segments) => {
   const total = segments.reduce((s, x) => s + x.value, 0)
   const cx = 21
@@ -28,6 +30,7 @@ const buildDonut = (segments) => {
         pct: rounded,
         labelX: cx + ringR * Math.sin(angle),
         labelY: cy - ringR * Math.cos(angle),
+        labelLight: isLightSlice(seg.color),
         showLabel: pct >= 3
       }
       offset += pct
@@ -167,18 +170,18 @@ const isStaticPhoto = (slide, img) => Boolean(slide.staticPhotos || img.static)
         <div class="ppp-pie-row">
           <div class="donut">
             <svg viewBox="0 0 42 42" class="donut__svg">
-              <circle cx="21" cy="21" r="15.9" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="4" />
+              <circle cx="21" cy="21" r="15.9" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="9" />
               <circle v-for="(s, i) in d.segments" :key="s.label" cx="21" cy="21" r="15.9" fill="none" :stroke="s.color"
-                stroke-width="4" :stroke-dasharray="s.dash" :stroke-dashoffset="25 - s.offset" class="donut__seg"
+                stroke-width="9" :stroke-dasharray="s.dash" :stroke-dashoffset="25 - s.offset" class="donut__seg"
                 :style="{ animationDelay: `${i * 0.08}s` }" />
               <text v-for="s in d.segments" v-show="s.showLabel" :key="`${s.label}-lbl`" :x="s.labelX" :y="s.labelY"
-                class="donut__label" :class="{ 'donut__label--sm': s.pct < 8 }" text-anchor="middle"
-                dominant-baseline="central" alignment-baseline="central">{{ s.pct }}%</text>
+                class="donut__label" :class="{ 'donut__label--sm': s.pct < 8, 'donut__label--dark': s.labelLight }"
+                text-anchor="middle" dominant-baseline="central" alignment-baseline="central">{{ s.pct }}%</text>
             </svg>
           </div>
           <ul class="legend legend--pie">
             <li v-for="s in d.segments" :key="s.label">
-              <i :style="{ background: s.color }"></i>
+              <i :style="{ background: s.color, border: s.labelLight ? '1px solid #888888' : undefined }"></i>
               <span class="legend__text">{{ s.label }} <b>{{ s.pct }}%</b></span>
             </li>
           </ul>
@@ -231,9 +234,15 @@ const isStaticPhoto = (slide, img) => Boolean(slide.staticPhotos || img.static)
   <!-- Feature split -->
   <div v-else-if="slide.type === 'feature-split'" class="ppp ppp-panel ppp-panel--feature">
     <h2 class="ppp-headline">{{ slide.title }}</h2>
-    <div class="ppp-feature">
-      <figure class="ppp-feature__img" :class="imgAnimClass(0, 'slide-left')">
-        <img :src="slide.image" :alt="slide.title" :class="imgLiveClass(0)">
+    <div class="ppp-feature" :class="{ 'ppp-feature--duo': slide.images?.length }">
+      <figure class="ppp-feature__img" :class="[imgAnimClass(0, 'slide-left'), { 'ppp-feature__img--duo': slide.images?.length }]">
+        <template v-if="slide.images?.length">
+          <div v-for="(img, ii) in slide.images" :key="img.src" class="ppp-feature__duo-item">
+            <img :src="img.src" :alt="img.caption || slide.title" class="ppp-feature__duo-img"
+              :style="{ objectFit: 'contain', objectPosition: img.objectPosition || 'center center' }">
+          </div>
+        </template>
+        <img v-else :src="slide.image" :alt="slide.title" :class="imgLiveClass(0)">
       </figure>
       <div class="ppp-feature__list">
         <article v-for="(f, i) in slide.features" :key="f.title" class="ppp-feature__item" :style="imgDelay(i)">
@@ -282,6 +291,43 @@ const isStaticPhoto = (slide, img) => Boolean(slide.staticPhotos || img.static)
     <p class="ppp-footer" :class="{ 'ppp-footer--panel': slide.largePhotos }">{{ presentationMeta.footer }}</p>
   </div>
 
+  <!-- Portfolio + industries merged -->
+  <div v-else-if="slide.type === 'portfolio-industries'" class="ppp ppp-panel ppp-panel--portfolio"
+    :class="{ 'ppp-panel--resin-bg': slide.background }">
+    <img v-if="slide.background" :src="slide.background" alt="" class="ppp-slide-bg">
+    <div v-if="slide.background" class="ppp-slide-bg-overlay"></div>
+    <div class="ppp-panel__content">
+      <h2 class="ppp-headline ppp-resin-title">{{ slide.title }}</h2>
+      <div class="ppp-resin-grid ppp-portfolio-resins">
+        <article v-for="(r, i) in slide.resins" :key="r.code" class="ppp-resin-card" :style="imgDelay(i)">
+          <div class="ppp-resin-card__media">
+            <img v-if="r.image" :src="r.image" :alt="r.code" class="ppp-resin-card__thumb"
+              :style="r.objectPosition ? { objectPosition: r.objectPosition } : undefined">
+          </div>
+          <div class="ppp-resin-card__body">
+            <strong>{{ r.code }}</strong>
+            <em>{{ r.name }}</em>
+            <span>{{ r.uses }}</span>
+          </div>
+        </article>
+      </div>
+      <p class="ppp-portfolio-section-label">{{ slide.industriesTitle }}</p>
+      <div class="ppp-industry-grid ppp-portfolio-industries">
+        <article v-for="(item, i) in slide.items" :key="item.title" class="ppp-industry-card" :style="imgDelay(i)">
+          <figure class="ppp-industry-card__figure">
+            <img :src="item.image" :alt="item.title" class="ppp-industry-card__img">
+          </figure>
+          <div class="ppp-industry-card__text">
+            <strong>{{ item.title }}</strong>
+            <span>{{ item.detail }}</span>
+          </div>
+        </article>
+      </div>
+      <p class="ppp-footnote ppp-resin-footnote">{{ slide.footnote }}</p>
+      <p class="ppp-footer ppp-footer--panel">{{ presentationMeta.footer }}</p>
+    </div>
+  </div>
+
   <!-- Resin grid -->
   <div v-else-if="slide.type === 'resin-grid'" class="ppp ppp-panel"
     :class="{ 'ppp-panel--resin-bg': slide.background }">
@@ -317,9 +363,7 @@ const isStaticPhoto = (slide, img) => Boolean(slide.staticPhotos || img.static)
       </figure>
       <div class="ppp-masterbatch__colors">
         <div v-for="(c, i) in slide.colors" :key="c" class="ppp-color-swatch"
-          :style="{ background: slide.colorHex[c], animationDelay: `${i * 0.08}s` }">
-          {{ c }}
-        </div>
+          :style="{ background: slide.colorHex[c], animationDelay: `${i * 0.08}s` }" :title="c" :aria-label="c"></div>
         <p class="ppp-note">{{ slide.note }}</p>
       </div>
     </div>
@@ -934,6 +978,11 @@ const isStaticPhoto = (slide, img) => Boolean(slide.staticPhotos || img.static)
   font-size: 2.15px;
 }
 
+.donut__label--dark {
+  fill: #080600;
+  stroke: rgba(255, 255, 255, 0.45);
+}
+
 .legend {
   margin-top: 0.65rem;
   display: grid;
@@ -1228,6 +1277,10 @@ const isStaticPhoto = (slide, img) => Boolean(slide.staticPhotos || img.static)
     grid-template-columns: 1fr 1fr;
     align-items: stretch;
   }
+
+  .ppp-feature--duo {
+    grid-template-columns: 0.95fr 1.05fr;
+  }
 }
 
 .ppp-panel--feature .ppp-feature__img {
@@ -1245,6 +1298,15 @@ const isStaticPhoto = (slide, img) => Boolean(slide.staticPhotos || img.static)
   border: 1px solid rgba(200, 160, 32, 0.2);
 }
 
+.ppp-feature__img--duo {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem;
+  background: rgba(0, 0, 0, 0.2);
+}
+
 .ppp-panel--feature .ppp-feature__img img {
   width: 100%;
   height: 100%;
@@ -1253,6 +1315,36 @@ const isStaticPhoto = (slide, img) => Boolean(slide.staticPhotos || img.static)
   object-fit: cover;
   object-position: center center;
   display: block;
+}
+
+.ppp-feature__duo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 0;
+  width: 92%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(200, 160, 32, 0.25);
+  border-radius: 0.45rem;
+  overflow: hidden;
+}
+
+.ppp-panel--feature .ppp-feature__duo-img {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: contain;
+  object-position: center center;
+  background: rgba(0, 0, 0, 0.48);
+  border-radius: 0.45rem;
+}
+
+.ppp-panel--feature .ppp-feature--duo .ppp-feature__img {
+  max-height: min(460px, 58vh);
+  width: 100%;
+  max-width: 90%;
+  justify-self: center;
 }
 
 .ppp-feature__img img {
@@ -1594,6 +1686,77 @@ const isStaticPhoto = (slide, img) => Boolean(slide.staticPhotos || img.static)
   line-height: 1.35;
 }
 
+/* Merged portfolio + industries slide */
+.ppp-panel--portfolio {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  padding-bottom: 0;
+}
+
+.ppp.ppp-panel--portfolio {
+  overflow: hidden;
+}
+
+.ppp-panel--portfolio .ppp-panel__content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: clamp(0.75rem, 1.5vh, 1.1rem) clamp(1rem, 2vw, 1.5rem) 0;
+}
+
+.ppp-panel--portfolio .ppp-resin-title {
+  flex-shrink: 0;
+  font-size: clamp(1.05rem, 2.2vw, 1.55rem);
+  margin-bottom: 0.35rem;
+}
+
+.ppp-portfolio-resins {
+  flex-shrink: 0;
+  margin-top: 0;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 0.45rem;
+}
+
+@media (min-width: 768px) {
+  .ppp-panel--portfolio .ppp-portfolio-resins {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+
+.ppp-portfolio-section-label {
+  flex-shrink: 0;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0.45rem 0 0.3rem;
+}
+
+.ppp-portfolio-industries {
+  flex: 1 1 auto;
+  min-height: 0;
+  margin-top: 0;
+  align-content: start;
+}
+
+@media (min-width: 768px) {
+  .ppp-panel--portfolio .ppp-portfolio-industries {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.ppp-panel--portfolio .ppp-resin-footnote {
+  font-size: 0.72rem;
+  margin-top: 0.4rem;
+}
+
 .ppp-resin-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1692,23 +1855,23 @@ const isStaticPhoto = (slide, img) => Boolean(slide.staticPhotos || img.static)
 
 .ppp-masterbatch__colors {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.55rem;
+  grid-template-columns: repeat(auto-fit, minmax(2.25rem, 1fr));
+  gap: 0.45rem;
+  align-items: start;
 }
 
 .ppp-color-swatch {
-  padding: 1.25rem 0.5rem;
-  border-radius: 0.65rem;
-  text-align: center;
-  font-size: 0.72rem;
-  font-weight: 800;
-  color: #080600;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  min-height: 2.25rem;
+  border-radius: 0.45rem;
   animation: rise 0.45s ease both;
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.ppp-color-swatch:nth-child(5) {
-  color: #333;
+.ppp-note {
+  grid-column: 1 / -1;
+  margin-top: 0.25rem;
 }
 
 /* Industry grid */

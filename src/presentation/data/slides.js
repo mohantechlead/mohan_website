@@ -124,20 +124,20 @@ export const slides = [
         title: "By End-Use Application",
         segments: [
           { label: "Packaging", value: 54, color: "#C8A020" },
-          { label: "Construction", value: 16, color: "#F0D060" },
-          { label: "Automotive", value: 6, color: "#8A6D10" },
-          { label: "Electrical & Telecom", value: 3, color: "#CCCCCC" },
-          { label: "Other", value: 21, color: "#444000" },
+          { label: "Construction", value: 16, color: "#3B82F6" },
+          { label: "Automotive", value: 6, color: "#F97316" },
+          { label: "Electrical & Telecom", value: 3, color: "#FFFFFF" },
+          { label: "Other", value: 21, color: "#22C55E" },
         ],
       },
       {
         title: "By Processing Method",
         segments: [
           { label: "Extrusion", value: 49, color: "#C8A020" },
-          { label: "Injection Moulding", value: 24, color: "#F0D060" },
-          { label: "PET / Stretch Blow", value: 13, color: "#8A6D10" },
-          { label: "Blow Moulding", value: 7, color: "#CCCCCC" },
-          { label: "Other", value: 7, color: "#444000" },
+          { label: "Injection Moulding", value: 24, color: "#3B82F6" },
+          { label: "PET / Stretch Blow", value: 13, color: "#F97316" },
+          { label: "Blow Moulding", value: 7, color: "#FFFFFF" },
+          { label: "Other", value: 7, color: "#22C55E" },
         ],
       },
     ],
@@ -191,7 +191,7 @@ export const slides = [
     image: "/ddftz/ddftz-gateway-overview.png",
     features: [
       {
-        title: "Bonded Warehouse Facility",
+        title: "Warehouse Facility",
         detail: "100% duty-free storage for imported raw materials",
       },
       {
@@ -217,13 +217,13 @@ export const slides = [
     type: "photo-duo",
     section: "ddftz",
     largePhotos: true,
-    title: "Bonded Warehouse Facilities",
+    title: "Warehouse Facilities",
     subtitle:
       "Modern warehouses with stone-and-steel construction inside Dire Dawa Free Trade Zone",
     images: [
       {
         src: "/ddftz/ddftz-warehouse-exterior-yard.png",
-        caption: "Warehouse exterior — bonded storage buildings",
+        caption: "Warehouse exterior — storage buildings",
         objectPosition: "center center",
       },
       {
@@ -249,7 +249,7 @@ export const slides = [
       },
       {
         src: "/ddftz/ddftz-forklift-warehouse.png",
-        caption: "Warehouse loading — HELI forklift operations",
+        caption: "Warehouse loading forklift operations",
         objectPosition: "center center",
         static: true,
       },
@@ -263,7 +263,7 @@ export const slides = [
     staticPhotos: true,
     title: "Operations & Logistics at DDFTZ",
     subtitle:
-      "Reach stackers for container operations · HELI forklifts for warehouse management · Ethiopian carrier partnerships",
+      "Reach stackers for container operations. Forklifts for warehouse management · Ethiopian carrier partnerships",
     images: [
       {
         src: "/ddftz/ddftz-reachstacker-container.png",
@@ -271,18 +271,19 @@ export const slides = [
       },
       {
         src: "/ddftz/ddftz-forklift-container.png",
-        caption: "HELI forklift — container loading operations",
+        caption: "Forklift container loading operations",
       },
     ],
   },
   {
-    id: "resin-portfolio",
-    type: "resin-grid",
+    id: "portfolio-industries",
+    type: "portfolio-industries",
     section: "products",
-    title: "Our Plastic Raw Material Portfolio",
+    title: "Application For Raw Materials We Supply",
     background: "/ddftz/granules-bg.png",
+    resinsTitle: "Plastic Raw Material Portfolio",
     footnote:
-      "100% import-dependent · Sourced from Middle East, Asia & Europe · Supplied direct from our DDFTZ bonded warehouse",
+      "100% import-dependent · Sourced from Middle East, Asia & Europe · Supplied direct from our DDFTZ warehouse",
     resins: [
       {
         code: "HDPE",
@@ -325,46 +326,7 @@ export const slides = [
         image: "/products/pet.png",
         objectPosition: "center center",
       },
-      {
-        code: "EVA",
-        name: "Ethylene Vinyl Acetate",
-        uses: "Footwear soles, foam products",
-        image: "/products/eva1.png",
-        objectPosition: "center center",
-      },
-      {
-        code: "Masterbatch",
-        name: "Color & Additive Compounds",
-        uses: "All standard colors & special grades",
-        image: "/products/masterbatch.png",
-        objectPosition: "center center",
-        contain: true,
-      },
     ],
-  },
-  {
-    id: "masterbatch",
-    type: "masterbatch-colors",
-    section: "products",
-    title: "Color Masterbatches",
-    subtitle:
-      "Enhancing your products with vibrant, consistent color solutions",
-    image: "/ddftz/granules-1.png",
-    colors: ["YELLOW", "RED", "GREEN", "BLUE", "WHITE"],
-    colorHex: {
-      YELLOW: "#FFC000",
-      RED: "#ED7D31",
-      GREEN: "#70AD47",
-      BLUE: "#4472C4",
-      WHITE: "#E7E6E6",
-    },
-    note: "Also available: Black, Orange, Brown, Purple, custom shades & functional additive masterbatches",
-  },
-  {
-    id: "industries",
-    type: "industry-grid",
-    section: "products",
-    title: "Plastics Powering Ethiopia's Industries",
     items: [
       {
         title: "Plastic Chairs",
@@ -377,19 +339,9 @@ export const slides = [
         image: "/products/storagedrums.png",
       },
       {
-        title: "Jerrycans",
-        detail: "Water & fuel containers",
-        image: "/products/HDPE.png",
-      },
-      {
         title: "FMCG Packaging",
         detail: "Bottles, tubs & sachets",
         image: "/products/bottles.png",
-      },
-      {
-        title: "Shrink Packaging",
-        detail: "Film wrapping for beverages",
-        image: "/products/ldpe.png",
       },
       {
         title: "Milk Packaging",
@@ -397,21 +349,117 @@ export const slides = [
         image: "/products/milkbottle.png",
       },
       {
-        title: "Beverage Crates",
-        detail: "PP injection-moulded crates",
-        image: "/products/molding.png",
-      },
-      {
         title: "PVC Cables",
         detail: "PVC-coated electrical cables",
         image: "/products/pvccables.png",
       },
+    ],
+  },
+  {
+    id: "eva-compound",
+    type: "feature-split",
+    section: "products",
+    title: "EVA Compounds",
+    images: [
       {
-        title: "EVA & PVC Footwear",
-        detail: "Soles, slippers & sandals",
-        image: "/pvc-2.png",
+        src: "/products/eva1.png",
+        caption: "EVA compound material",
+        objectPosition: "center center",
+      },
+      {
+        src: "/products/eva2.png",
+        caption: "EVA compound granules",
+        objectPosition: "center center",
       },
     ],
+    features: [
+      {
+        title: "Footwear Industry Focus",
+        detail:
+          "High-quality foamed injection-moulded slippers, sandals, midsoles, boots, and footwear components across Ethiopia.",
+      },
+      {
+        title: "Expandable & Cross-Linkable",
+        detail:
+          "Modified with rubber, thermoplastic elastomers, and impact modifiers for enhanced mechanical and processing qualities.",
+      },
+      {
+        title: "Premium Raw Materials",
+        detail:
+          "Internationally sourced inputs from well-known suppliers to ensure the highest quality standards.",
+      },
+      {
+        title: "Custom Grades & Support",
+        detail:
+          "Tailored formulations and technical support so customers achieve the best results from our compounds.",
+      },
+      {
+        title: "Beyond Footwear",
+        detail:
+          "Also suitable for automobile components, toys, foam products, and specialty industrial applications.",
+      },
+    ],
+  },
+  {
+    id: "masterbatch",
+    type: "masterbatch-colors",
+    section: "products",
+    title: "Color Masterbatches",
+    subtitle: "A variety of colors, options, and shades are available.",
+    image: "/ddftz/granules-1.png",
+    colors: [
+      "YELLOW",
+      "RED",
+      "GREEN",
+      "BLUE",
+      "WHITE",
+      "BLACK",
+      "ORANGE",
+      "BROWN",
+      "PURPLE",
+      "GREY",
+      "SKY",
+      "LIME",
+      "PINK",
+      "TEAL",
+      "NAVY",
+      "MAROON",
+      "OLIVE",
+      "CYAN",
+      "MAGENTA",
+      "GOLD",
+      "SILVER",
+      "VIOLET",
+      "BEIGE",
+      "MINT",
+    ],
+    colorHex: {
+      YELLOW: "#FFC000",
+      RED: "#ED7D31",
+      GREEN: "#70AD47",
+      BLUE: "#4472C4",
+      WHITE: "#E7E6E6",
+      BLACK: "#1A1A1A",
+      ORANGE: "#F39C12",
+      BROWN: "#8B5A2B",
+      PURPLE: "#8E44AD",
+      GREY: "#9CA3AF",
+      SKY: "#38BDF8",
+      LIME: "#A3E635",
+      PINK: "#EC4899",
+      TEAL: "#14B8A6",
+      NAVY: "#1E3A8A",
+      MAROON: "#7F1D1D",
+      OLIVE: "#6B8E23",
+      CYAN: "#06B6D4",
+      MAGENTA: "#D946EF",
+      GOLD: "#D4AF37",
+      SILVER: "#C0C0C0",
+      VIOLET: "#7C3AED",
+      BEIGE: "#D6C6A5",
+      MINT: "#6EE7B7",
+    },
+    note: "",
   },
   {
     id: "thank-you",

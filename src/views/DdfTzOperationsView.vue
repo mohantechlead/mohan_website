@@ -39,12 +39,12 @@ const facilityPhotos = [
     src: '/ddftz/ddftz-gateway-overview.png',
     alt: 'Dire Dawa Free Trade Zone gateway and facility overview',
     caption: 'DDFTZ Gateway',
-    description: 'Strategic entry point to our bonded warehouse and yard operations inside the Free Trade Zone.',
+    description: 'Strategic entry point to our warehouse and yard operations inside the Free Trade Zone.',
   },
   {
     src: '/ddftz/ddftz-warehouse-exterior-yard.png',
-    alt: 'Bonded warehouse exterior at DDFTZ',
-    caption: 'Bonded Warehouses',
+    alt: 'warehouse exterior at DDFTZ',
+    caption: 'Warehouses',
     description: 'Modern stone-and-steel warehouse buildings for duty-free storage of imported raw materials.',
   },
   {
@@ -67,15 +67,15 @@ const facilityPhotos = [
   },
   {
     src: '/ddftz/ddftz-forklift-container.png',
-    alt: 'HELI forklift loading a shipping container',
+    alt: 'Forklift loading a shipping container',
     caption: 'Container Loading',
-    description: 'HELI forklift operations for efficient container loading and export preparation.',
+    description: 'Forklift operations for efficient container loading and export preparation.',
   },
   {
     src: '/ddftz/ddftz-forklift-warehouse.png',
-    alt: 'HELI forklift loading warehouse at DDFTZ',
+    alt: 'Forklift loading warehouse at DDFTZ',
     caption: 'Warehouse Logistics',
-    description: 'HELI forklift teams managing inbound and outbound movement inside bonded warehouses.',
+    description: 'Forklift teams managing inbound and outbound movement inside warehouses.',
   },
 ]
 
@@ -116,11 +116,8 @@ const selectedAdvantage = computed(
                 </div>
 
                 <div class="grid flex-1 gap-4 sm:grid-cols-3 lg:grid-cols-1 lg:auto-rows-fr">
-                  <article
-                    v-for="item in impactHighlights"
-                    :key="item.label"
-                    class="impact-pill flex flex-col justify-center lg:min-h-0"
-                  >
+                  <article v-for="item in impactHighlights" :key="item.label"
+                    class="impact-pill flex flex-col justify-center lg:min-h-0">
                     <p class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">{{ item.label }}</p>
                     <p class="mt-2 text-3xl font-bold text-slate-900">{{ item.value }}</p>
                     <p class="mt-2 text-sm leading-6 text-slate-600">{{ item.note }}</p>
@@ -129,11 +126,8 @@ const selectedAdvantage = computed(
               </div>
 
               <div class="hero-image-wrap overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-lg">
-                <img
-                  src="/ddftz/Copilot_20260611_105227.png"
-                  alt="Dire Dawa Free Trade Zone operations overview"
-                  class="hero-image"
-                >
+                <img src="/ddftz/Copilot_20260611_105227.png" alt="Dire Dawa Free Trade Zone operations overview"
+                  class="hero-image">
               </div>
             </div>
           </div>
@@ -145,23 +139,16 @@ const selectedAdvantage = computed(
           </p>
           <h2 class="section-title mt-3">Inside Our Dire Dawa Free Trade Zone Hub</h2>
           <p class="body-copy mt-4 max-w-3xl">
-            Bonded warehousing, outdoor yard storage, and on-site container handling — all managed from our
+            warehousing, outdoor yard storage, and on-site container handling — all managed from our
             strategic DDFTZ operations base serving manufacturers and traders across Ethiopia.
           </p>
 
           <div class="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
-            <figure
-              v-for="photo in facilityPhotos"
-              :key="photo.src"
-              class="facility-card group overflow-hidden rounded-2xl border border-slate-200 bg-white"
-            >
+            <figure v-for="photo in facilityPhotos" :key="photo.src"
+              class="facility-card group overflow-hidden rounded-2xl border border-slate-200 bg-white">
               <div class="aspect-[4/3] overflow-hidden bg-slate-100">
-                <img
-                  :src="photo.src"
-                  :alt="photo.alt"
-                  class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
-                  loading="lazy"
-                >
+                <img :src="photo.src" :alt="photo.alt"
+                  class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]" loading="lazy">
               </div>
               <figcaption class="p-4">
                 <p class="text-sm font-bold text-slate-900">{{ photo.caption }}</p>
