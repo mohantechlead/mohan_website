@@ -21,6 +21,21 @@ export const slides = [
     event: "plastprintpack Ethiopia 2026 · 25–27 June · AICC Addis Ababa",
   },
   {
+    id: "our-story",
+    type: "story-split",
+    section: "intro",
+    title: "Mohan Group — Our Story",
+    image: "/CEO_Mohan.jpg",
+    name: "Mr. Mayur Kothari",
+    role: "Founder & Chairman",
+    company: "Mohan Group of Companies",
+    paragraphs: [
+      'Founded in Addis Ababa, the Mohan Group was established in memory of the late Mr. Suryakant "Mohan" Kothari.',
+      "Starting as a small trading firm, the Group has grown into Ethiopia's most trusted name in polymer raw materials, footwear, and packaging.",
+      "Today, 7+ manufacturing units and a state-of-the-art Dire Dawa Free Trade Zone hub serve customers across all regions of Ethiopia.",
+    ],
+  },
+  {
     id: "ethiopia-growth",
     type: "stat-grid",
     section: "intro",
@@ -36,6 +51,7 @@ export const slides = [
         value: "#1",
         label: "Fastest Growing Economy",
         sub: "in East & Central Africa",
+        sub2: "and the 1st operator in DDFTZ",
       },
       { value: "2nd", label: "Most Populous Nation", sub: "in Africa" },
     ],
@@ -141,21 +157,6 @@ export const slides = [
           { label: "Other", value: 7, color: "#22C55E" },
         ],
       },
-    ],
-  },
-  {
-    id: "our-story",
-    type: "story-split",
-    section: "intro",
-    title: "Mohan Group — Our Story",
-    image: "/CEO_Mohan.jpg",
-    name: "Mr. Mayur Kothari",
-    role: "Founder & Chairman",
-    company: "Mohan Group of Companies",
-    paragraphs: [
-      'Founded in Addis Ababa, the Mohan Group was established in memory of the late Mr. Suryakant "Mohan" Kothari.',
-      "Starting as a small trading firm, the Group has grown into Ethiopia's most trusted name in polymer raw materials, footwear, and packaging.",
-      "Today, 7+ manufacturing units and a state-of-the-art Dire Dawa Free Trade Zone hub serve customers across all regions of Ethiopia.",
     ],
   },
   {
@@ -346,7 +347,7 @@ export const slides = [
         heading: "LDPE / LLDPE / Exceed",
         items: [
           {
-            title: "Shrink Packs",
+            title: "Blown Films",
             detail: "Film wraps for multipack products",
             image: "/products/ldpe.png",
           },
@@ -361,9 +362,9 @@ export const slides = [
             image: "/products/Ziplock.png",
           },
           {
-            title: "Baskets",
-            detail: "Flexible and rigid household baskets",
-            image: "/products/Baskets.png",
+            title: "Shrink Pacs",
+            detail: "Shrink film wraps for multipack products",
+            image: "/products/shrinkpacks.png",
           },
         ],
       },

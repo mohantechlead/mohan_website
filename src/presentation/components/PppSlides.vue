@@ -95,6 +95,7 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
         <strong>{{ s.value }}</strong>
         <span>{{ s.label }}</span>
         <em v-if="s.sub">{{ s.sub }}</em>
+        <em v-if="s.sub2">{{ s.sub2 }}</em>
       </article>
     </div>
     <p class="ppp-source">{{ slide.source }}</p>
@@ -2030,6 +2031,7 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 .ppp-apps-4x4__card {
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
   min-height: 0;
   border-radius: 0.45rem;
   overflow: hidden;
@@ -2041,15 +2043,19 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 .ppp-apps-4x4__figure {
   margin: 0;
   height: min(82px, 8.8vh);
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0.26rem 0.34rem;
+  overflow: hidden;
 }
 
 .ppp-apps-4x4__img {
-  width: max-content;
-  height: 147%;
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
   object-fit: contain;
   border-radius: 0.32rem;
 }
@@ -2058,10 +2064,14 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
   margin: 0;
   padding: 0.3rem 0.42rem 0.42rem;
   text-align: center;
-  min-height: 4.4em;
+  min-height: 0;
+  flex-shrink: 0;
   display: grid;
   gap: 0.2rem;
   align-content: start;
+  position: relative;
+  z-index: 1;
+  background: #0f0d08;
 }
 
 .ppp-apps-4x4__label strong {
@@ -2072,6 +2082,7 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 }
 
 .ppp-apps-4x4__label span {
+  display: block;
   font-size: 0.6rem;
   color: #efe7cf;
   line-height: 1.25;
