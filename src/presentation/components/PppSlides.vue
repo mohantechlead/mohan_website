@@ -240,8 +240,15 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
         'ppp-feature__img--multi': slide.images?.length > 1,
         'ppp-feature__img--pair': slide.images?.length === 2,
         'ppp-feature__img--quad-fit': slide.quadImageFit,
+        'ppp-feature__img--pent-fit': slide.pentImageFit,
       }]">
-        <div v-if="slide.images?.length >= 4" class="ppp-feature__quad-grid">
+        <div v-if="slide.pentImageFit && slide.images?.length >= 5" class="ppp-feature__pent-grid">
+          <div v-for="(img, ii) in slide.images" :key="img.src" class="ppp-feature__pent-cell">
+            <img :src="img.src" :alt="img.caption || slide.title" class="ppp-feature__pent-img"
+              :style="{ objectPosition: img.objectPosition || 'center center' }">
+          </div>
+        </div>
+        <div v-else-if="slide.images?.length >= 4" class="ppp-feature__quad-grid">
           <div v-for="(img, ii) in slide.images" :key="img.src" class="ppp-feature__quad-cell">
             <img :src="img.src" :alt="img.caption || slide.title" class="ppp-feature__quad-img"
               :style="{ objectPosition: img.objectPosition || 'center center' }">
@@ -1350,6 +1357,73 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
   background: rgba(0, 0, 0, 0.2);
 }
 
+.ppp-feature__pent-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-rows: 1.05fr 1fr;
+  gap: 0.35rem;
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  min-height: min(460px, 54vh);
+  padding: 0.35rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 0.65rem;
+}
+
+.ppp-feature__pent-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 0;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(200, 160, 32, 0.25);
+  border-radius: 0.45rem;
+  overflow: hidden;
+}
+
+.ppp-feature__pent-cell:nth-child(1) {
+  grid-column: 1 / 4;
+  grid-row: 1;
+}
+
+.ppp-feature__pent-cell:nth-child(2) {
+  grid-column: 4 / 7;
+  grid-row: 1;
+}
+
+.ppp-feature__pent-cell:nth-child(3) {
+  grid-column: 1 / 3;
+  grid-row: 2;
+}
+
+.ppp-feature__pent-cell:nth-child(4) {
+  grid-column: 3 / 5;
+  grid-row: 2;
+}
+
+.ppp-feature__pent-cell:nth-child(5) {
+  grid-column: 5 / 7;
+  grid-row: 2;
+}
+
+.ppp-feature__pent-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  background: rgba(0, 0, 0, 0.48);
+  display: block;
+}
+
+.ppp-panel--feature .ppp-feature__img--pent-fit .ppp-feature__pent-img {
+  width: 88%;
+  height: 94%;
+  background: none;
+  object-fit: contain;
+}
+
 .ppp-feature__quad-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1946,7 +2020,7 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
   background: rgba(200, 160, 32, 0.12);
   border: 1px solid rgba(200, 160, 32, 0.35);
   color: var(--gold-light);
-  font-size: 0.72rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.03em;
   text-transform: uppercase;

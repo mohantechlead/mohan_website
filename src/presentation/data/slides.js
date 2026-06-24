@@ -398,7 +398,7 @@ export const slides = [
     id: "eva-compound",
     type: "feature-split",
     section: "products",
-    title: "EVA Compounds",
+    title: "We Produce: EVA Compounds",
     images: [
       {
         src: "/products/eva1.png",
@@ -453,8 +453,19 @@ export const slides = [
     id: "pvc-compound",
     type: "feature-split",
     section: "products",
-    title: "PVC Compounds",
+    title: "We Produce: PVC Compounds",
+    pentImageFit: true,
     images: [
+      {
+        src: "/products/transparent-pvc-granules.png",
+        caption: "Transparent PVC granules",
+        objectPosition: "center center",
+      },
+      {
+        src: "/products/blue-pvc-granules.png",
+        caption: "Blue PVC granules",
+        objectPosition: "center center",
+      },
       {
         src: "/pvc-2.png",
         caption: "PVC boots and footwear",
@@ -503,7 +514,7 @@ export const slides = [
     id: "rubber-compound",
     type: "feature-split",
     section: "products",
-    title: "Rubber Compound | Endure | TPR Compounds",
+    title: "We Produce: Rubber Compound | Endure | TPR Compounds",
     image: "/products/rubbercompound.png",
     features: [
       {
@@ -541,7 +552,7 @@ export const slides = [
     id: "filler-masterbatch",
     type: "feature-split",
     section: "products",
-    title: "Filler Masterbatches",
+    title: "We Produce: Filler Masterbatches",
     quadImageFit: true,
     images: [
       {
@@ -601,7 +612,7 @@ export const slides = [
     id: "masterbatch",
     type: "masterbatch-colors",
     section: "products",
-    title: "Color Masterbatches",
+    title: "We Produce: Color Masterbatches",
     subtitle: "A variety of colors, options, and shades are available.",
     images: [
       {

@@ -85,8 +85,8 @@ onBeforeUnmount(() => {
         <div class="deck__brand-text">
           <span class="deck__meta">{{ presentationMeta.subtitle }}</span>
           <span class="deck__title">{{ presentationMeta.title }}</span>
+    </div>
         </div>
-      </div>
       <div class="deck__actions">
         <span v-if="sectionLabel" class="deck__section-pill" :class="`deck__section-pill--${currentSlide.section}`">
           {{ sectionLabel }}
