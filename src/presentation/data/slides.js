@@ -567,7 +567,7 @@ export const slides = [
         objectPosition: "center center",
       },
       {
-        src: "/products/ldpe.png",
+        src: "/products/filler.png",
         caption: "Blown film extrusion",
         objectPosition: "center center",
       },
