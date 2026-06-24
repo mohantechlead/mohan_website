@@ -114,6 +114,7 @@ export const slides = [
   {
     id: "plastics-use",
     type: "ppp-dual-pie",
+    hidden: true,
     section: "intro",
     title: "How Ethiopia Uses Plastics — 2024",
     source: "Source: EUROMAP 2025",
@@ -173,13 +174,16 @@ export const slides = [
       "LDPE",
       "LLDPE",
       "PP",
+      "PVC Compound",
       "PVC",
       "PET",
-      "EVA",
+      "EVA Compound",
+      "Color Masterbatch",
       "PS",
       "ABS",
       "Masterbatch",
       "Additives",
+      "Filler Compound",
       "Fillers",
     ],
   },
@@ -218,8 +222,7 @@ export const slides = [
     section: "ddftz",
     largePhotos: true,
     title: "Warehouse Facilities",
-    subtitle:
-      "Modern warehouses with stone-and-steel construction inside Dire Dawa Free Trade Zone",
+    subtitle: "Modern warehouses constructed inside Dire Dawa Free Trade Zone",
     images: [
       {
         src: "/ddftz/ddftz-warehouse-exterior-yard.png",
@@ -257,101 +260,137 @@ export const slides = [
   },
   {
     id: "ddftz-ops",
-    type: "photo-duo",
+    type: "photo-grid",
     section: "ddftz",
     largePhotos: true,
     staticPhotos: true,
+    threeCols: true,
     title: "Operations & Logistics at DDFTZ",
-    subtitle:
-      "Reach stackers for container operations. Forklifts for warehouse management · Ethiopian carrier partnerships",
+    subtitle: "Container handling and warehouse loading operations at DDFTZ",
     images: [
       {
         src: "/ddftz/ddftz-reachstacker-container.png",
         caption: "Reach stacker — Ethiopian Shipping Lines container handling",
+        objectPosition: "center center",
       },
       {
         src: "/ddftz/ddftz-forklift-container.png",
         caption: "Forklift container loading operations",
+        objectPosition: "center center",
+      },
+      {
+        src: "/ddftz/ddftz-reachstacker-msc-lift.png",
+        caption: "Reach stacker — MSC container lift operations",
+        objectPosition: "center 35%",
       },
     ],
   },
   {
     id: "portfolio-industries",
-    type: "portfolio-industries",
+    type: "application-categories-4x4",
     section: "products",
-    title: "Application For Raw Materials We Supply",
+    title: "Applications for Raw Materials We Supply",
     background: "/ddftz/granules-bg.png",
-    resinsTitle: "Plastic Raw Material Portfolio",
-    footnote:
-      "100% import-dependent · Sourced from Middle East, Asia & Europe · Supplied direct from our DDFTZ warehouse",
-    resins: [
+    categories: [
       {
-        code: "HDPE",
-        name: "High Density PE",
-        uses: "Drums, crates, pipes, jerrycans",
-        image: "/products/HDPE.png",
-        objectPosition: "center 55%",
+        heading: "HDPE",
+        items: [
+          {
+            title: "Jerry Cans",
+            detail: "Durable liquid storage containers",
+            image: "/products/HDPE.png",
+          },
+          {
+            title: "Drums",
+            detail: "Heavy-duty bulk storage drums",
+            image: "/products/storagedrums.png",
+          },
+          {
+            title: "Crates",
+            detail: "Stackable transport and handling crates",
+            image: "/products/molding.png",
+          },
+          {
+            title: "Shampoo Bottles",
+            detail: "Personal care bottle packaging",
+            image: "/products/shampoo.png",
+          },
+        ],
       },
       {
-        code: "LDPE",
-        name: "Low Density PE",
-        uses: "Films, bags, shrink wrap, coatings",
-        image: "/products/ldpe.png",
-        objectPosition: "center center",
+        heading: "PP",
+        items: [
+          {
+            title: "Chairs",
+            detail: "Moulded seating for home and office",
+            image: "/presentation/plastic-chairs.png",
+          },
+          {
+            title: "PP Woven Sacks",
+            detail: "Strong sacks for grains and cement",
+            image: "/products/PP.png",
+          },
+          {
+            title: "PP Non-Woven Sacks",
+            detail: "Lightweight reusable carry bags",
+            image: "/products/nonwoven.png",
+          },
+          {
+            title: "Buckets",
+            detail: "Injection moulded utility buckets",
+            image: "/products/Buckets.png",
+          },
+        ],
       },
       {
-        code: "LLDPE",
-        name: "Linear LDPE",
-        uses: "Stretch films, packaging films",
-        image: "/products/molding.png",
+        heading: "LDPE / LLDPE / Exceed",
+        items: [
+          {
+            title: "Shrink Packs",
+            detail: "Film wraps for multipack products",
+            image: "/products/ldpe.png",
+          },
+          {
+            title: "Milk Pouch",
+            detail: "Flexible dairy packaging pouches",
+            image: "/products/Milk.png",
+          },
+          {
+            title: "Ziplock Bags",
+            detail: "Resealable storage bag applications",
+            image: "/products/Ziplock.png",
+          },
+          {
+            title: "Baskets",
+            detail: "Flexible and rigid household baskets",
+            image: "/products/Baskets.png",
+          },
+        ],
       },
       {
-        code: "PP",
-        name: "Polypropylene",
-        uses: "Injection moulding, woven bags, fibres",
-        image: "/products/PP.png",
-        objectPosition: "center center",
-      },
-      {
-        code: "PVC",
-        name: "Polyvinyl Chloride",
-        uses: "Cables, pipes, profiles, flooring",
-        image: "/pvc-2.png",
-        objectPosition: "center center",
-      },
-      {
-        code: "PET",
-        name: "Polyethylene Terephthalate",
-        uses: "Bottles, preforms, packaging",
-        image: "/products/pet.png",
-        objectPosition: "center center",
-      },
-    ],
-    items: [
-      {
-        title: "Plastic Chairs",
-        detail: "Household & commercial seating",
-        image: "/presentation/plastic-chairs.png",
-      },
-      {
-        title: "Storage Drums",
-        detail: "200L HDPE drums & containers",
-        image: "/products/storagedrums.png",
-      },
-      {
-        title: "FMCG Packaging",
-        detail: "Bottles, tubs & sachets",
-        image: "/products/bottles.png",
-      },
-      {
-        title: "Milk Packaging",
-        detail: "HDPE / PP bottles & pouches",
-        image: "/products/milkbottle.png",
-      },
-      {
-        title: "PVC Cables",
-        detail: "PVC-coated electrical cables",
-        image: "/products/pvccables.png",
+        heading: "PET",
+        items: [
+          {
+            title: "Water Bottle",
+            detail: "Food-grade beverage bottle packaging",
+            image: "/products/bottles.png",
+          },
+          {
+            title: "Water Jar",
+            detail: "Large-capacity drinking water jars",
+            image: "/products/waterjar.png",
+          },
+          {
+            title: "Honey Jar",
+            detail: "Clear packaging jars for viscous foods",
+            image: "/products/honeyjar.png",
+          },
+          {
+            title: "Hand Sanitizer",
+            detail: "Hygiene product bottle containers",
+            image: "/products/sanitizer.png",
+          },
+        ],
       },
     ],
   },
@@ -369,6 +408,16 @@ export const slides = [
       {
         src: "/products/eva2.png",
         caption: "EVA compound granules",
+        objectPosition: "center center",
+      },
+      {
+        src: "/vina-3.png",
+        caption: "EVA footwear — injection moulded sandals",
+        objectPosition: "center center",
+      },
+      {
+        src: "/products/crocs.png",
+        caption: "EVA footwear — moulded clogs and slippers",
         objectPosition: "center center",
       },
     ],
@@ -401,65 +450,169 @@ export const slides = [
     ],
   },
   {
+    id: "pvc-compound",
+    type: "feature-split",
+    section: "products",
+    title: "PVC Compounds",
+    images: [
+      {
+        src: "/pvc-2.png",
+        caption: "PVC boots and footwear",
+        objectPosition: "center center",
+      },
+      {
+        src: "/products/pvccables.png",
+        caption: "PVC cable insulation",
+        objectPosition: "center center",
+      },
+      {
+        src: "/products/hose.png",
+        caption: "PVC hoses and seals",
+        objectPosition: "center center",
+      },
+    ],
+    features: [
+      {
+        title: "Injection & Extrusion Grades",
+        detail:
+          "High-quality PVC compounds for injection and extrusion applications.",
+      },
+      {
+        title: "Footwear and Soles",
+        detail: "Compounds for moulded footwear and sole production.",
+      },
+      {
+        title: "Cables and Pipes",
+        detail: "Materials for cable insulation and pipe extrusion.",
+      },
+      {
+        title: "Seals and Hoses",
+        detail: "Flexible PVC grades for seals, gaskets, and hoses.",
+      },
+      {
+        title: "Automotive Parts",
+        detail: "Durable compounds for interior and under-hood components.",
+      },
+      {
+        title: "Decorative Products",
+        detail: "Surface-finish grades for profiles and decorative mouldings.",
+      },
+    ],
+  },
+  {
+    id: "rubber-compound",
+    type: "feature-split",
+    section: "products",
+    title: "Rubber Compound | Endure | TPR Compounds",
+    image: "/products/rubbercompound.png",
+    features: [
+      {
+        title: "Industrial & Specialty Grades",
+        detail:
+          "Durable rubber compounds for industrial and sensitive applications.",
+      },
+      {
+        title: "Automotive Parts",
+        detail: "Compounds for vibration control and under-body components.",
+      },
+      {
+        title: "Engine Mounts",
+        detail: "High-performance grades for load-bearing mount applications.",
+      },
+      {
+        title: "Seals and Closures",
+        detail: "Reliable sealing compounds for closures and gaskets.",
+      },
+      {
+        title: "Rubber Sheets and Mats",
+        detail: "Formulations for sheet goods and industrial matting.",
+      },
+      {
+        title: "Construction Seals and Strips",
+        detail: "Weather-resistant compounds for building seal systems.",
+      },
+      {
+        title: "Shoe Soles",
+        detail: "Rubber compounds for footwear sole manufacturing.",
+      },
+    ],
+  },
+  {
+    id: "filler-masterbatch",
+    type: "feature-split",
+    section: "products",
+    title: "Filler Masterbatches",
+    quadImageFit: true,
+    images: [
+      {
+        src: "/presentation/plastic-chair-green.png",
+        caption: "Injection furniture products",
+        objectPosition: "center center",
+      },
+      {
+        src: "/products/PP.png",
+        caption: "PP strips and woven sacks",
+        objectPosition: "center center",
+      },
+      {
+        src: "/products/ldpe.png",
+        caption: "Blown film extrusion",
+        objectPosition: "center center",
+      },
+      {
+        src: "/products/whitegranules.png",
+        caption: "Filler masterbatch granules",
+        objectPosition: "center center",
+      },
+    ],
+    features: [
+      {
+        title: "Cost-Effective Formulations",
+        detail:
+          "Quality filler masterbatches for packaging, furniture, and pipe industries.",
+      },
+      {
+        title: "PP Strips",
+        detail: "Filler concentrates for polypropylene strip extrusion.",
+      },
+      {
+        title: "HDPE Pipes",
+        detail: "Masterbatches for HDPE pipe and conduit production.",
+      },
+      {
+        title: "Injection Furniture Products",
+        detail: "Fillers for moulded furniture and household items.",
+      },
+      {
+        title: "Blown Film Extrusion",
+        detail: "Grades for film lines requiring balanced processability.",
+      },
+      {
+        title: "PP Woven Sacks",
+        detail: "Filler systems for woven sack and packaging applications.",
+      },
+      {
+        title: "Household Products",
+        detail: "Compounds for everyday plastic household goods.",
+      },
+    ],
+  },
+  {
     id: "masterbatch",
     type: "masterbatch-colors",
     section: "products",
     title: "Color Masterbatches",
     subtitle: "A variety of colors, options, and shades are available.",
-    image: "/ddftz/granules-1.png",
-    colors: [
-      "YELLOW",
-      "RED",
-      "GREEN",
-      "BLUE",
-      "WHITE",
-      "BLACK",
-      "ORANGE",
-      "BROWN",
-      "PURPLE",
-      "GREY",
-      "SKY",
-      "LIME",
-      "PINK",
-      "TEAL",
-      "NAVY",
-      "MAROON",
-      "OLIVE",
-      "CYAN",
-      "MAGENTA",
-      "GOLD",
-      "SILVER",
-      "VIOLET",
-      "BEIGE",
-      "MINT",
+    images: [
+      {
+        src: "/ddftz/granules-1.png",
+        alt: "Color masterbatch granules",
+      },
+      {
+        src: "/products/colorful-display.png",
+        alt: "Color masterbatch display",
+      },
     ],
-    colorHex: {
-      YELLOW: "#FFC000",
-      RED: "#ED7D31",
-      GREEN: "#70AD47",
-      BLUE: "#4472C4",
-      WHITE: "#E7E6E6",
-      BLACK: "#1A1A1A",
-      ORANGE: "#F39C12",
-      BROWN: "#8B5A2B",
-      PURPLE: "#8E44AD",
-      GREY: "#9CA3AF",
-      SKY: "#38BDF8",
-      LIME: "#A3E635",
-      PINK: "#EC4899",
-      TEAL: "#14B8A6",
-      NAVY: "#1E3A8A",
-      MAROON: "#7F1D1D",
-      OLIVE: "#6B8E23",
-      CYAN: "#06B6D4",
-      MAGENTA: "#D946EF",
-      GOLD: "#D4AF37",
-      SILVER: "#C0C0C0",
-      VIOLET: "#7C3AED",
-      BEIGE: "#D6C6A5",
-      MINT: "#6EE7B7",
-    },
-    note: "",
   },
   {
     id: "thank-you",

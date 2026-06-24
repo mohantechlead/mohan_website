@@ -15,15 +15,16 @@ const deckRef = ref(null)
 const showControls = ref(true)
 const slideDirection = ref('next')
 
-const currentSlide = computed(() => slides[currentIndex.value])
-const progress = computed(() => ((currentIndex.value + 1) / slides.length) * 100)
+const visibleSlides = computed(() => slides.filter((s) => !s.hidden))
+const currentSlide = computed(() => visibleSlides.value[currentIndex.value])
+const progress = computed(() => ((currentIndex.value + 1) / visibleSlides.value.length) * 100)
 
 const sectionLabels = { intro: 'plastprintpack 2026', products: 'Products', ddftz: 'DDFTZ' }
 const sectionLabel = computed(() => sectionLabels[currentSlide.value.section] ?? '')
 
 const goTo = async (index, direction = 'next') => {
   if (isAnimating.value || index === currentIndex.value) return
-  if (index < 0 || index >= slides.length) return
+  if (index < 0 || index >= visibleSlides.value.length) return
   isAnimating.value = true
   slideDirection.value = direction
   currentIndex.value = index
@@ -47,7 +48,7 @@ const onKeydown = (e) => {
   if (['ArrowRight', ' ', 'PageDown'].includes(e.key)) { e.preventDefault(); next() }
   else if (['ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); prev() }
   else if (e.key === 'Home') { e.preventDefault(); goTo(0, 'prev') }
-  else if (e.key === 'End') { e.preventDefault(); goTo(slides.length - 1, 'next') }
+  else if (e.key === 'End') { e.preventDefault(); goTo(visibleSlides.value.length - 1, 'next') }
   else if (e.key === 'f' || e.key === 'F') toggleFullscreen()
   else if (e.key === 'Escape' && props.embedded) emit('exit')
 }
@@ -90,7 +91,7 @@ onBeforeUnmount(() => {
         <span v-if="sectionLabel" class="deck__section-pill" :class="`deck__section-pill--${currentSlide.section}`">
           {{ sectionLabel }}
         </span>
-        <span class="deck__counter">{{ currentIndex + 1 }} / {{ slides.length }}</span>
+        <span class="deck__counter">{{ currentIndex + 1 }} / {{ visibleSlides.length }}</span>
         <button type="button" class="deck__btn" title="Fullscreen" @click="toggleFullscreen">FS</button>
         <RouterLink v-if="!embedded" to="/" class="deck__btn" title="Exit">X</RouterLink>
         <button v-else type="button" class="deck__btn" @click="emit('exit')">X</button>
@@ -111,7 +112,7 @@ onBeforeUnmount(() => {
       <button type="button" class="nav-btn" :disabled="currentIndex === 0" @click="prev">Prev</button>
       <div class="deck__dots">
         <button
-          v-for="(s, i) in slides"
+          v-for="(s, i) in visibleSlides"
           :key="s.id"
           type="button"
           class="dot"
@@ -120,7 +121,7 @@ onBeforeUnmount(() => {
           @click="goTo(i, i > currentIndex ? 'next' : 'prev')"
         />
       </div>
-      <button type="button" class="nav-btn nav-btn--primary" :disabled="currentIndex === slides.length - 1" @click="next">Next</button>
+      <button type="button" class="nav-btn nav-btn--primary" :disabled="currentIndex === visibleSlides.length - 1" @click="next">Next</button>
     </footer>
   </div>
 </template>

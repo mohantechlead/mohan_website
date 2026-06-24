@@ -6,7 +6,7 @@ import SiteFooter from '@/components/SiteFooter.vue'
 const gallery = [
   { src: '/vina-1.jpg', label: 'Vina Facility' },
   { src: '/vina-2.png', label: 'Deer Slippers' },
-  { src: '/vina-3.jpg', label: 'Production Line' }
+  { src: '/vina-3.png', label: 'Production Line' }
 ]
 
 const activeImage = ref(gallery[0])
@@ -42,10 +42,14 @@ const activeHighlightData = computed(
                 "Hawaii Slippers" or flip-flops.
               </p>
               <p>
-                Although many companies tried to manufacture Hawaii slippers in Ethiopia, they could not withstand the stiff
-                competition posed by cheaper imports from China and other neighboring countries. Vina Trade and Industry PLC,
-                benefiting from its vertical linkage with Mohan PLC, manages to get all the raw materials locally, enabling
-                it to overcome competition and dominate the Ethiopian market, making "Deer" a well-known brand in the country.
+                Although many companies tried to manufacture Hawaii slippers in Ethiopia, they could not withstand the
+                stiff
+                competition posed by cheaper imports from China and other neighboring countries. Vina Trade and Industry
+                PLC,
+                benefiting from its vertical linkage with Mohan PLC, manages to get all the raw materials locally,
+                enabling
+                it to overcome competition and dominate the Ethiopian market, making "Deer" a well-known brand in the
+                country.
               </p>
               <p>
                 "Deer" slippers are trusted and respected for their high quality and appealing aesthetics.
@@ -58,22 +62,15 @@ const activeHighlightData = computed(
 
             <div class="space-y-4">
               <div class="overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-lg">
-                <img
-                  :src="activeImage.src"
-                  :alt="activeImage.label"
-                  class="h-full w-full object-cover transition duration-500 hover:scale-105"
-                >
+                <img :src="activeImage.src" :alt="activeImage.label"
+                  class="h-full w-full object-cover transition duration-500 hover:scale-105">
               </div>
 
               <div class="grid grid-cols-3 gap-3">
-                <button
-                  v-for="item in gallery"
-                  :key="item.src"
-                  type="button"
+                <button v-for="item in gallery" :key="item.src" type="button"
                   class="overflow-hidden rounded-xl border-2 transition"
                   :class="activeImage.src === item.src ? 'border-amber-500 shadow-md' : 'border-transparent hover:border-slate-300'"
-                  @click="activeImage = item"
-                >
+                  @click="activeImage = item">
                   <img :src="item.src" :alt="item.label" class="h-20 w-full object-cover">
                 </button>
               </div>
@@ -87,18 +84,12 @@ const activeHighlightData = computed(
             <h2 class="mt-3 text-2xl font-bold text-white md:text-3xl">Built for scale, quality, and market trust</h2>
 
             <div class="mt-6 flex flex-wrap gap-2">
-              <button
-                v-for="item in highlights"
-                :key="item.id"
-                type="button"
+              <button v-for="item in highlights" :key="item.id" type="button"
                 class="rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.06em] transition"
-                :class="
-                  activeHighlight === item.id
+                :class="activeHighlight === item.id
                     ? 'border-amber-400 bg-amber-500 text-white'
                     : 'border-white/25 bg-white/5 text-slate-200 hover:border-white/40 hover:bg-white/10'
-                "
-                @click="activeHighlight = item.id"
-              >
+                  " @click="activeHighlight = item.id">
                 {{ item.title }}
               </button>
             </div>
@@ -112,7 +103,8 @@ const activeHighlightData = computed(
           <article class="feature-stack">
             <div class="feature-item">
               <p class="feature-kicker">Market Position</p>
-              <p class="feature-text">Competes strongly with imported alternatives through local value chain strength.</p>
+              <p class="feature-text">Competes strongly with imported alternatives through local value chain strength.
+              </p>
             </div>
             <div class="feature-item">
               <p class="feature-kicker">Core Brand</p>
@@ -120,7 +112,8 @@ const activeHighlightData = computed(
             </div>
             <div class="feature-item">
               <p class="feature-kicker">Manufacturing Scope</p>
-              <p class="feature-text">Flip-flops, EVA sheets, rubber soles, rubber components, and compound-based products.</p>
+              <p class="feature-text">Flip-flops, EVA sheets, rubber soles, rubber components, and compound-based
+                products.</p>
             </div>
           </article>
         </section>

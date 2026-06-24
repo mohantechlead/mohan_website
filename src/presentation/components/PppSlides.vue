@@ -64,6 +64,7 @@ const imgAnimClass = (i = 0, o) => `img-anim img-anim--${o ?? IMG_ENTRANCE[i % I
 const imgLiveClass = (i = 0) => `img-live img-live--${['ken-burns', 'sway', 'float-tilt'][i % 3]}`
 const imgDelay = (i = 0, b = 0) => ({ animationDelay: `${b + (i % 6) * 0.08}s` })
 const isStaticPhoto = (slide, img) => Boolean(slide.staticPhotos || img.static)
+const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.static)
 </script>
 
 <template>
@@ -235,8 +236,18 @@ const isStaticPhoto = (slide, img) => Boolean(slide.staticPhotos || img.static)
   <div v-else-if="slide.type === 'feature-split'" class="ppp ppp-panel ppp-panel--feature">
     <h2 class="ppp-headline">{{ slide.title }}</h2>
     <div class="ppp-feature" :class="{ 'ppp-feature--duo': slide.images?.length }">
-      <figure class="ppp-feature__img" :class="[imgAnimClass(0, 'slide-left'), { 'ppp-feature__img--duo': slide.images?.length }]">
-        <template v-if="slide.images?.length">
+      <figure class="ppp-feature__img" :class="[imgAnimClass(0, 'slide-left'), {
+        'ppp-feature__img--multi': slide.images?.length > 1,
+        'ppp-feature__img--pair': slide.images?.length === 2,
+        'ppp-feature__img--quad-fit': slide.quadImageFit,
+      }]">
+        <div v-if="slide.images?.length >= 4" class="ppp-feature__quad-grid">
+          <div v-for="(img, ii) in slide.images" :key="img.src" class="ppp-feature__quad-cell">
+            <img :src="img.src" :alt="img.caption || slide.title" class="ppp-feature__quad-img"
+              :style="{ objectPosition: img.objectPosition || 'center center' }">
+          </div>
+        </div>
+        <template v-else-if="slide.images?.length">
           <div v-for="(img, ii) in slide.images" :key="img.src" class="ppp-feature__duo-item">
             <img :src="img.src" :alt="img.caption || slide.title" class="ppp-feature__duo-img"
               :style="{ objectFit: 'contain', objectPosition: img.objectPosition || 'center center' }">
@@ -259,9 +270,16 @@ const isStaticPhoto = (slide, img) => Boolean(slide.staticPhotos || img.static)
     :class="{ 'ppp-panel--photos': slide.largePhotos }">
     <h2 class="ppp-headline">{{ slide.title }}</h2>
     <p v-if="slide.subtitle" class="ppp-body">{{ slide.subtitle }}</p>
-    <div class="ppp-photo-grid" :class="{ 'ppp-photo-grid--large': slide.largePhotos }">
-      <figure v-for="(img, i) in slide.images" :key="img.src" :class="imgAnimClass(i)" :style="imgDelay(i)">
-        <img :src="img.src" :alt="img.caption" :class="imgLiveClass(i)"
+    <div class="ppp-photo-grid" :class="{
+      'ppp-photo-grid--large': slide.largePhotos,
+      'ppp-photo-grid--contain': slide.containPhotos,
+      'ppp-photo-grid--three-cols': slide.threeCols,
+      'ppp-photo-grid--static': slide.staticPhotos
+    }">
+      <figure v-for="(img, i) in slide.images" :key="img.src"
+        :class="isStaticGridPhoto(slide, img) ? undefined : imgAnimClass(i)"
+        :style="isStaticGridPhoto(slide, img) ? undefined : imgDelay(i)">
+        <img :src="img.src" :alt="img.caption" :class="isStaticGridPhoto(slide, img) ? undefined : imgLiveClass(i)"
           :style="img.objectPosition ? { objectPosition: img.objectPosition } : undefined">
         <figcaption>{{ img.caption }}</figcaption>
       </figure>
@@ -328,6 +346,33 @@ const isStaticPhoto = (slide, img) => Boolean(slide.staticPhotos || img.static)
     </div>
   </div>
 
+  <!-- Application categories 4x4 -->
+  <div v-else-if="slide.type === 'application-categories-4x4'" class="ppp ppp-panel ppp-panel--apps-4x4"
+    :class="{ 'ppp-panel--resin-bg': slide.background }">
+    <img v-if="slide.background" :src="slide.background" alt="" class="ppp-slide-bg">
+    <div v-if="slide.background" class="ppp-slide-bg-overlay"></div>
+    <div class="ppp-panel__content">
+      <h2 class="ppp-headline ppp-resin-title">{{ slide.title }}</h2>
+      <div class="ppp-apps-4x4">
+        <section v-for="(category, colIndex) in slide.categories" :key="category.heading" class="ppp-apps-4x4__column"
+          :style="imgDelay(colIndex, 0.05)">
+          <h3 class="ppp-apps-4x4__heading">{{ category.heading }}</h3>
+          <article v-for="(item, i) in category.items" :key="`${category.heading}-${item.title}`"
+            class="ppp-apps-4x4__card" :style="imgDelay(i, 0.12 + colIndex * 0.08)">
+            <figure class="ppp-apps-4x4__figure">
+              <img :src="item.image" :alt="item.title" class="ppp-apps-4x4__img">
+            </figure>
+            <div class="ppp-apps-4x4__label">
+              <strong>{{ item.title }}</strong>
+              <span v-if="item.detail">{{ item.detail }}</span>
+            </div>
+          </article>
+        </section>
+      </div>
+      <p class="ppp-footer ppp-footer--panel">{{ presentationMeta.footer }}</p>
+    </div>
+  </div>
+
   <!-- Resin grid -->
   <div v-else-if="slide.type === 'resin-grid'" class="ppp ppp-panel"
     :class="{ 'ppp-panel--resin-bg': slide.background }">
@@ -354,20 +399,18 @@ const isStaticPhoto = (slide, img) => Boolean(slide.staticPhotos || img.static)
   </div>
 
   <!-- Masterbatch -->
-  <div v-else-if="slide.type === 'masterbatch-colors'" class="ppp ppp-panel">
-    <h2 class="ppp-headline">{{ slide.title }}</h2>
-    <p class="ppp-body">{{ slide.subtitle }}</p>
-    <div class="ppp-masterbatch">
-      <figure class="ppp-masterbatch__img" :class="imgAnimClass(0, 'flip-in')">
-        <img :src="slide.image" alt="Masterbatches" class="img-stage__img">
-      </figure>
-      <div class="ppp-masterbatch__colors">
-        <div v-for="(c, i) in slide.colors" :key="c" class="ppp-color-swatch"
-          :style="{ background: slide.colorHex[c], animationDelay: `${i * 0.08}s` }" :title="c" :aria-label="c"></div>
-        <p class="ppp-note">{{ slide.note }}</p>
-      </div>
+  <div v-else-if="slide.type === 'masterbatch-colors'" class="ppp ppp-panel ppp-panel--masterbatch">
+    <div class="ppp-masterbatch__hero">
+      <h2 class="ppp-headline ppp-masterbatch__title">{{ slide.title }}</h2>
+      <p class="ppp-masterbatch__subtitle">{{ slide.subtitle }}</p>
     </div>
-    <p class="ppp-footer">{{ presentationMeta.footer }}</p>
+    <div class="ppp-masterbatch__gallery">
+      <figure v-for="(img, i) in slide.images" :key="img.src" class="ppp-masterbatch__display"
+        :class="imgAnimClass(i, 'flip-in')" :style="imgDelay(i)">
+        <img :src="img.src" :alt="img.alt || slide.title" class="ppp-masterbatch__display-img">
+      </figure>
+    </div>
+    <p class="ppp-footer ppp-footer--panel">{{ presentationMeta.footer }}</p>
   </div>
 
   <!-- Industry grid -->
@@ -1291,20 +1334,70 @@ const isStaticPhoto = (slide, img) => Boolean(slide.staticPhotos || img.static)
   max-height: min(380px, 48vh);
 }
 
+.ppp-panel--feature .ppp-feature__img--multi {
+  max-height: min(520px, 62vh);
+  width: 100%;
+  max-width: 100%;
+  align-items: stretch;
+}
+
+.ppp-panel--feature .ppp-feature__img--pair {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.35rem;
+  padding: 0.3rem;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.ppp-feature__quad-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 0.4rem;
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  min-height: min(460px, 54vh);
+  padding: 0.35rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 0.65rem;
+}
+
+.ppp-feature__quad-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 0;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(200, 160, 32, 0.25);
+  border-radius: 0.45rem;
+  overflow: hidden;
+}
+
+.ppp-feature__quad-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  background: rgba(0, 0, 0, 0.48);
+  display: block;
+}
+
+.ppp-panel--feature .ppp-feature__img--quad-fit .ppp-feature__quad-img,
+.ppp-panel--feature .ppp-feature__img--quad-fit img {
+  width: 74%;
+  height: 96%;
+  background: none;
+  object-fit: contain;
+}
+
 .ppp-feature__img {
   margin: 0;
   overflow: hidden;
   border-radius: 0.75rem;
   border: 1px solid rgba(200, 160, 32, 0.2);
-}
-
-.ppp-feature__img--duo {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.3rem;
-  background: rgba(0, 0, 0, 0.2);
 }
 
 .ppp-panel--feature .ppp-feature__img img {
@@ -1345,6 +1438,10 @@ const isStaticPhoto = (slide, img) => Boolean(slide.staticPhotos || img.static)
   width: 100%;
   max-width: 90%;
   justify-self: center;
+}
+
+.ppp-panel--feature .ppp-feature--duo .ppp-feature__img--multi {
+  max-width: 100%;
 }
 
 .ppp-feature__img img {
@@ -1423,6 +1520,37 @@ const isStaticPhoto = (slide, img) => Boolean(slide.staticPhotos || img.static)
   height: min(160px, 18vh);
   object-fit: cover;
   display: block;
+}
+
+.ppp-photo-grid--contain figure {
+  background: #0f0d08;
+}
+
+.ppp-photo-grid--contain img {
+  object-fit: contain;
+}
+
+.ppp-photo-grid--three-cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.ppp-photo-grid--three-cols figure {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.ppp-photo-grid--three-cols img {
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: cover;
+}
+
+.ppp-photo-grid--static figure,
+.ppp-photo-grid--static img {
+  animation: none;
 }
 
 .ppp-photo-grid figcaption {
@@ -1550,6 +1678,14 @@ const isStaticPhoto = (slide, img) => Boolean(slide.staticPhotos || img.static)
 
 .ppp-photo-duo--large.ppp-photo-duo--static .ppp-photo-duo__frame--static {
   flex: 1 1 auto;
+  min-height: min(320px, 42vh);
+}
+
+.ppp-photo-duo--large.ppp-photo-duo--static .ppp-photo-duo__img--static {
+  max-height: none;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
 }
 
 /* Resin grid */
@@ -1757,6 +1893,116 @@ const isStaticPhoto = (slide, img) => Boolean(slide.staticPhotos || img.static)
   margin-top: 0.4rem;
 }
 
+.ppp-panel--apps-4x4 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  padding-bottom: 0;
+}
+
+.ppp.ppp-panel--apps-4x4 {
+  overflow: hidden;
+}
+
+.ppp-panel--apps-4x4 .ppp-panel__content {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  flex: 1 1 auto;
+}
+
+.ppp-apps-4x4 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin-top: 0.55rem;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+@media (min-width: 1024px) {
+  .ppp-apps-4x4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.ppp-apps-4x4__column {
+  border: 1px solid rgba(200, 160, 32, 0.2);
+  border-radius: 0.6rem;
+  background: rgba(16, 13, 0, 0.88);
+  padding: 0.45rem;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.36rem;
+}
+
+.ppp-apps-4x4__heading {
+  margin: 0;
+  padding: 0.28rem 0.45rem;
+  border-radius: 0.45rem;
+  background: rgba(200, 160, 32, 0.12);
+  border: 1px solid rgba(200, 160, 32, 0.35);
+  color: var(--gold-light);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.ppp-apps-4x4__card {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  border-radius: 0.45rem;
+  overflow: hidden;
+  border: 1px solid rgba(200, 160, 32, 0.12);
+  background: #0f0d08;
+  animation: rise 0.42s ease both;
+}
+
+.ppp-apps-4x4__figure {
+  margin: 0;
+  height: min(82px, 8.8vh);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.26rem 0.34rem;
+}
+
+.ppp-apps-4x4__img {
+  width: max-content;
+  height: 147%;
+  object-fit: contain;
+  border-radius: 0.32rem;
+}
+
+.ppp-apps-4x4__label {
+  margin: 0;
+  padding: 0.3rem 0.42rem 0.42rem;
+  text-align: center;
+  min-height: 4.4em;
+  display: grid;
+  gap: 0.2rem;
+  align-content: start;
+}
+
+.ppp-apps-4x4__label strong {
+  font-size: 0.66rem;
+  color: #f6f2e2;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.ppp-apps-4x4__label span {
+  font-size: 0.6rem;
+  color: #efe7cf;
+  line-height: 1.25;
+}
+
 .ppp-resin-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1821,6 +2067,79 @@ const isStaticPhoto = (slide, img) => Boolean(slide.staticPhotos || img.static)
 }
 
 /* Masterbatch */
+.ppp-panel--masterbatch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  min-height: 0;
+  padding-bottom: 0;
+}
+
+.ppp-masterbatch__hero {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 44rem;
+  margin: 0 auto;
+}
+
+.ppp-masterbatch__title {
+  text-align: center;
+  margin: 0 0 0.65rem;
+}
+
+.ppp-panel--masterbatch p.ppp-masterbatch__subtitle {
+  margin: 0 auto;
+  margin-block: 0;
+  padding: 0;
+  max-width: 38rem;
+  font-size: clamp(1.15rem, 2.6vw, 0.75rem);
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: 0.025em;
+  color: #fff8e8;
+  text-align: center;
+  text-wrap: balance;
+  text-shadow: 0 0 24px rgba(240, 208, 96, 0.35);
+}
+
+.ppp-masterbatch__gallery {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: stretch;
+  margin: 1rem auto 0;
+  width: min(920px, 92%);
+  min-height: 0;
+}
+
+.ppp-masterbatch__display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  width: 100%;
+  height: min(360px, 42vh);
+  min-height: min(360px, 42vh);
+  padding: 0.5rem;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(200, 160, 32, 0.15);
+  border-radius: 0.65rem;
+  overflow: hidden;
+}
+
+.ppp-masterbatch__display-img {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: contain;
+  object-position: center center;
+  display: block;
+  border-radius: 0.45rem;
+}
+
 .ppp-masterbatch {
   display: grid;
   gap: 1rem;

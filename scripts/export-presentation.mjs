@@ -801,52 +801,185 @@ function addPortfolioIndustriesSlide(pptx) {
   slideBg(slide);
   const bg = img("/ddftz/granules-bg.png");
   if (bg) {
-    slide.addImage({ path: bg, x: 0, y: 0, w: "100%", h: "100%", sizing: { type: "cover", w: 13.333, h: 7.5 } });
-    slide.addShape("rect", { x: 0, y: 0, w: "100%", h: "100%", fill: { color: BG, transparency: 35 } });
+    slide.addImage({
+      path: bg,
+      x: 0,
+      y: 0,
+      w: "100%",
+      h: "100%",
+      sizing: { type: "cover", w: 13.333, h: 7.5 },
+    });
+    slide.addShape("rect", {
+      x: 0,
+      y: 0,
+      w: "100%",
+      h: "100%",
+      fill: { color: BG, transparency: 35 },
+    });
   }
   addHeadline(slide, "Our Plastic Raw Material Portfolio", 0.3);
   slide.addText("Plastic Raw Material Portfolio", {
-    x: 0.5, y: 0.82, w: 12.3, h: 0.22, fontSize: 8, bold: true, color: GOLD, fontFace: "Calibri",
+    x: 0.5,
+    y: 0.82,
+    w: 12.3,
+    h: 0.22,
+    fontSize: 8,
+    bold: true,
+    color: GOLD,
+    fontFace: "Calibri",
   });
   const resins = [
     { code: "HDPE", uses: "Drums, crates, pipes", image: "/products/HDPE.png" },
-    { code: "LDPE", uses: "Films, bags, shrink wrap", image: "/products/ldpe.png" },
+    {
+      code: "LDPE",
+      uses: "Films, bags, shrink wrap",
+      image: "/products/ldpe.png",
+    },
     { code: "LLDPE", uses: "Stretch films", image: "/products/molding.png" },
-    { code: "PP", uses: "Injection moulding, fibres", image: "/products/PP.png" },
+    {
+      code: "PP",
+      uses: "Injection moulding, fibres",
+      image: "/products/PP.png",
+    },
     { code: "PVC", uses: "Cables, pipes, profiles", image: "/pvc-2.png" },
     { code: "PET", uses: "Bottles, preforms", image: "/products/pet.png" },
   ];
   resins.forEach((r, i) => {
     const x = 0.4 + i * 2.12;
     const y = 1.05;
-    slide.addShape("roundRect", { x, y, w: 2, h: 1.55, fill: { color: PANEL }, line: { color: GOLD, width: 0.5 }, rectRadius: 0.05 });
+    slide.addShape("roundRect", {
+      x,
+      y,
+      w: 2,
+      h: 1.55,
+      fill: { color: PANEL },
+      line: { color: GOLD, width: 0.5 },
+      rectRadius: 0.05,
+    });
     const p = img(r.image);
-    if (p) slide.addImage({ path: p, x: x + 0.12, y: y + 0.08, w: 1.76, h: 0.75, sizing: { type: "contain", w: 1.76, h: 0.75 } });
-    slide.addText(r.code, { x, y: y + 0.88, w: 2, h: 0.22, fontSize: 9, bold: true, color: GOLD, align: "center", fontFace: "Calibri" });
-    slide.addText(r.uses, { x: x + 0.05, y: y + 1.08, w: 1.9, h: 0.4, fontSize: 6.5, color: CAPTION, align: "center", fontFace: "Calibri" });
+    if (p)
+      slide.addImage({
+        path: p,
+        x: x + 0.12,
+        y: y + 0.08,
+        w: 1.76,
+        h: 0.75,
+        sizing: { type: "contain", w: 1.76, h: 0.75 },
+      });
+    slide.addText(r.code, {
+      x,
+      y: y + 0.88,
+      w: 2,
+      h: 0.22,
+      fontSize: 9,
+      bold: true,
+      color: GOLD,
+      align: "center",
+      fontFace: "Calibri",
+    });
+    slide.addText(r.uses, {
+      x: x + 0.05,
+      y: y + 1.08,
+      w: 1.9,
+      h: 0.4,
+      fontSize: 6.5,
+      color: CAPTION,
+      align: "center",
+      fontFace: "Calibri",
+    });
   });
   slide.addText("Plastics Powering Ethiopia's Industries", {
-    x: 0.5, y: 2.75, w: 12.3, h: 0.22, fontSize: 8, bold: true, color: GOLD, fontFace: "Calibri",
+    x: 0.5,
+    y: 2.75,
+    w: 12.3,
+    h: 0.22,
+    fontSize: 8,
+    bold: true,
+    color: GOLD,
+    fontFace: "Calibri",
   });
   const items = [
-    { title: "Plastic Chairs", detail: "Household & commercial seating", image: "/presentation/plastic-chairs.png" },
-    { title: "Storage Drums", detail: "200L HDPE drums", image: "/products/storagedrums.png" },
-    { title: "FMCG Packaging", detail: "Bottles, tubs & sachets", image: "/products/bottles.png" },
-    { title: "Milk Packaging", detail: "HDPE / PP bottles & pouches", image: "/products/milkbottle.png" },
-    { title: "PVC Cables", detail: "PVC-coated electrical cables", image: "/products/pvccables.png" },
+    {
+      title: "Plastic Chairs",
+      detail: "Household & commercial seating",
+      image: "/presentation/plastic-chairs.png",
+    },
+    {
+      title: "Storage Drums",
+      detail: "200L HDPE drums",
+      image: "/products/storagedrums.png",
+    },
+    {
+      title: "FMCG Packaging",
+      detail: "Bottles, tubs & sachets",
+      image: "/products/bottles.png",
+    },
+    {
+      title: "Milk Packaging",
+      detail: "HDPE / PP bottles & pouches",
+      image: "/products/milkbottle.png",
+    },
+    {
+      title: "PVC Cables",
+      detail: "PVC-coated electrical cables",
+      image: "/products/pvccables.png",
+    },
   ];
   items.forEach((item, i) => {
     const x = 0.4 + i * 2.55;
     const y = 3.05;
-    slide.addShape("roundRect", { x, y, w: 4, h: 1.2, fill: { color: PANEL }, line: { color: GOLD, width: 0.5 }, rectRadius: 0.05 });
+    slide.addShape("roundRect", {
+      x,
+      y,
+      w: 4,
+      h: 1.2,
+      fill: { color: PANEL },
+      line: { color: GOLD, width: 0.5 },
+      rectRadius: 0.05,
+    });
     const p = img(item.image);
-    if (p) slide.addImage({ path: p, x: x + 0.1, y: y + 0.1, w: 0.55, h: 0.55, sizing: { type: "contain", w: 0.55, h: 0.55 } });
-    slide.addText(item.title, { x: x + 0.75, y: y + 0.12, w: 3.1, h: 0.28, fontSize: 8, bold: true, color: GOLD, fontFace: "Calibri" });
-    slide.addText(item.detail, { x: x + 0.75, y: y + 0.4, w: 3.1, h: 0.65, fontSize: 7, color: CAPTION, fontFace: "Calibri", valign: "top" });
+    if (p)
+      slide.addImage({
+        path: p,
+        x: x + 0.1,
+        y: y + 0.1,
+        w: 0.55,
+        h: 0.55,
+        sizing: { type: "contain", w: 0.55, h: 0.55 },
+      });
+    slide.addText(item.title, {
+      x: x + 0.75,
+      y: y + 0.12,
+      w: 3.1,
+      h: 0.28,
+      fontSize: 8,
+      bold: true,
+      color: GOLD,
+      fontFace: "Calibri",
+    });
+    slide.addText(item.detail, {
+      x: x + 0.75,
+      y: y + 0.4,
+      w: 3.1,
+      h: 0.65,
+      fontSize: 7,
+      color: CAPTION,
+      fontFace: "Calibri",
+      valign: "top",
+    });
   });
-  slide.addText("100% import-dependent · Sourced from Middle East, Asia & Europe · Supplied direct from our DDFTZ warehouse", {
-    x: 0.5, y: 6.55, w: 12.3, h: 0.35, fontSize: 7.5, color: CAPTION, fontFace: "Calibri",
-  });
+  slide.addText(
+    "100% import-dependent · Sourced from Middle East, Asia & Europe · Supplied direct from our DDFTZ warehouse",
+    {
+      x: 0.5,
+      y: 6.55,
+      w: 12.3,
+      h: 0.35,
+      fontSize: 7.5,
+      color: CAPTION,
+      fontFace: "Calibri",
+    },
+  );
   addFooter(slide);
 }
 
@@ -1039,7 +1172,7 @@ async function main() {
   addPhotoDuoSlide(
     pptx,
     "Warehouse Facilities",
-    "Modern warehouses with stone-and-steel construction inside Dire Dawa Free Trade Zone",
+    "Modern warehouses constructed inside Dire Dawa Free Trade Zone",
     [
       {
         src: "/ddftz/ddftz-warehouse-exterior-yard.png",
@@ -1069,25 +1202,45 @@ async function main() {
   addPhotoDuoSlide(
     pptx,
     "Operations & Logistics at DDFTZ",
-    "Reach stackers for container operations· Forklifts for warehouse management · Ethiopian carrier partnerships",
+    "Reach stackers for container placement, lifting and yard operations",
     [
       {
-        src: "/ddftz/ddftz-reachstacker-container.png",
-        caption: "Reach stacker — Ethiopian Shipping Lines container handling",
+        src: "/ddftz/ddftz-reachstacker-eslu-ground.png",
+        caption: "Reach stacker — container placement on DDFTZ yard",
       },
       {
-        src: "/ddftz/ddftz-forklift-container.png",
-        caption: "Forklift — container loading operations",
+        src: "/ddftz/ddftz-reachstacker-msc-lift.png",
+        caption: "Reach stacker — MSC container lift operations",
       },
     ],
   );
   addPortfolioIndustriesSlide(pptx);
   addFeatureSlide(pptx, "EVA Compounds", "/eva-1.jpg", [
-    { title: "Footwear Industry Focus", detail: "High-quality foamed injection-moulded slippers, sandals, midsoles, boots, and footwear components across Ethiopia." },
-    { title: "Expandable & Cross-Linkable", detail: "Modified with rubber, thermoplastic elastomers, and impact modifiers for enhanced mechanical and processing qualities." },
-    { title: "Premium Raw Materials", detail: "Internationally sourced inputs from well-known suppliers to ensure the highest quality standards." },
-    { title: "Custom Grades & Support", detail: "Tailored formulations and technical support so customers achieve the best results from our compounds." },
-    { title: "Beyond Footwear", detail: "Also suitable for automobile components, toys, foam products, and specialty industrial applications." },
+    {
+      title: "Footwear Industry Focus",
+      detail:
+        "High-quality foamed injection-moulded slippers, sandals, midsoles, boots, and footwear components across Ethiopia.",
+    },
+    {
+      title: "Expandable & Cross-Linkable",
+      detail:
+        "Modified with rubber, thermoplastic elastomers, and impact modifiers for enhanced mechanical and processing qualities.",
+    },
+    {
+      title: "Premium Raw Materials",
+      detail:
+        "Internationally sourced inputs from well-known suppliers to ensure the highest quality standards.",
+    },
+    {
+      title: "Custom Grades & Support",
+      detail:
+        "Tailored formulations and technical support so customers achieve the best results from our compounds.",
+    },
+    {
+      title: "Beyond Footwear",
+      detail:
+        "Also suitable for automobile components, toys, foam products, and specialty industrial applications.",
+    },
   ]);
   addMasterbatchSlide(pptx);
   addThankYouSlide(pptx);
