@@ -234,7 +234,8 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
   </div>
 
   <!-- Feature split -->
-  <div v-else-if="slide.type === 'feature-split'" class="ppp ppp-panel ppp-panel--feature">
+  <div v-else-if="slide.type === 'feature-split'" class="ppp ppp-panel ppp-panel--feature"
+    :style="slide.panelTextScale ? { '--panel-text-scale': slide.panelTextScale } : undefined">
     <h2 class="ppp-headline">{{ slide.title }}</h2>
     <div class="ppp-feature" :class="{ 'ppp-feature--duo': slide.images?.length }">
       <figure class="ppp-feature__img" :class="[imgAnimClass(0, 'slide-left'), {
@@ -275,7 +276,8 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 
   <!-- Photo grid -->
   <div v-else-if="slide.type === 'photo-grid'" class="ppp ppp-panel"
-    :class="{ 'ppp-panel--photos': slide.largePhotos }">
+    :class="{ 'ppp-panel--photos': slide.largePhotos }"
+    :style="slide.captionTextScale ? { '--caption-text-scale': slide.captionTextScale } : undefined">
     <h2 class="ppp-headline">{{ slide.title }}</h2>
     <p v-if="slide.subtitle" class="ppp-body">{{ slide.subtitle }}</p>
     <div class="ppp-photo-grid" :class="{
@@ -296,7 +298,8 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
   </div>
 
   <!-- Photo duo -->
-  <div v-else-if="slide.type === 'photo-duo'" class="ppp ppp-panel" :class="{ 'ppp-panel--photos': slide.largePhotos }">
+  <div v-else-if="slide.type === 'photo-duo'" class="ppp ppp-panel" :class="{ 'ppp-panel--photos': slide.largePhotos }"
+    :style="slide.captionTextScale ? { '--caption-text-scale': slide.captionTextScale } : undefined">
     <h2 class="ppp-headline">{{ slide.title }}</h2>
     <p v-if="slide.subtitle" class="ppp-body">{{ slide.subtitle }}</p>
     <div class="ppp-photo-duo"
@@ -483,7 +486,7 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
   left: 0;
   right: 0;
   text-align: center;
-  font-size: 0.62rem;
+  font-size: calc(0.62rem * var(--slide-text-scale, 1));
   color: var(--muted);
   letter-spacing: 0.04em;
   padding: 0 1rem;
@@ -533,7 +536,11 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 .ppp-panel--fit .ppp-headline {
   flex-shrink: 0;
   margin-bottom: 0.25rem;
-  font-size: clamp(1.1rem, 2.2vw, 1.55rem);
+  font-size: clamp(
+    calc(1.1rem * var(--slide-text-scale, 1)),
+    calc(2.2vw * var(--slide-text-scale, 1)),
+    calc(1.55rem * var(--slide-text-scale, 1))
+  );
   line-height: 1.2;
 }
 
@@ -611,7 +618,7 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 
 .ppp-footnote--fit {
   flex-shrink: 0;
-  font-size: 0.78rem;
+  font-size: calc(0.78rem * var(--slide-text-scale, 1));
   margin-top: 0.45rem;
   margin-bottom: 0;
   padding-top: 0.45rem;
@@ -681,29 +688,33 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 }
 
 .ppp-headline {
-  font-size: clamp(1.35rem, 2.8vw, 2rem);
+  font-size: clamp(
+    calc(1.35rem * var(--slide-text-scale, 1)),
+    calc(2.8vw * var(--slide-text-scale, 1)),
+    calc(2rem * var(--slide-text-scale, 1))
+  );
   font-weight: 700;
   color: var(--gold);
   margin-bottom: 0.65rem;
 }
 
 .ppp-body {
-  font-size: 0.92rem;
-  color: var(--caption);
+  font-size: calc(0.92rem * var(--slide-text-scale, 1));
+  color: #e2dccf;
   line-height: 1.6;
   max-width: 52rem;
 }
 
 .ppp-source,
 .ppp-note {
-  font-size: 0.72rem;
-  color: var(--muted);
+  font-size: calc(0.72rem * var(--slide-text-scale, 1));
+  color: #b7afa0;
   margin-top: 0.5rem;
 }
 
 .ppp-footnote {
-  font-size: 0.82rem;
-  color: var(--caption);
+  font-size: calc(0.82rem * var(--slide-text-scale, 1));
+  color: #dbd3c3;
   margin-top: 0.75rem;
   line-height: 1.5;
 }
@@ -875,13 +886,13 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 
 .ppp-stat strong {
   display: block;
-  font-size: 1.5rem;
+  font-size: calc(1.5rem * var(--slide-text-scale, 1) * 1.18);
   color: var(--gold);
 }
 
 .ppp-stat span {
   display: block;
-  font-size: 0.72rem;
+  font-size: calc(0.72rem * var(--slide-text-scale, 1) * 1.16);
   color: var(--caption);
   margin-top: 0.2rem;
   line-height: 1.3;
@@ -889,7 +900,7 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 
 .ppp-stat em {
   display: block;
-  font-size: 0.65rem;
+  font-size: calc(0.65rem * var(--slide-text-scale, 1) * 1.14);
   color: var(--muted);
   font-style: normal;
 }
@@ -923,17 +934,17 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 
 .ppp-kpi strong {
   display: block;
-  font-size: 1.75rem;
+  font-size: calc(1.75rem * var(--slide-text-scale, 1));
   color: var(--gold);
 }
 
 .ppp-kpi span {
-  font-size: 0.78rem;
+  font-size: calc(0.78rem * var(--slide-text-scale, 1));
   color: var(--caption);
 }
 
 .ppp-kpi em {
-  font-size: 0.68rem;
+  font-size: calc(0.68rem * var(--slide-text-scale, 1));
   color: var(--muted);
   font-style: normal;
 }
@@ -946,7 +957,7 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 }
 
 .ppp-chart-card h3 {
-  font-size: 0.72rem;
+  font-size: calc(0.72rem * var(--slide-text-scale, 1));
   font-weight: 700;
   color: var(--caption);
   text-transform: uppercase;
@@ -967,7 +978,7 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 }
 
 .ppp-chart-labels span {
-  font-size: 0.58rem;
+  font-size: calc(0.58rem * var(--slide-text-scale, 1));
   color: var(--muted);
 }
 
@@ -1047,7 +1058,7 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 0.4rem;
-  font-size: 0.72rem;
+  font-size: calc(0.72rem * var(--slide-text-scale, 1));
   color: var(--caption);
 }
 
@@ -1065,7 +1076,7 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 
 .legend b {
   color: var(--gold);
-  font-size: 0.78rem;
+  font-size: calc(0.78rem * var(--slide-text-scale, 1));
   font-weight: 800;
   white-space: nowrap;
 }
@@ -1105,13 +1116,13 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 }
 
 .vbar-col__val {
-  font-size: 0.62rem;
+  font-size: calc(0.62rem * var(--slide-text-scale, 1));
   font-weight: 700;
   color: var(--gold);
 }
 
 .vbar-col__lbl {
-  font-size: 0.55rem;
+  font-size: calc(0.55rem * var(--slide-text-scale, 1));
   color: var(--muted);
   text-align: center;
   line-height: 1.2;
@@ -1183,18 +1194,18 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 }
 
 .ppp-story__text h3 {
-  font-size: 1.25rem;
+  font-size: calc(1.25rem * var(--slide-text-scale, 1));
   color: var(--gold);
 }
 
 .ppp-story__role {
-  font-size: 0.85rem;
+  font-size: calc(0.85rem * var(--slide-text-scale, 1));
   color: var(--gold-light);
   font-weight: 600;
 }
 
 .ppp-story__co {
-  font-size: 0.78rem;
+  font-size: calc(0.78rem * var(--slide-text-scale, 1));
   color: var(--muted);
   margin-bottom: 0.75rem;
 }
@@ -1280,7 +1291,7 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 .ppp-tags span {
   padding: 0.3rem 0.6rem;
   border-radius: 9999px;
-  font-size: 0.68rem;
+  font-size: calc(0.68rem * var(--slide-text-scale, 1));
   font-weight: 700;
   background: rgba(200, 160, 32, 0.12);
   color: var(--gold-light);
@@ -1305,7 +1316,11 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 .ppp-panel--feature .ppp-headline {
   flex-shrink: 0;
   margin-bottom: 0.4rem;
-  font-size: clamp(1.1rem, 2.2vw, 1.55rem);
+  font-size: clamp(
+    calc(1.1rem * var(--slide-text-scale, 1) * var(--panel-text-scale, 1)),
+    calc(2.2vw * var(--slide-text-scale, 1) * var(--panel-text-scale, 1)),
+    calc(1.55rem * var(--slide-text-scale, 1) * var(--panel-text-scale, 1))
+  );
   line-height: 1.2;
 }
 
@@ -1546,12 +1561,12 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 
 .ppp-feature__item strong {
   display: block;
-  font-size: 0.82rem;
+  font-size: calc(0.82rem * var(--slide-text-scale, 1));
   color: var(--gold);
 }
 
 .ppp-feature__item span {
-  font-size: 0.75rem;
+  font-size: calc(0.75rem * var(--slide-text-scale, 1));
   color: var(--caption);
   line-height: 1.4;
 }
@@ -1566,11 +1581,11 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 }
 
 .ppp-panel--feature .ppp-feature__item strong {
-  font-size: 0.78rem;
+  font-size: calc(0.78rem * var(--slide-text-scale, 1) * var(--panel-text-scale, 1));
 }
 
 .ppp-panel--feature .ppp-feature__item span {
-  font-size: 0.72rem;
+  font-size: calc(0.72rem * var(--slide-text-scale, 1) * var(--panel-text-scale, 1));
   line-height: 1.35;
 }
 
@@ -1630,7 +1645,7 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 
 .ppp-photo-grid figcaption {
   padding: 0.45rem 0.6rem;
-  font-size: 0.65rem;
+  font-size: calc(0.65rem * var(--slide-text-scale, 1) * var(--caption-text-scale, 1));
   color: var(--caption);
   background: var(--panel);
 }
@@ -1663,7 +1678,7 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 
 .ppp-photo-duo figcaption {
   padding: 0.5rem 0.75rem;
-  font-size: 0.72rem;
+  font-size: calc(0.72rem * var(--slide-text-scale, 1) * var(--caption-text-scale, 1));
   color: var(--caption);
   background: var(--panel);
 }
@@ -1684,7 +1699,7 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 
 .ppp-panel--photos .ppp-body {
   flex-shrink: 0;
-  font-size: 0.85rem;
+  font-size: calc(0.85rem * var(--slide-text-scale, 1));
   margin-bottom: 0.35rem;
 }
 
@@ -1718,7 +1733,7 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 .ppp-photo-duo--large figcaption,
 .ppp-photo-grid--large figcaption {
   flex-shrink: 0;
-  font-size: 0.72rem;
+  font-size: calc(0.72rem * var(--slide-text-scale, 1) * var(--caption-text-scale, 1));
 }
 
 .ppp-photo-duo__frame--static {
@@ -1805,7 +1820,11 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 
 .ppp-resin-title {
   flex-shrink: 0;
-  font-size: clamp(1.05rem, 2.2vw, 1.55rem);
+  font-size: clamp(
+    calc(1.05rem * var(--slide-text-scale, 1)),
+    calc(2.2vw * var(--slide-text-scale, 1)),
+    calc(1.55rem * var(--slide-text-scale, 1))
+  );
   margin-bottom: 0.35rem;
 }
 
@@ -1870,13 +1889,13 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 
 .ppp-panel--resin-bg .ppp-resin-card strong {
   display: block;
-  font-size: 0.78rem;
+  font-size: calc(0.78rem * var(--slide-text-scale, 1));
   color: var(--gold);
 }
 
 .ppp-panel--resin-bg .ppp-resin-card em {
   display: block;
-  font-size: 0.6rem;
+  font-size: calc(0.6rem * var(--slide-text-scale, 1));
   color: var(--gold-light);
   font-style: normal;
   margin: 0.08rem 0;
@@ -1884,14 +1903,14 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 
 .ppp-panel--resin-bg .ppp-resin-card span {
   display: block;
-  font-size: 0.56rem;
+  font-size: calc(0.56rem * var(--slide-text-scale, 1));
   color: var(--caption);
   line-height: 1.25;
 }
 
 .ppp-resin-footnote {
   flex-shrink: 0;
-  font-size: 0.72rem;
+  font-size: calc(0.72rem * var(--slide-text-scale, 1));
   margin-top: 0.4rem;
   margin-bottom: 0;
   line-height: 1.35;
@@ -1942,7 +1961,7 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 
 .ppp-portfolio-section-label {
   flex-shrink: 0;
-  font-size: 0.62rem;
+  font-size: calc(0.62rem * var(--slide-text-scale, 1));
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -1964,7 +1983,7 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 }
 
 .ppp-panel--portfolio .ppp-resin-footnote {
-  font-size: 0.72rem;
+  font-size: calc(0.72rem * var(--slide-text-scale, 1));
   margin-top: 0.4rem;
 }
 
@@ -2021,7 +2040,7 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
   background: rgba(200, 160, 32, 0.12);
   border: 1px solid rgba(200, 160, 32, 0.35);
   color: var(--gold-light);
-  font-size: 1rem;
+  font-size: calc(1rem * var(--slide-text-scale, 1));
   font-weight: 700;
   letter-spacing: 0.03em;
   text-transform: uppercase;
@@ -2075,7 +2094,7 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 }
 
 .ppp-apps-4x4__label strong {
-  font-size: 0.66rem;
+  font-size: calc(0.66rem * var(--slide-text-scale, 1));
   color: #f6f2e2;
   line-height: 1.2;
   font-weight: 700;
@@ -2083,7 +2102,7 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 
 .ppp-apps-4x4__label span {
   display: block;
-  font-size: 0.6rem;
+  font-size: calc(0.6rem * var(--slide-text-scale, 1));
   color: #efe7cf;
   line-height: 1.25;
 }
@@ -2132,21 +2151,21 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 }
 
 .ppp-resin-card strong {
-  font-size: 0.92rem;
+  font-size: calc(0.92rem * var(--slide-text-scale, 1));
   color: var(--gold);
   line-height: 1.2;
 }
 
 .ppp-resin-card em {
   display: block;
-  font-size: 0.72rem;
+  font-size: calc(0.72rem * var(--slide-text-scale, 1));
   color: var(--gold-light);
   font-style: normal;
   margin: 0.1rem 0;
 }
 
 .ppp-resin-card span {
-  font-size: 0.68rem;
+  font-size: calc(0.68rem * var(--slide-text-scale, 1));
   color: var(--caption);
   line-height: 1.35;
 }
@@ -2357,7 +2376,7 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 
 .ppp-industry-card strong {
   display: block;
-  font-size: 0.68rem;
+  font-size: calc(0.68rem * var(--slide-text-scale, 1));
   color: var(--gold);
   line-height: 1.25;
 }
@@ -2365,7 +2384,7 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 .ppp-industry-card span {
   display: block;
   margin-top: 0.12rem;
-  font-size: 0.58rem;
+  font-size: calc(0.58rem * var(--slide-text-scale, 1));
   color: var(--caption);
   line-height: 1.3;
 }

@@ -192,6 +192,7 @@ export const slides = [
     id: "ddftz-hub",
     type: "feature-split",
     section: "ddftz",
+    panelTextScale: 1.18,
     title: "Dire Dawa Free Trade Zone — Our Strategic Hub",
     image: "/ddftz/ddftz-gateway-overview.png",
     features: [
@@ -222,6 +223,7 @@ export const slides = [
     type: "photo-duo",
     section: "ddftz",
     largePhotos: true,
+    captionTextScale: 1.2,
     title: "Warehouse Facilities",
     subtitle: "Modern warehouses constructed inside Dire Dawa Free Trade Zone",
     images: [
@@ -243,6 +245,7 @@ export const slides = [
     type: "photo-duo",
     section: "ddftz",
     largePhotos: true,
+    captionTextScale: 1.2,
     title: "Outdoor Storage & Yard Operations",
     subtitle: "Bulk materials, resin drums and sack storage in the DDFTZ yard",
     images: [
@@ -266,6 +269,7 @@ export const slides = [
     largePhotos: true,
     staticPhotos: true,
     threeCols: true,
+    captionTextScale: 1.2,
     title: "Operations & Logistics at DDFTZ",
     subtitle: "Container handling and warehouse loading operations at DDFTZ",
     images: [
@@ -399,6 +403,7 @@ export const slides = [
     id: "eva-compound",
     type: "feature-split",
     section: "products",
+    panelTextScale: 1.18,
     title: "We Produce: EVA Compounds",
     images: [
       {
@@ -454,6 +459,7 @@ export const slides = [
     id: "pvc-compound",
     type: "feature-split",
     section: "products",
+    panelTextScale: 1.18,
     title: "We Produce: PVC Compounds",
     pentImageFit: true,
     images: [
@@ -515,6 +521,7 @@ export const slides = [
     id: "rubber-compound",
     type: "feature-split",
     section: "products",
+    panelTextScale: 1.18,
     title: "We Produce: Rubber Compound | Endure | TPR Compounds",
     image: "/products/rubbercompound.png",
     features: [
@@ -553,6 +560,7 @@ export const slides = [
     id: "filler-masterbatch",
     type: "feature-split",
     section: "products",
+    panelTextScale: 1.18,
     title: "We Produce: Filler Masterbatches",
     quadImageFit: true,
     images: [

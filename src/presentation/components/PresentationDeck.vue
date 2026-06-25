@@ -134,6 +134,7 @@ onBeforeUnmount(() => {
   --glass-border: rgba(200, 160, 32, 0.2);
   --deck-chrome: 8.75rem;
   --slide-h: calc(100vh - var(--deck-chrome));
+  --slide-text-scale: 1;
   position: relative;
   height: 100vh;
   display: flex;
@@ -144,7 +145,17 @@ onBeforeUnmount(() => {
   font-family: Calibri, 'Segoe UI', system-ui, sans-serif;
 }
 
-.deck--fullscreen { height: 100dvh; --slide-h: calc(100dvh - var(--deck-chrome)); }
+.deck--fullscreen {
+  height: 100dvh;
+  --slide-h: calc(100dvh - var(--deck-chrome));
+  --slide-text-scale: 1.28;
+}
+
+@media (min-width: 1700px) {
+  .deck--fullscreen {
+    --slide-text-scale: 1.38;
+  }
+}
 
 .deck__header {
   position: relative; z-index: 20;
