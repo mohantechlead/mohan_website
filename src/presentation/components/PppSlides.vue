@@ -69,7 +69,8 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 
 <template>
   <!-- Title -->
-  <div v-if="slide.type === 'ppp-title'" class="ppp ppp-title">
+  <div v-if="slide.type === 'ppp-title'" class="ppp ppp-title"
+    :style="slide.panelTextScale ? { '--panel-text-scale': slide.panelTextScale } : undefined">
     <img :src="slide.texture" alt="" class="ppp-title__texture">
     <div class="ppp-title__overlay"></div>
     <div class="ppp-title__content">
@@ -442,7 +443,8 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
   </div>
 
   <!-- Thank you -->
-  <div v-else-if="slide.type === 'ppp-thankyou'" class="ppp ppp-thankyou">
+  <div v-else-if="slide.type === 'ppp-thankyou'" class="ppp ppp-thankyou"
+    :style="slide.panelTextScale ? { '--panel-text-scale': slide.panelTextScale } : undefined">
     <div class="ppp-thankyou__content">
       <img :src="slide.logo" alt="Mohan Group" class="ppp-thankyou__logo">
       <h2 class="ppp-thankyou__title">{{ slide.title }}</h2>
@@ -821,7 +823,11 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 .ppp-title__heading {
   position: relative;
   z-index: 2;
-  font-size: clamp(1.15rem, 2.6vw, 2rem);
+  font-size: clamp(
+    calc(1.15rem * var(--slide-text-scale, 1) * var(--panel-text-scale, 1)),
+    calc(2.6vw * var(--slide-text-scale, 1) * var(--panel-text-scale, 1)),
+    calc(2rem * var(--slide-text-scale, 1) * var(--panel-text-scale, 1))
+  );
   font-weight: 700;
   color: var(--gold);
   letter-spacing: 0.06em;
@@ -831,7 +837,11 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 .ppp-title__tagline {
   position: relative;
   z-index: 2;
-  font-size: clamp(0.82rem, 1.4vw, 1.05rem);
+  font-size: clamp(
+    calc(0.82rem * var(--slide-text-scale, 1) * var(--panel-text-scale, 1)),
+    calc(1.4vw * var(--slide-text-scale, 1) * var(--panel-text-scale, 1)),
+    calc(1.05rem * var(--slide-text-scale, 1) * var(--panel-text-scale, 1))
+  );
   color: var(--text);
   margin-top: 0.5rem;
   max-width: 36rem;
@@ -852,8 +862,12 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 .ppp-title__event {
   position: relative;
   z-index: 2;
-  font-size: clamp(0.72rem, 1.2vw, 0.82rem);
-  color: var(--muted);
+  font-size: clamp(
+    calc(0.72rem * var(--slide-text-scale, 1) * var(--panel-text-scale, 1)),
+    calc(1.2vw * var(--slide-text-scale, 1) * var(--panel-text-scale, 1)),
+    calc(0.82rem * var(--slide-text-scale, 1) * var(--panel-text-scale, 1))
+  );
+  color: #b7afa0;
   padding: 0 0.75rem;
   animation: rise 0.8s 0.55s ease both;
 }
@@ -2422,7 +2436,11 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 }
 
 .ppp-thankyou__title {
-  font-size: clamp(1.75rem, 4.5vw, 2.75rem);
+  font-size: clamp(
+    calc(1.75rem * var(--slide-text-scale, 1) * var(--panel-text-scale, 1)),
+    calc(4.5vw * var(--slide-text-scale, 1) * var(--panel-text-scale, 1)),
+    calc(2.75rem * var(--slide-text-scale, 1) * var(--panel-text-scale, 1))
+  );
   font-weight: 800;
   color: var(--gold);
   letter-spacing: 0.08em;
@@ -2430,8 +2448,8 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 }
 
 .ppp-thankyou__sub {
-  font-size: 0.88rem;
-  color: var(--caption);
+  font-size: calc(0.88rem * var(--slide-text-scale, 1) * var(--panel-text-scale, 1));
+  color: #dbd3c3;
   margin: 0.35rem 0 0.85rem;
 }
 
@@ -2462,8 +2480,8 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
 
 .ppp-thankyou__contacts p {
   margin: 0.35rem 0;
-  font-size: 0.78rem;
-  color: var(--caption);
+  font-size: calc(0.78rem * var(--slide-text-scale, 1) * var(--panel-text-scale, 1));
+  color: #dbd3c3;
   line-height: 1.35;
 }
 
@@ -2482,7 +2500,11 @@ const isStaticGridPhoto = (slide, img) => Boolean(slide.staticPhotos || img.stat
   flex-shrink: 0;
   margin: 0;
   padding: 0.65rem 0.75rem 0.5rem;
-  font-size: clamp(0.78rem, 1.2vw, 0.88rem);
+  font-size: clamp(
+    calc(0.78rem * var(--slide-text-scale, 1) * var(--panel-text-scale, 1)),
+    calc(1.2vw * var(--slide-text-scale, 1) * var(--panel-text-scale, 1)),
+    calc(0.88rem * var(--slide-text-scale, 1) * var(--panel-text-scale, 1))
+  );
   color: var(--gold-light);
   line-height: 1.4;
   border-top: 1px solid rgba(200, 160, 32, 0.12);
